@@ -1,5 +1,7 @@
 # React + Foundation
 
+[![Build Status](https://travis-ci.org/nordsoftware/react-foundation.svg?branch=master)](https://travis-ci.org/nordsoftware/react-foundation)
+
 [Foundation](http://foundation.zurb.com/sites/docs/) components wrapped with [React](https://facebook.github.io/react/).
 
 Components:
@@ -15,11 +17,17 @@ Components:
 
 More components coming soon!
 
+## Install
+
+```bash
+npm install
+```
+
 ## Compile
 
 Compile library:
 
-```
+```bash
 npm run lint && npm run compile
 ```
 
@@ -27,7 +35,7 @@ npm run lint && npm run compile
 
 Run test suite:
 
-```
+```bash
 npm test
 ```
 
