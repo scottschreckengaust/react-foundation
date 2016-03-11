@@ -1,5 +1,5 @@
 import React from 'react';
-import check from 'check-types'
+import check from 'check-types';
 import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 
