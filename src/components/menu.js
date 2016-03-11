@@ -3,9 +3,11 @@ import check from 'check-types';
 import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 
-// Menu alignment constants.
-export const ALIGN_RIGHT = 'right';
-export const ALIGN_CENTER = 'center';
+// Menu alignment enumerable.
+export const MenuAlignments = {
+  RIGHT: 'right',
+  CENTER: 'center'
+};
 
 /**
  * Menu component.
@@ -23,8 +25,8 @@ export const Menu = props => {
   const className = classNames(
     props.className || 'menu',
     {
-      'align-right': props.align === ALIGN_RIGHT,
-      'align-center': props.align === ALIGN_CENTER,
+      'align-right': props.align === MenuAlignments.RIGHT,
+      'align-center': props.align === MenuAlignments.CENTER,
       'expanded': props.isExpanded,
       'vertical': props.isVertical,
       'simple': props.isSimple

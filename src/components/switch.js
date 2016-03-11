@@ -3,14 +3,18 @@ import check from 'check-types';
 import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 
-// Switch type constants.
-export const TYPE_CHECKBOX = 'checkbox';
-export const TYPE_RADIO = 'radio';
+// Switch type enumerable.
+export const SwitchTypes = {
+  CHECKBOX: 'checkbox',
+  RADIO: 'radio'
+};
 
-// Switch size constants.
-export const SIZE_TINY = 'tiny';
-export const SIZE_SMALL = 'small';
-export const SIZE_LARGE = 'large';
+// Switch size enumerable.
+export const SwitchSizes = {
+  TINY: 'tiny',
+  SMALL: 'small',
+  LARGE: 'large'
+};
 
 const omitProps = [
   'input',
@@ -50,7 +54,7 @@ export const SwitchInput = props => {
   check.assert.maybe.string(props.type, 'SwitchInput.props.type must be a string.');
 
   return (
-    <input {...omit(props, ['type'])} className={props.className || 'switch-input'} type={props.type || TYPE_CHECKBOX}/>
+    <input {...omit(props, ['type'])} className={props.className || 'switch-input'} type={props.type || SwitchTypes.CHECKBOX}/>
   );
 };
 

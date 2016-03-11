@@ -1,9 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Menu, MenuItem, MenuText, ALIGN_RIGHT, ALIGN_CENTER } from 'components/menu';
-
-// Menu component
+import { Menu, MenuItem, MenuText, MenuAlignments } from 'components/menu';
 
 describe('Menu component', () => {
 
@@ -24,13 +22,13 @@ describe('Menu component', () => {
   });
 
   it('sets align right', () => {
-    const component = render(<Menu align={ALIGN_RIGHT}/>);
+    const component = render(<Menu align={MenuAlignments.RIGHT}/>);
     expect(component).to.have.className('align-right');
     expect(component).to.not.have.attr('align');
   });
 
   it('sets align center', () => {
-    const component = render(<Menu align={ALIGN_CENTER}/>);
+    const component = render(<Menu align={MenuAlignments.CENTER}/>);
     expect(component).to.have.className('align-center');
     expect(component).to.not.have.attr('align');
   });
@@ -55,8 +53,6 @@ describe('Menu component', () => {
   
 });
 
-// MenuItem component
-
 describe('MenuItem component', () => {
 
   it('sets tag name', () => {
@@ -76,8 +72,6 @@ describe('MenuItem component', () => {
   });
 
 });
-
-// MenuText component
 
 describe('MenuText component', () => {
 

@@ -3,17 +3,21 @@ import check from 'check-types';
 import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 
-// Button group size constants.
-export const SIZE_TINY = 'tiny';
-export const SIZE_SMALL = 'small';
-export const SIZE_LARGE = 'large';
+// Button group size enumerable.
+export const ButtonGroupSizes = {
+  TINY: 'tiny',
+  SMALL: 'small',
+  LARGE: 'large'
+};
 
-// Button group color constants.
-export const COLOR_PRIMARY = 'primary';
-export const COLOR_SECONDARY = 'secondary';
-export const COLOR_SUCCESS = 'success';
-export const COLOR_ALERT = 'alert';
-export const COLOR_WARNING = 'warning';
+// Button group color enumerable.
+export const ButtonGroupColors = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  SUCCESS: 'success',
+  ALERT: 'alert',
+  WARNING: 'warning'
+};
 
 const omitProps = [
   'size',

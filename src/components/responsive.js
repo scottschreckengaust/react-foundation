@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import { default as omit } from 'lodash.omit';
 import { TopBar } from './top-bar';
-import { Hideable } from '../utils';
+import { Hideable } from './utils';
 
+// Default pixel value when title bar is displayed and top bar is hidden.
 const DEFAULT_BREAKPOINT = 640;
 
 /**
@@ -15,7 +17,7 @@ export class ResponsiveNavigation extends Component {
 
     this.state = {
       isTitleBarVisible: true,
-      isTopBarVisible: true
+      isTopBarVisible: false
     };
   }
 
@@ -59,7 +61,7 @@ export class ResponsiveNavigation extends Component {
     const { titleBar: titleBarProps, topBar: topBarProps, children } = this.props;
 
     return (
-      <div>
+      <div {...omit(this.props, ['breakpoint', 'titleBar', 'topBar'])}>
         <TitleBar {...titleBarProps}
           onMenuIconClick={this.toggle.bind(this)}
           isVisible={isTitleBarVisible}/>
@@ -72,7 +74,7 @@ export class ResponsiveNavigation extends Component {
 }
 
 ResponsiveNavigation.propTypes = {
-  breakpoint: PropTypes.string.isRequired
+  breakpoint: PropTypes.number.isRequired
 };
 
 ResponsiveNavigation.defaultProps = {
