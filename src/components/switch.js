@@ -1,5 +1,7 @@
 import React from 'react';
+import check from 'check-types'
 import classNames from 'classnames';
+import { default as omit } from 'lodash.omit';
 
 // Switch type constants.
 export const TYPE_CHECKBOX = 'checkbox';
@@ -10,6 +12,11 @@ export const SIZE_TINY = 'tiny';
 export const SIZE_SMALL = 'small';
 export const SIZE_LARGE = 'large';
 
+const omitProps = [
+  'input',
+  'paddle'
+];
+
 /**
  * Switch component.
  * http://foundation.zurb.com/sites/docs/switch.html
@@ -17,14 +24,16 @@ export const SIZE_LARGE = 'large';
  * @param {Object} props
  * @returns {XML}
  */
-export const Switch = props => {
+const Switch = props => {
+  check.assert.maybe.string(props.size, 'Switch.props.size must be a string.');
+
   const className = classNames(
     props.className || 'switch',
     props.size
   );
 
   return (
-    <div {...props} className={className}>
+    <div {...omit(props, omitProps)} className={className}>
       <SwitchInput {...props.input}/>
       <SwitchPaddle {...props.paddle}/>
     </div>
@@ -37,9 +46,13 @@ export const Switch = props => {
  * @param {Object} props
  * @returns {XML}
  */
-export const SwitchInput = props => (
-  <input {...props} className={props.className || 'switch-input'} type={props.type || TYPE_CHECKBOX}/>
-);
+export const SwitchInput = props => {
+  check.assert.maybe.string(props.type, 'SwitchInput.props.type must be a string.');
+
+  return (
+    <input {...omit(props, ['type'])} className={props.className || 'switch-input'} type={props.type || TYPE_CHECKBOX}/>
+  );
+};
 
 /**
  * Switch paddle sub-component.
@@ -76,3 +89,5 @@ export const SwitchInactive = props => (
     {props.children}
   </span>
 );
+
+export default Switch;
