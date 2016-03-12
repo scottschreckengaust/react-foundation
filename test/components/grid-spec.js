@@ -20,6 +20,10 @@ describe('Row component', () => {
     expect(component).to.have.className('my-row');
     expect(component).to.not.have.className('row');
   });
+  
+  // TODO: Add test cases for horizontal alignment
+  // TODO: Add test cases for vertical alignment
+  // TODO: Add test cases for unstack
 
   it('sets column', () => {
     const component = render(<Row isColumn/>);
@@ -103,6 +107,14 @@ describe('Column component', () => {
     expect(component).to.not.have.className('up');
   });
 
+  it('sets order', () => {
+    const component = render(<Column order={{ small: 1, medium: 2, large: 3 }}/>);
+    expect(component).to.have.className('small-order-1');
+    expect(component).to.have.className('medium-order-2');
+    expect(component).to.have.className('large-order-3');
+    expect(component).to.not.have.className('order');
+  });
+
   it('sets collapse on small', () => {
     const component = render(<Column collapseOnSmall/>);
     expect(component).to.have.className('collapse-small');
@@ -173,6 +185,30 @@ describe('Column component', () => {
     const component = render(<Column uncenterOnLarge/>);
     expect(component).to.have.className('large-uncentered');
     expect(component).to.not.have.attr('uncenterOnLarge');
+  });
+
+  it('sets expand on small', () => {
+    const component = render(<Column expandOnSmall/>);
+    expect(component).to.have.className('small-expand');
+    expect(component).to.not.have.attr('expandOnSmall');
+  });
+
+  it('sets expand on medium', () => {
+    const component = render(<Column expandOnMedium/>);
+    expect(component).to.have.className('medium-expand');
+    expect(component).to.not.have.attr('expandOnMedium');
+  });
+
+  it('sets expand on large', () => {
+    const component = render(<Column expandOnLarge/>);
+    expect(component).to.have.className('large-expand');
+    expect(component).to.not.have.attr('expandOnLarge');
+  });
+
+  it('sets shrink', () => {
+    const component = render(<Column shrink/>);
+    expect(component).to.have.className('shrink');
+    expect(component).to.not.have.attr('shrink');
   });
 
   it('sets last', () => {
