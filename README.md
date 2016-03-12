@@ -20,6 +20,8 @@ More components coming soon!
 
 ## Install
 
+Install dependencies:
+
 ```bash
 npm install
 ```
