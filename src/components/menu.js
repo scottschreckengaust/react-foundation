@@ -3,7 +3,11 @@ import check from 'check-types';
 import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 
-// Menu alignment enumerable.
+/**
+ * Menu alignment enumerable.
+ *
+ * @type {Object}
+ */
 export const MenuAlignments = {
   RIGHT: 'right',
   CENTER: 'center'

@@ -3,13 +3,21 @@ import check from 'check-types';
 import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 
-// Switch type enumerable.
+/**
+ * Switch type enumerable.
+ *
+ * @type {Object}
+ */
 export const SwitchTypes = {
   CHECKBOX: 'checkbox',
   RADIO: 'radio'
 };
 
-// Switch size enumerable.
+/**
+ * Switch size enumerable.
+ *
+ * @type {Object}
+ */
 export const SwitchSizes = {
   TINY: 'tiny',
   SMALL: 'small',

@@ -3,14 +3,22 @@ import check from 'check-types';
 import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 
-// Button size enumerable.
+/**
+ * Button size enumerable.
+ *
+ * @type {Object}
+ */
 export const ButtonSizes = {
   TINY: 'tiny',
   SMALL: 'small',
   LARGE: 'large'
 };
 
-// Button color enumerable.
+/**
+ * Button color enumerable.
+ *
+ * @type {Object}
+ */
 export const ButtonColors = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
