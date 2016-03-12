@@ -7,11 +7,16 @@
 
 Components:
 
+- [Badge](src/components/badge.js)
 - [Button](src/components/button.js)
 - [ButtonGroup](src/components/button-group.js)
+- [Callout](src/components/callout.js)
 - [CloseButton](src/components/close-button.js)
+- [FlexVideo](src/components/flex-video.js)
 - [Icon](src/components/icon.js)
+- [Label](src/components/label.js)
 - [Menu](src/components/menu.js)
+- [ProgressBar](src/components/progress-bar.js)
 - [ResponsiveNavigation](src/components/responsive.js)
 - [Switch](src/components/switch.js)
 - [TopBar](src/components/top-bar.js)
