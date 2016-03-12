@@ -19,7 +19,15 @@ So we collected out notes and started coding and here's the result.
 
 We hope you enjoy it as much as we do!
 
-## Components
+## What's in the box?
+
+The goal is to wrap every part of Foundation into re-usable React components crafted following framework
+best practices. This project's main focus is ease-of-use and extensibility. We use pure render components, 
+also know as stateless components, where ever possible to keep the memory usage to a minimum. Stateful
+components are only used for larger components, such as `ResponsiveNavigation`, where state is necessary.
+All components are heavily unit-tested to ensure their quality.
+
+Here is a list of the available components:
 
 - [Badge](src/components/badge.js)
 - [Button](src/components/button.js)
