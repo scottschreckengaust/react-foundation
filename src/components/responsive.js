@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
+import { default as omit } from 'lodash.omit';
 import { TopBar } from './top-bar';
-import { Hideable } from '../utils';
+import { Hideable } from './utils';
 
+// Default pixel value when title bar is displayed and top bar is hidden.
 const DEFAULT_BREAKPOINT = 640;
 
 /**
@@ -15,7 +16,7 @@ export class ResponsiveNavigation extends Component {
 
     this.state = {
       isTitleBarVisible: true,
-      isTopBarVisible: true
+      isTopBarVisible: false
     };
   }
 
@@ -55,14 +56,33 @@ export class ResponsiveNavigation extends Component {
   }
 
   render() {
-    const { isTitleBarVisible, isTopBarVisible } = this.state;
-    const { titleBar: titleBarProps, topBar: topBarProps, children } = this.props;
+    const {
+      isTitleBarVisible,
+      isTopBarVisible
+    } = this.state;
+
+    const {
+      titleBar: titleBarProps = {},
+      menuIcon: menuIconProps = {},
+      titleBarTitle: titleBarTitleProps = {},
+      topBar: topBarProps = {},
+      children
+    } = this.props;
+
+    const omitProps = [
+      'breakpoint',
+      'titleBar',
+      'menuIcon',
+      'titleBarTitle',
+      'topBar'
+    ];
 
     return (
-      <div>
-        <TitleBar {...titleBarProps}
-          onMenuIconClick={this.toggle.bind(this)}
-          isVisible={isTitleBarVisible}/>
+      <div {...omit(this.props, omitProps)}>
+        <TitleBar {...titleBarProps} isVisible={isTitleBarVisible}>
+          <MenuIcon {...menuIconProps} onClick={this.toggle.bind(this)}/>
+          <TitleBarTitle {...titleBarTitleProps}/>
+        </TitleBar>
         <TopBar {...topBarProps} isVisible={isTopBarVisible}>
           {children}
         </TopBar>
@@ -72,7 +92,7 @@ export class ResponsiveNavigation extends Component {
 }
 
 ResponsiveNavigation.propTypes = {
-  breakpoint: PropTypes.string.isRequired
+  breakpoint: PropTypes.number.isRequired
 };
 
 ResponsiveNavigation.defaultProps = {
@@ -85,16 +105,9 @@ ResponsiveNavigation.defaultProps = {
  * @param {Object} props
  * @returns {XML}
  */
-export const TitleBar = props => {
-  const className = classNames(props.className || 'title-bar');
-
-  return (
-    <Hideable {...props} className={className}>
-      <MenuIcon {...props.menuIcon} onClick={props.onMenuIconClick}/>
-      <TitleBarTitle {...props.title}>{props.children}</TitleBarTitle>
-    </Hideable>
-  );
-};
+export const TitleBar = props => (
+  <Hideable {...props} className={props.className || 'title-bar'}/>
+);
 
 /**
  * Title bar menu icon sub-component.
@@ -103,9 +116,7 @@ export const TitleBar = props => {
  * @returns {XML}
  */
 export const MenuIcon = props => (
-  <button {...props} className={props.className || 'menu-icon'} type="button">
-    {props.children}
-  </button>
+  <button {...props} className={props.className || 'menu-icon'} type="button"/>
 );
 
 /**
@@ -115,7 +126,5 @@ export const MenuIcon = props => (
  * @returns {XML}
  */
 export const TitleBarTitle = props => (
-  <div {...props} className={props.className || 'title-bar-title'}>
-    {props.children}
-  </div>
+  <div {...props} className={props.className || 'title-bar-title'}></div>
 );

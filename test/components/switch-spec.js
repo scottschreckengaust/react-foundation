@@ -35,6 +35,16 @@ describe('Switch component', () => {
     expect(component.find('.switch-paddle')).to.have.attr('for', 'bar');
   });
 
+  it('renders active label', () => {
+    const component = mount(<Switch active={{ children: 'On' }}/>);
+    expect(component.find('.switch-active')).to.have.text('On');
+  });
+
+  it('renders inactive label', () => {
+    const component = mount(<Switch inactive={{ children: 'Off' }}/>);
+    expect(component.find('.switch-inactive')).to.have.text('Off');
+  });
+
 });
 
 describe('SwitchInput component', () => {

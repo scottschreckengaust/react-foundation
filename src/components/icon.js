@@ -3,11 +3,6 @@ import classNames from 'classnames';
 import check from 'check-types';
 import { default as omit } from 'lodash.omit';
 
-const omitProps = [
-  'prefix',
-  'name'
-];
-
 /**
  * Icon component.
  *
@@ -22,6 +17,8 @@ const Icon = props => {
     props.prefix,
     props.prefix ? `${props.prefix}-${props.name}` : props.name
   );
+
+  const omitProps = ['prefix', 'name'];
 
   return (
     <i {...omit(props, omitProps)} className={className}/>

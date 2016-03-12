@@ -1,6 +1,6 @@
 {
-  "name": "nord-react-foundation",
-  "version": "1.0.0",
+  "name": "react-foundation",
+  "version": "0.1.0",
   "description": "Zurb Foundation for React",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
@@ -24,6 +24,7 @@
   "dependencies": {
     "check-types": "^6.0.0",
     "classnames": "^2.2.3",
+    "lodash.has": "^4.2.1",
     "lodash.omit": "^4.1.0"
   },
   "devDependencies": {
@@ -47,7 +48,8 @@
     "mocha": "^2.4.5",
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "sinon": "^1.17.3"
   },
   "babel": {
     "presets": [

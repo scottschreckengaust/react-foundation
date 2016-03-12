@@ -8,9 +8,7 @@ import React from 'react';
  * @returns {XML}
  */
 export const CloseButton = props => (
-  <button {...props} className={props.className || 'close-button'}>
-    {props.children}
-  </button>
+  <button {...props} className={props.className || 'close-button'}/>
 );
 
 // TODO: Add support for closable elements.

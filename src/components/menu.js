@@ -3,9 +3,15 @@ import check from 'check-types';
 import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 
-// Menu alignment constants.
-export const ALIGN_RIGHT = 'right';
-export const ALIGN_CENTER = 'center';
+/**
+ * Menu alignment enumerable.
+ *
+ * @type {Object}
+ */
+export const MenuAlignments = {
+  RIGHT: 'right',
+  CENTER: 'center'
+};
 
 /**
  * Menu component.
@@ -23,18 +29,23 @@ export const Menu = props => {
   const className = classNames(
     props.className || 'menu',
     {
-      'align-right': props.align === ALIGN_RIGHT,
-      'align-center': props.align === ALIGN_CENTER,
+      'align-right': props.align === MenuAlignments.RIGHT,
+      'align-center': props.align === MenuAlignments.CENTER,
       'expanded': props.isExpanded,
       'vertical': props.isVertical,
       'simple': props.isSimple
     }
   );
 
+  const omitProps = [
+    'align',
+    'isExpanded',
+    'isVertical',
+    'isSimple'
+  ];
+
   return (
-    <ul {...props} className={className}>
-      {props.children}
-    </ul>
+    <ul {...omit(props, omitProps)} className={className}/>
   );
 };
 
@@ -54,10 +65,10 @@ export const MenuItem = props => {
     }
   );
 
+  const omitProps = ['isActive'];
+
   return (
-    <li {...omit(props, ['isActive'])} className={className}>
-      {props.children}
-    </li>
+    <li {...omit(props, omitProps)} className={className}/>
   );
 };
 
@@ -67,8 +78,6 @@ export const MenuItem = props => {
  * @param {Object} props
  * @returns {XML}
  */
-export const MenuText = props => {
-  return (
-    <MenuItem {...props} className={props.className || 'menu-text'}/>
-  );
-};
+export const MenuText = props => (
+  <MenuItem {...props} className={props.className || 'menu-text'}/>
+);

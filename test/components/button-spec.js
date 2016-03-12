@@ -1,9 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Button, Link, SIZE_SMALL, COLOR_SUCCESS } from 'components/button';
-
-// Button component
+import { Button, Link, ButtonSizes, ButtonColors } from 'components/button';
 
 describe('Button component', () => {
 
@@ -29,13 +27,13 @@ describe('Button component', () => {
   });
 
   it('sets size', () => {
-    const component = render(<Button size={SIZE_SMALL}/>);
+    const component = render(<Button size={ButtonSizes.SMALL}/>);
     expect(component).to.have.className('small');
     expect(component).to.not.have.attr('size');
   });
 
   it('sets color', () => {
-    const component = render(<Button color={COLOR_SUCCESS}/>);
+    const component = render(<Button color={ButtonColors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
   });
@@ -66,8 +64,6 @@ describe('Button component', () => {
 
 });
 
-// Link component
-
 describe('Link component', () => {
 
   it('sets tag name', () => {
@@ -92,13 +88,13 @@ describe('Link component', () => {
   });
 
   it('sets size', () => {
-    const component = render(<Link size={SIZE_SMALL}/>);
+    const component = render(<Link size={ButtonSizes.SMALL}/>);
     expect(component).to.have.className('small');
     expect(component).to.not.have.attr('size');
   });
 
   it('sets color', () => {
-    const component = render(<Link color={COLOR_SUCCESS}/>);
+    const component = render(<Link color={ButtonColors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
   });

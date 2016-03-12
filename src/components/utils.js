@@ -7,7 +7,5 @@ import React from 'react';
  * @returns {XML}
  */
 export const Hideable = props => (
-  <div {...props} style={{ display: props.isVisible ? 'block' : 'none' }}>
-    {props.children}
-  </div>
+  <div {...props} style={{ display: props.isVisible ? 'block' : 'none' }}></div>
 );
