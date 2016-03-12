@@ -40,17 +40,17 @@ describe('Progress component', () => {
   });
 
   it('sets minimum value', () => {
-    const component = render(<Progress minValue={0}/>);
+    const component = render(<Progress min={0}/>);
     expect(component).to.have.attr('aria-valuemin', '0');
   });
 
   it('sets maximum value', () => {
-    const component = render(<Progress maxValue={100}/>);
+    const component = render(<Progress max={100}/>);
     expect(component).to.have.attr('aria-valuemax', '100');
   });
 
   it('sets current value', () => {
-    const component = render(<Progress currentValue={50}/>);
+    const component = render(<Progress value={50}/>);
     expect(component).to.have.attr('aria-valuenow', '50');
   });
 
@@ -132,29 +132,34 @@ describe('ProgressMeterText component', () => {
 describe('NativeProgress component', () => {
 
   it('sets tag name', () => {
-    const component = render(<NativeProgress maxValue={100} currentValue={75}/>);
+    const component = render(<NativeProgress/>);
     expect(component).to.have.tagName('progress');
   });
 
   it('sets custom class name', () => {
-    const component = render(<NativeProgress className="my-progress" maxValue={100} currentValue={75}/>);
+    const component = render(<NativeProgress className="my-progress"/>);
     expect(component).to.have.className('my-progress');
   });
 
   it('sets color', () => {
-    const component = render(<NativeProgress color={ProgressColors.SUCCESS} maxValue={100} currentValue={75}/>);
+    const component = render(<NativeProgress color={ProgressColors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
   });
 
   it('sets maximum value', () => {
-    const component = render(<NativeProgress maxValue={100} currentValue={75}/>);
+    const component = render(<NativeProgress max={100}/>);
     expect(component).to.have.attr('max', '100');
   });
 
   it('sets current value', () => {
-    const component = render(<NativeProgress maxValue={100} currentValue={50}/>);
+    const component = render(<NativeProgress value={50}/>);
     expect(component).to.have.attr('value', '50');
+  });
+
+  it('sets contents', () => {
+    const component = render(<NativeProgress>25%</NativeProgress>);
+    expect(component).to.have.text('25%');
   });
 
 });

@@ -10,24 +10,19 @@ export const ProgressColors = {
 };
 
 /**
- * ProgressBar class.
+ * Progress component.
+ * http://foundation.zurb.com/sites/docs/progress-bar.html
  *
  * @param {Object} props
  * @returns {XML}
  */
 export const Progress = props => {
-  check.assert.maybe.number(props.minValue, 'ProgressBar.props.minValue must be a number.');
-  check.assert.maybe.number(props.maxValue, 'ProgressBar.props.maxValue must be a number.');
-  check.assert.maybe.number(props.currentValue, 'ProgressBar.props.currentValue must be a number.');
+  check.assert.maybe.number(props.min, 'ProgressBar.props.min must be a number.');
+  check.assert.maybe.number(props.max, 'ProgressBar.props.max must be a number.');
+  check.assert.maybe.number(props.value, 'ProgressBar.props.value must be a number.');
   check.assert.maybe.string(props.color, 'ProgressBar.props.color must be a string.');
 
-  const {
-    minValue = 0,
-    maxValue = 100,
-    currentValue = 0,
-    valueText,
-    meter: meterProps = {}
-  } = props;
+  const { meter: meterProps = {} } = props;
 
   const className = classNames(
     props.className || 'progress',
@@ -35,11 +30,11 @@ export const Progress = props => {
   );
 
   const omitProps = [
-    'color',
-    'minValue',
-    'maxValue',
-    'currentValue',
+    'min',
+    'max',
+    'value',
     'valueText',
+    'color',
     'meter'
   ];
 
@@ -47,17 +42,17 @@ export const Progress = props => {
     <div {...omit(props, omitProps)}
       className={className}
       role="progressbar"
-      aria-valuemin={minValue}
-      aria-valuemax={maxValue}
-      aria-valuenow={currentValue}
-      aria-valuetext={valueText}>
+      aria-valuemin={props.min}
+      aria-valuemax={props.max}
+      aria-valuenow={props.value}
+      aria-valuetext={props.valueText}>
       {meterProps.text ? <ProgressMeterWithText {...meterProps}/> : <ProgressMeter {...meterProps}/>}
     </div>
   );
 };
 
 /**
- * ProgressMeter class.
+ * ProgressMeter sub-component.
  *
  * @param {Object} props
  * @returns {XML}
@@ -67,7 +62,7 @@ export const ProgressMeter = props => (
 );
 
 /**
- * ProgressMeterWithText class.
+ * ProgressMeterWithText sub-component.
  *
  * @param {Object} props
  * @returns {XML}
@@ -79,7 +74,7 @@ export const ProgressMeterWithText = props => (
 );
 
 /**
- * ProgressMeterText class.
+ * ProgressMeterText sub-component.
  *
  * @param {Object} props
  * @returns {XML}
@@ -89,31 +84,26 @@ export const ProgressMeterText = props => (
 );
 
 /**
- * ProgressMeterText class.
+ * NativeProgress component.
+ * http://foundation.zurb.com/sites/docs/progress-bar.html#native-progress
  *
  * @param {Object} props
  * @returns {XML}
  */
 export const NativeProgress = props => {
-  check.assert.number(props.maxValue, 'ProgressBar.props.maxValue must be a number.');
-  check.assert.number(props.currentValue, 'ProgressBar.props.currentValue must be a number.');
+  check.assert.maybe.number(props.max, 'ProgressBar.props.max must be a number.');
+  check.assert.maybe.number(props.value, 'ProgressBar.props.value must be a number.');
   check.assert.maybe.string(props.color, 'ProgressBar.props.color must be a string.');
 
-  const {
-    maxValue = 100,
-    currentValue = 0,
-  } = props;
+  const className = classNames(props.className, props.color);
 
-  const omitProps = ['maxValue', 'currentValue', 'color'];
+  const omitProps = ['color'];
 
   return (
-    <progress {...omit(props, omitProps)}
-      className={classNames(props.className, props.color)}
-      max={maxValue}
-      value={currentValue}/>
+    <progress {...omit(props, omitProps)} className={className}/>
   );
 };
 
-// TODO: Add support for native meter
+// TODO: Consider adding support for native meter.
 
 export default Progress;
