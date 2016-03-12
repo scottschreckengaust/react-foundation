@@ -1,6 +1,6 @@
 # React + Foundation
 
-[![Build Status](https://travis-ci.org/nordsoftware/react-foundation.svg?branch=master)](https://travis-ci.org/nordsoftware/react-foundation)
+[![Build Status](https://travis-ci.org/nordsoftware/react-foundation.svg?branch=develop)](https://travis-ci.org/nordsoftware/react-foundation)
 [![Code Climate](https://codeclimate.com/github/nordsoftware/react-foundation/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/react-foundation)
 
 [Foundation](http://foundation.zurb.com/sites/docs/) components wrapped with [React](https://facebook.github.io/react/).
