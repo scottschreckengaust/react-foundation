@@ -21,15 +21,15 @@ describe('Label component', () => {
     expect(component).to.not.have.className('label');
   });
 
-  it('sets contents', () => {
-    const component = render(<Label>Build passing</Label>);
-    expect(component).to.have.text('Build passing');
-  });
-
   it('sets color', () => {
     const component = render(<Label color={LabelColors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
+  });
+
+  it('sets contents', () => {
+    const component = render(<Label>Build passing</Label>);
+    expect(component).to.have.text('Build passing');
   });
   
 });

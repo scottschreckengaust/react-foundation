@@ -21,11 +21,6 @@ describe('Callout component', () => {
     expect(component).to.not.have.className('callout');
   });
 
-  it('sets contents', () => {
-    const component = render(<Callout>Hello</Callout>);
-    expect(component).to.have.text('Hello');
-  });
-
   it('sets color', () => {
     const component = render(<Callout color={CalloutColors.SUCCESS}/>);
     expect(component).to.have.className('success');
@@ -36,6 +31,11 @@ describe('Callout component', () => {
     const component = render(<Callout size={CalloutSizes.SMALL}/>);
     expect(component).to.have.className('small');
     expect(component).to.not.have.attr('size');
+  });
+
+  it('sets contents', () => {
+    const component = render(<Callout>Hello</Callout>);
+    expect(component).to.have.text('Hello');
   });
 
 });

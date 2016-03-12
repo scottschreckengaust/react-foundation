@@ -60,15 +60,15 @@ describe('MenuItem component', () => {
     expect(component).to.have.tagName('li');
   });
 
-  it('sets contents', () => {
-    const component = render(<MenuItem>Text</MenuItem>);
-    expect(component).to.have.text('Text');
-  });
-
   it('sets active', () => {
     const component = render(<MenuItem isActive/>);
     expect(component).to.have.className('active');
     expect(component).to.not.have.attr('isActive');
+  });
+
+  it('sets contents', () => {
+    const component = render(<MenuItem>Text</MenuItem>);
+    expect(component).to.have.text('Text');
   });
 
 });

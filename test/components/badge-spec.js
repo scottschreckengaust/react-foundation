@@ -21,15 +21,15 @@ describe('Badge component', () => {
     expect(component).to.not.have.className('badge');
   });
 
-  it('sets contents', () => {
-    const component = render(<Badge>1</Badge>);
-    expect(component).to.have.text('1');
-  });
-
   it('sets color', () => {
     const component = render(<Badge color={BadgeColors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
+  });
+
+  it('sets contents', () => {
+    const component = render(<Badge>1</Badge>);
+    expect(component).to.have.text('1');
   });
 
 });

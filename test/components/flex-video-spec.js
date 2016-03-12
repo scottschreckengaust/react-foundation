@@ -22,13 +22,6 @@ describe('FlexVideo component', () => {
     expect(component).to.not.have.className('flex-video');
   });
 
-  it('sets contents', () => {
-    const renderer = createRenderer();
-    renderer.render(<FlexVideo><iframe src="https://example.com"></iframe></FlexVideo>);
-    const output = renderer.getRenderOutput();
-    expect(output).jsx.to.include(<iframe src="https://example.com"></iframe>);
-  });
-
   it('sets widescreen', () => {
     const component = render(<FlexVideo isWidescreen/>);
     expect(component).to.have.className('widescreen');
@@ -39,6 +32,13 @@ describe('FlexVideo component', () => {
     const component = render(<FlexVideo isVimeo/>);
     expect(component).to.have.className('vimeo');
     expect(component).to.not.have.attr('isVimeo');
+  });
+
+  it('sets contents', () => {
+    const renderer = createRenderer();
+    renderer.render(<FlexVideo><iframe src="https://example.com"></iframe></FlexVideo>);
+    const output = renderer.getRenderOutput();
+    expect(output).jsx.to.include(<iframe src="https://example.com"></iframe>);
   });
 
 });
