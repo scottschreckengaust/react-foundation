@@ -24,6 +24,7 @@
   "dependencies": {
     "check-types": "^6.0.0",
     "classnames": "^2.2.3",
+    "lodash.has": "^4.2.1",
     "lodash.omit": "^4.1.0"
   },
   "devDependencies": {

@@ -13,6 +13,7 @@ Components:
 - [Callout](src/components/callout.js)
 - [CloseButton](src/components/close-button.js)
 - [FlexVideo](src/components/flex-video.js)
+- [Grid](src/components/grid.js)
 - [Icon](src/components/icon.js)
 - [Label](src/components/label.js)
 - [Menu](src/components/menu.js)
