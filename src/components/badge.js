@@ -5,7 +5,7 @@ import { default as omit } from 'lodash.omit';
 
 /**
  * Badge color enumerable.
- * 
+ *
  * @type {Object}
  */
 export const BadgeColors = {
