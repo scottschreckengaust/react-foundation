@@ -9,15 +9,6 @@ export const ProgressColors = {
   ALERT: 'alert'
 };
 
-const omitProps = [
-  'color',
-  'minValue',
-  'maxValue',
-  'currentValue',
-  'valueText',
-  'meter'
-];
-
 /**
  * ProgressBar class.
  *
@@ -42,6 +33,15 @@ export const Progress = props => {
     props.className || 'progress',
     props.color
   );
+
+  const omitProps = [
+    'color',
+    'minValue',
+    'maxValue',
+    'currentValue',
+    'valueText',
+    'meter'
+  ];
 
   return (
     <div {...omit(props, omitProps)}
@@ -104,8 +104,13 @@ export const NativeProgress = props => {
     currentValue = 0,
   } = props;
 
+  const omitProps = ['maxValue', 'currentValue'];
+
   return (
-    <progress className={classNames(props.className, props.color)} max={maxValue} value={currentValue}/>
+    <progress {...omit(props, omitProps)}
+      className={classNames(props.className, props.color)}
+      max={maxValue}
+      value={currentValue}/>
   );
 };
 

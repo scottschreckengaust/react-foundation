@@ -3,11 +3,6 @@ import check from 'check-types';
 import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 
-const omitProps = [
-  'isWidescreen',
-  'isVimeo'
-];
-
 /**
  * FlexVideo component.
  * http://foundation.zurb.com/sites/docs/flex-video.html
@@ -26,6 +21,8 @@ const FlexVideo = props => {
       vimeo: props.isVimeo
     }
   );
+
+  const omitProps = ['isWidescreen', 'isVimeo'];
 
   return (
     <div {...omit(props, omitProps)} className={className}></div>

@@ -37,8 +37,15 @@ export const Menu = props => {
     }
   );
 
+  const omitProps = [
+    'align',
+    'isExpanded',
+    'isVertical',
+    'isSimple'
+  ];
+
   return (
-    <ul {...props} className={className}/>
+    <ul {...omit(props, omitProps)} className={className}/>
   );
 };
 
@@ -58,8 +65,10 @@ export const MenuItem = props => {
     }
   );
 
+  const omitProps = ['isActive'];
+
   return (
-    <li {...omit(props, ['isActive'])} className={className}/>
+    <li {...omit(props, omitProps)} className={className}/>
   );
 };
 

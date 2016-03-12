@@ -24,11 +24,6 @@ export const SwitchSizes = {
   LARGE: 'large'
 };
 
-const omitProps = [
-  'input',
-  'paddle'
-];
-
 /**
  * Switch component.
  * http://foundation.zurb.com/sites/docs/switch.html
@@ -43,6 +38,8 @@ const Switch = props => {
     props.className || 'switch',
     props.size
   );
+
+  const omitProps = ['input', 'paddle'];
 
   return (
     <div {...omit(props, omitProps)} className={className}>
@@ -63,8 +60,10 @@ const Switch = props => {
 export const SwitchInput = props => {
   check.assert.maybe.string(props.type, 'SwitchInput.props.type must be a string.');
 
+  const omitProps = ['type'];
+  
   return (
-    <input {...omit(props, ['type'])} className={props.className || 'switch-input'} type={props.type || SwitchTypes.CHECKBOX}/>
+    <input {...omit(props, omitProps)} className={props.className || 'switch-input'} type={props.type || SwitchTypes.CHECKBOX}/>
   );
 };
 

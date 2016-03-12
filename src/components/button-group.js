@@ -27,13 +27,6 @@ export const ButtonGroupColors = {
   WARNING: 'warning'
 };
 
-const omitProps = [
-  'size',
-  'color',
-  'isExpanded',
-  'isStacked'
-];
-
 /**
  * Button group component.
  * http://foundation.zurb.com/sites/docs/button-group.html
@@ -57,6 +50,13 @@ const ButtonGroup = props => {
       'stacked': props.isStacked
     }
   );
+
+  const omitProps = [
+    'size',
+    'color',
+    'isExpanded',
+    'isStacked'
+  ];
 
   return (
     <div {...omit(props, omitProps)} className={className}></div>

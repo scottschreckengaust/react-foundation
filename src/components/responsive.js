@@ -62,13 +62,20 @@ export class ResponsiveNavigation extends Component {
     } = this.state;
 
     const {
-      titleBar: titleBarProps,
-      menuIcon: menuIconProps,
-      titleBarTitle: titleBarTitleProps,
-      topBar: topBarProps
+      titleBar: titleBarProps = {},
+      menuIcon: menuIconProps = {},
+      titleBarTitle: titleBarTitleProps = {},
+      topBar: topBarProps = {},
+      children
     } = this.props;
 
-    const omitProps = ['breakpoint', 'titleBar', 'menuIcon', 'titleBarTitle', 'topBar'];
+    const omitProps = [
+      'breakpoint',
+      'titleBar',
+      'menuIcon',
+      'titleBarTitle',
+      'topBar'
+    ];
 
     return (
       <div {...omit(this.props, omitProps)}>
@@ -77,7 +84,7 @@ export class ResponsiveNavigation extends Component {
           <TitleBarTitle {...titleBarTitleProps}/>
         </TitleBar>
         <TopBar {...topBarProps} isVisible={isTopBarVisible}>
-          {this.props.children}
+          {children}
         </TopBar>
       </div>
     );

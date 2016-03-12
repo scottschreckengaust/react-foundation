@@ -16,10 +16,6 @@ export const BadgeColors = {
   ALERT: 'alert'
 };
 
-const omitProps = [
-  'color'
-];
-
 /**
  * Badge component.
  * http://foundation.zurb.com/sites/docs/badge.html
@@ -34,6 +30,8 @@ const Badge = props => {
     props.className || 'badge',
     props.color
   );
+
+  const omitProps = ['color'];
 
   return (
     <span {...omit(props, omitProps)} className={className}/>

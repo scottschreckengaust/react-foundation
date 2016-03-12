@@ -16,10 +16,6 @@ export const LabelColors = {
   ALERT: 'alert'
 };
 
-const omitProps = [
-  'color'
-];
-
 /**
  * Label component.
  * http://foundation.zurb.com/sites/docs/label.html
@@ -34,6 +30,8 @@ const Label = props => {
     props.className || 'label',
     props.color
   );
+
+  const omitProps = ['color'];
 
   return (
     <span {...omit(props, omitProps)} className={className}/>

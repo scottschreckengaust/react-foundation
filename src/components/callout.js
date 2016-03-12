@@ -26,11 +26,6 @@ export const CalloutSizes = {
   LARGE: 'large'
 };
 
-const omitProps = [
-  'color',
-  'size'
-];
-
 /**
  * Callout component.
  * http://foundation.zurb.com/sites/docs/callout.html
@@ -47,6 +42,8 @@ const Callout = props => {
     props.color,
     props.size
   );
+
+  const omitProps = ['color', 'size'];
 
   return (
     <div {...omit(props, omitProps)} className={className}></div>
