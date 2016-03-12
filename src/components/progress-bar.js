@@ -104,7 +104,7 @@ export const NativeProgress = props => {
     currentValue = 0,
   } = props;
 
-  const omitProps = ['maxValue', 'currentValue'];
+  const omitProps = ['maxValue', 'currentValue', 'color'];
 
   return (
     <progress {...omit(props, omitProps)}
