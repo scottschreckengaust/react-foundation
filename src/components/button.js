@@ -36,7 +36,7 @@ const omitProps = [
  * @returns {XML}
  */
 export const Button = props => (
-  <button {...omit(props, omitProps)} className={classNameFromProps(props)}>{props.children}</button>
+  <button {...omit(props, omitProps)} className={classNameFromProps(props)}/>
 );
 
 /**
@@ -47,7 +47,7 @@ export const Button = props => (
  * @returns {XML}
  */
 export const Link = props => (
-  <a {...omit(props, omitProps)} className={classNameFromProps(props)}>{props.children}</a>
+  <a {...omit(props, omitProps)} className={classNameFromProps(props)}/>
 );
 
 /**

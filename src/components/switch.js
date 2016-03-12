@@ -40,6 +40,8 @@ const Switch = props => {
     <div {...omit(props, omitProps)} className={className}>
       <SwitchInput {...props.input}/>
       <SwitchPaddle {...props.paddle}/>
+      {props.active ? <SwitchActive {...props.active}/> : null}
+      {props.inactive ? <SwitchInactive {...props.inactive}/> : null}
     </div>
   );
 };
@@ -65,9 +67,7 @@ export const SwitchInput = props => {
  * @returns {XML}
  */
 export const SwitchPaddle = props => (
-  <label {...props} className={props.className || 'switch-paddle'}>
-    {props.children}
-  </label>
+  <label {...props} className={props.className || 'switch-paddle'}/>
 );
 
 /**
@@ -77,9 +77,7 @@ export const SwitchPaddle = props => (
  * @returns {XML}
  */
 export const SwitchActive = props => (
-  <span className={props.className || 'switch-active'} aria-hidden="true">
-    {props.children}
-  </span>
+  <span {...props} className={props.className || 'switch-active'} aria-hidden="true"/>
 );
 
 /**
@@ -89,9 +87,7 @@ export const SwitchActive = props => (
  * @returns {XML}
  */
 export const SwitchInactive = props => (
-  <span className={props.className || 'switch-inactive'} aria-hidden="true">
-    {props.children}
-  </span>
+  <span {...props} className={props.className || 'switch-inactive'} aria-hidden="true"/>
 );
 
 export default Switch;

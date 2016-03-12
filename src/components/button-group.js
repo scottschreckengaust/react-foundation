@@ -51,9 +51,7 @@ const ButtonGroup = props => {
   );
 
   return (
-    <div {...omit(props, omitProps)} className={className}>
-      {props.children}
-    </div>
+    <div {...omit(props, omitProps)} className={className}></div>
   );
 };
 

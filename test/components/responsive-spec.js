@@ -54,7 +54,7 @@ describe('ResponsiveNavigation component', () => {
     const renderer = createRenderer();
     renderer.render(<ResponsiveNavigation/>);
     const output = renderer.getRenderOutput();
-    expect(output).jsx.to.equal(<div><TitleBar isVisible={false} onMenuIconClick={() => {}}/><TopBar isVisible={true}/></div>);
+    expect(output).jsx.to.equal(<div><TitleBar isVisible={false}><MenuIcon onClick={() => {}}/><TitleBarTitle/></TitleBar><TopBar isVisible={true}/></div>);
   });
 
   it('passes on props', () => {
@@ -81,26 +81,6 @@ describe('TitleBar component', () => {
     const component = render(<TitleBar className="my-title-bar"/>);
     expect(component).to.have.className('my-title-bar');
     expect(component).to.not.have.className('title-bar');
-  });
-
-  it('calls onMenuItemClick callback', () => {
-    let hasClicked = false;
-    const renderer = createRenderer();
-    renderer.render(<TitleBar onMenuItemClick={() => hasClicked = true}/>);
-    renderer.getRenderOutput().props.onMenuItemClick();
-    expect(hasClicked).to.equal(true);
-  });
-
-  it('has correct children', () => {
-    const renderer = createRenderer();
-    renderer.render(<TitleBar/>);
-    const output = renderer.getRenderOutput();
-    expect(output).jsx.to.equal(<Hideable className="title-bar"><MenuIcon onClick={undefined}/><TitleBarTitle/></Hideable>);
-  });
-
-  it('sets title', () => {
-    const component = mount(<TitleBar>Menu</TitleBar>);
-    expect(component.find('.title-bar-title')).to.have.text('Menu');
   });
 
 });

@@ -57,16 +57,28 @@ export class ResponsiveNavigation extends Component {
   }
 
   render() {
-    const { isTitleBarVisible, isTopBarVisible } = this.state;
-    const { titleBar: titleBarProps, topBar: topBarProps, children } = this.props;
+    const {
+      isTitleBarVisible,
+      isTopBarVisible
+    } = this.state;
+
+    const {
+      titleBar: titleBarProps,
+      menuIcon: menuIconProps,
+      titleBarTitle: titleBarTitleProps,
+      topBar: topBarProps
+    } = this.props;
+
+    const omitProps = ['breakpoint', 'titleBar', 'menuIcon', 'titleBarTitle', 'topBar'];
 
     return (
-      <div {...omit(this.props, ['breakpoint', 'titleBar', 'topBar'])}>
-        <TitleBar {...titleBarProps}
-          onMenuIconClick={this.toggle.bind(this)}
-          isVisible={isTitleBarVisible}/>
+      <div {...omit(this.props, omitProps)}>
+        <TitleBar {...titleBarProps} isVisible={isTitleBarVisible}>
+          <MenuIcon {...menuIconProps} onClick={this.toggle.bind(this)}/>
+          <TitleBarTitle {...titleBarTitleProps}/>
+        </TitleBar>
         <TopBar {...topBarProps} isVisible={isTopBarVisible}>
-          {children}
+          {this.props.children}
         </TopBar>
       </div>
     );
@@ -87,16 +99,9 @@ ResponsiveNavigation.defaultProps = {
  * @param {Object} props
  * @returns {XML}
  */
-export const TitleBar = props => {
-  const className = classNames(props.className || 'title-bar');
-
-  return (
-    <Hideable {...props} className={className}>
-      <MenuIcon {...props.menuIcon} onClick={props.onMenuIconClick}/>
-      <TitleBarTitle {...props.title}>{props.children}</TitleBarTitle>
-    </Hideable>
-  );
-};
+export const TitleBar = props => (
+  <Hideable {...props} className={props.className || 'title-bar'}/>
+);
 
 /**
  * Title bar menu icon sub-component.
@@ -105,9 +110,7 @@ export const TitleBar = props => {
  * @returns {XML}
  */
 export const MenuIcon = props => (
-  <button {...props} className={props.className || 'menu-icon'} type="button">
-    {props.children}
-  </button>
+  <button {...props} className={props.className || 'menu-icon'} type="button"/>
 );
 
 /**
@@ -117,7 +120,5 @@ export const MenuIcon = props => (
  * @returns {XML}
  */
 export const TitleBarTitle = props => (
-  <div {...props} className={props.className || 'title-bar-title'}>
-    {props.children}
-  </div>
+  <div {...props} className={props.className || 'title-bar-title'}></div>
 );

@@ -34,9 +34,7 @@ export const Menu = props => {
   );
 
   return (
-    <ul {...props} className={className}>
-      {props.children}
-    </ul>
+    <ul {...props} className={className}/>
   );
 };
 
@@ -57,9 +55,7 @@ export const MenuItem = props => {
   );
 
   return (
-    <li {...omit(props, ['isActive'])} className={className}>
-      {props.children}
-    </li>
+    <li {...omit(props, ['isActive'])} className={className}/>
   );
 };
 
