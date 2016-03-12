@@ -31,7 +31,7 @@ npm install
 Compile library:
 
 ```bash
-npm run lint && npm run compile
+npm run compile
 ```
 
 ## Test
