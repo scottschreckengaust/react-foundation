@@ -1,6 +1,6 @@
 {
-  "name": "nord-react-foundation",
-  "version": "1.0.0",
+  "name": "react-foundation",
+  "version": "0.1.0",
   "description": "Zurb Foundation for React",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
