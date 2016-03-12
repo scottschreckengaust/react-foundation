@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 import { TopBar } from './top-bar';
 import { Hideable } from './utils';

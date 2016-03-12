@@ -65,8 +65,6 @@ export const MenuItem = props => {
  * @param {Object} props
  * @returns {XML}
  */
-export const MenuText = props => {
-  return (
-    <MenuItem {...props} className={props.className || 'menu-text'}/>
-  );
-};
+export const MenuText = props => (
+  <MenuItem {...props} className={props.className || 'menu-text'}/>
+);
