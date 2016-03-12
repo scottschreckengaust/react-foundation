@@ -62,6 +62,10 @@ Run test suite:
 npm test
 ```
 
+## Credits
+
+- Thanks to [@jmreidy](https://github.com/jmreidy) for releasing the `react-foundation` package name to us on [NPM](https://www.npmjs.com/).
+
 ## License
 
 See [LICENSE](LICENSE).
