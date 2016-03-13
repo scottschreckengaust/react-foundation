@@ -86,3 +86,5 @@ function classNameFromProps(props) {
     }
   );
 }
+
+export default Button;

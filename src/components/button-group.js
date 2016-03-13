@@ -34,7 +34,7 @@ export const ButtonGroupColors = {
  * @param {Object} props
  * @returns {XML}
  */
-const ButtonGroup = props => {
+export const ButtonGroup = props => {
   // TODO: Consider validating both size and color values.
   check.assert.maybe.string(props.size, 'ButtonGroup.props.size must be a string');
   check.assert.maybe.string(props.color, 'ButtonGroup.props.color must be a string');

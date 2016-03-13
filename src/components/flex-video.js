@@ -10,7 +10,7 @@ import { default as omit } from 'lodash.omit';
  * @param {Object} props
  * @returns {XML}
  */
-const FlexVideo = props => {
+export const FlexVideo = props => {
   check.assert.maybe.boolean(props.isWidescreen, 'FlexVideo.props.isWidescreen must be a boolean.');
   check.assert.maybe.boolean(props.isVimeo, 'FlexVideo.props.isVimeo must be a boolean.');
 

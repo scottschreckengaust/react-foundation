@@ -23,7 +23,7 @@ export const BadgeColors = {
  * @param {Object} props
  * @returns {XML}
  */
-const Badge = props => {
+export const Badge = props => {
   check.assert.maybe.string(props.color, 'Badge.props.color must be a string.');
 
   const className = classNames(

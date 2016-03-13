@@ -128,3 +128,5 @@ export const MenuIcon = props => (
 export const TitleBarTitle = props => (
   <div {...props} className={props.className || 'title-bar-title'}></div>
 );
+
+export default ResponsiveNavigation;

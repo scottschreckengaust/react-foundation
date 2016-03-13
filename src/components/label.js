@@ -23,7 +23,7 @@ export const LabelColors = {
  * @param {Object} props
  * @returns {XML}
  */
-const Label = props => {
+export const Label = props => {
   check.assert.maybe.string(props.color, 'Label.props.color must be a string.');
 
   const className = classNames(

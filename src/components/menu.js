@@ -81,3 +81,5 @@ export const MenuItem = props => {
 export const MenuText = props => (
   <MenuItem {...props} className={props.className || 'menu-text'}/>
 );
+
+export default Menu;

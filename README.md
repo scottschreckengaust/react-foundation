@@ -47,15 +47,15 @@ More components coming soon!
 
 ## Install
 
-Install dependencies:
+Install library:
 
 ```bash
-npm install
+npm install react-foundation --save
 ```
 
 ## Compile
 
-Compile library:
+Compile library to ES5:
 
 ```bash
 npm run compile
