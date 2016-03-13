@@ -33,7 +33,7 @@ export const CalloutSizes = {
  * @param {Object} props
  * @returns {XML}
  */
-const Callout = props => {
+export const Callout = props => {
   check.assert.maybe.string(props.color, 'Callout.props.color must be a string.');
   check.assert.maybe.string(props.size, 'Callout.props.size must be a string.');
 

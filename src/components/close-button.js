@@ -12,3 +12,5 @@ export const CloseButton = props => (
 );
 
 // TODO: Add support for closable elements.
+
+export default CloseButton;

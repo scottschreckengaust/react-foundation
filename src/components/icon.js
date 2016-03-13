@@ -9,7 +9,7 @@ import { default as omit } from 'lodash.omit';
  * @param {{prefix: string, name: string}} props
  * @returns {XML}
  */
-const Icon = props => {
+export const Icon = props => {
   check.assert.string(props.name, 'Icon.name must be set.');
   check.assert.maybe.string(props.prefix, 'Icon.prefix must be a string.');
 
