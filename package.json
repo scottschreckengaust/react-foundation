@@ -7,8 +7,9 @@
   "files": [
     "lib",
     "src",
-    "README.md",
+    ".npmignore",
     "LICENSE",
+    "README.md",
     "package.json"
   ],
   "scripts": {
