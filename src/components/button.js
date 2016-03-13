@@ -33,7 +33,8 @@ const omitProps = [
   'isHollow',
   'isExpanded',
   'isDisabled',
-  'isDropdown'
+  'isDropdown',
+  'isArrowOnly'
 ];
 
 /**
@@ -82,7 +83,8 @@ function classNameFromProps(props) {
       'hollow': props.isHollow,
       'expanded': props.isExpanded,
       'disabled': props.isDisabled,
-      'dropdown': props.isDropdown
+      'dropdown': props.isDropdown,
+      'arrow-only': props.isArrowOnly
     }
   );
 }
