@@ -13,7 +13,7 @@ It's even more awesome when combined with
 [Redux](http://redux.js.org/) and [Immutable](https://facebook.github.io/immutable-js/).
 
 After building quite a few applications with React and Foundation we noticed that we were writing the
-same components over and over again. First we tried to find library that would do the job, 
+same components over and over again. First we tried to find a library that would do the job, 
 but there was no library that met our needs. So we collected our notes, started coding and here's the result. 
 
 We hope you enjoy it as much as we do!
