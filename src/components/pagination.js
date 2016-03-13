@@ -6,7 +6,7 @@ import { default as omit } from 'lodash.omit';
 /**
  * Pagination component.
  * http://foundation.zurb.com/sites/docs/pagination.html
- * 
+ *
  * @param {Object} props
  * @returns {XML}
  */
@@ -24,7 +24,7 @@ export const Pagination = props => {
 
   return (
     <ul {...omit(props, omitProps)} className={className} role="navigation"/>
-  )
+  );
 };
 
 /**
