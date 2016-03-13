@@ -13,13 +13,20 @@ It's even more awesome when combined with
 [Redux](http://redux.js.org/) and [Immutable](https://facebook.github.io/immutable-js/).
 
 After building quite a few applications with React and Foundation we noticed that we were writing the
-same components over and over again. We knew that something had to be done.
-We tried to find library that would do the job, but there was none to be found.
-So we collected out notes and started coding and here's the result. 
+same components over and over again. First we tried to find library that would do the job, 
+but there was no library that met our needs. So we collected our notes, started coding and here's the result. 
 
 We hope you enjoy it as much as we do!
 
-## Components
+## What's in the box?
+
+The goal is to wrap every part of Foundation into re-usable React components following the framework's
+best practices. This project's main focus is ease-of-use and extensibility. We use pure render components, 
+also know as stateless components, where ever possible to keep the memory usage to a minimum. Stateful
+components are only used for larger components, such as `ResponsiveNavigation`, where state is actually necessary.
+All components are unit-tested to ensure their quality.
+
+Here is a list of the available components:
 
 - [Badge](src/components/badge.js)
 - [Button](src/components/button.js)
