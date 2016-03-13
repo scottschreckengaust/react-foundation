@@ -62,6 +62,12 @@ describe('Button component', () => {
     expect(component).to.not.have.attr('isDropdown');
   });
 
+  it('sets arrow only', () => {
+    const component = render(<Button isArrowOnly/>);
+    expect(component).to.have.className('arrow-only');
+    expect(component).to.not.have.attr('isArrowOnly');
+  });
+
 });
 
 describe('Link component', () => {
@@ -121,6 +127,12 @@ describe('Link component', () => {
     const component = render(<Link isDropdown/>);
     expect(component).to.have.className('dropdown');
     expect(component).to.not.have.attr('isDropdown');
+  });
+
+  it('sets arrow only', () => {
+    const component = render(<Link isArrowOnly/>);
+    expect(component).to.have.className('arrow-only');
+    expect(component).to.not.have.attr('isArrowOnly');
   });
 
 });

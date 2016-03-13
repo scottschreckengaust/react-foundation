@@ -45,4 +45,22 @@ describe('ButtonGroup component', () => {
     expect(component).to.not.have.attr('isStacked');
   });
 
+  it('sets stack on small', () => {
+    const component = render(<ButtonGroup stackOnSmall/>);
+    expect(component).to.have.className('stacked-for-small');
+    expect(component).to.not.have.attr('stackOnSmall');
+  });
+
+  it('sets stack on medium', () => {
+    const component = render(<ButtonGroup stackOnMedium/>);
+    expect(component).to.have.className('stacked-for-medium');
+    expect(component).to.not.have.attr('stackOnMedium');
+  });
+
+  it('sets stack on large', () => {
+    const component = render(<ButtonGroup stackOnLarge/>);
+    expect(component).to.have.className('stacked-for-large');
+    expect(component).to.not.have.attr('stackOnLarge');
+  });
+
 });

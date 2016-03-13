@@ -21,27 +21,33 @@ export const MenuAlignments = {
  * @returns {XML}
  */
 export const Menu = props => {
-  check.assert.maybe.string(props.align, 'Menu.props.align must be a string.');
+  check.assert.maybe.string(props.alignment, 'Menu.props.alignment must be a string.');
+  check.assert.maybe.boolean(props.iconsOnTop, 'Menu.props.iconsOnTop must be a boolean.');
   check.assert.maybe.boolean(props.isExpanded, 'Menu.props.isExpanded must be a boolean.');
   check.assert.maybe.boolean(props.isVertical, 'Menu.props.isVertical must be a boolean.');
   check.assert.maybe.boolean(props.isSimple, 'Menu.props.isSimple must be a boolean.');
+  check.assert.maybe.boolean(props.isNested, 'Menu.props.isNested must be a boolean.');
 
   const className = classNames(
     props.className || 'menu',
     {
-      'align-right': props.align === MenuAlignments.RIGHT,
-      'align-center': props.align === MenuAlignments.CENTER,
+      'align-right': props.alignment === MenuAlignments.RIGHT,
+      'align-center': props.alignment === MenuAlignments.CENTER,
+      'icon-top': props.iconsOnTop,
       'expanded': props.isExpanded,
       'vertical': props.isVertical,
-      'simple': props.isSimple
+      'simple': props.isSimple,
+      'nested': props.isNested
     }
   );
 
   const omitProps = [
-    'align',
+    'alignment',
+    'iconsOnTop',
     'isExpanded',
     'isVertical',
-    'isSimple'
+    'isSimple',
+    'isNested'
   ];
 
   return (

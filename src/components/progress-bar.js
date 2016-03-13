@@ -38,6 +38,11 @@ export const Progress = props => {
     'meter'
   ];
 
+  if (props.value) {
+    meterProps.style = meterProps.style || {};
+    meterProps.style.width = `${props.value}%`;
+  }
+
   return (
     <div {...omit(props, omitProps)}
       className={className}
@@ -52,7 +57,7 @@ export const Progress = props => {
 };
 
 /**
- * ProgressMeter sub-component.
+ * Progress meter sub-component.
  *
  * @param {Object} props
  * @returns {XML}
@@ -62,7 +67,7 @@ export const ProgressMeter = props => (
 );
 
 /**
- * ProgressMeterWithText sub-component.
+ * Progress meter with text sub-component.
  *
  * @param {Object} props
  * @returns {XML}
@@ -74,7 +79,7 @@ export const ProgressMeterWithText = props => (
 );
 
 /**
- * ProgressMeterText sub-component.
+ * Progress meter text sub-component.
  *
  * @param {Object} props
  * @returns {XML}
@@ -84,7 +89,7 @@ export const ProgressMeterText = props => (
 );
 
 /**
- * NativeProgress component.
+ * Native progress component.
  * http://foundation.zurb.com/sites/docs/progress-bar.html#native-progress
  *
  * @param {Object} props

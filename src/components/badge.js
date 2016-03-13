@@ -9,7 +9,7 @@ import { default as omit } from 'lodash.omit';
  * @type {Object}
  */
 export const BadgeColors = {
-  PRIMARY: 'primary',
+  INFO: 'info',
   SECONDARY: 'secondary',
   SUCCESS: 'success',
   WARNING: 'warning',
