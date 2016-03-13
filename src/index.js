@@ -1,7 +1,7 @@
 export { Badge, BadgeColors } from './components/badge';
+export { Breadcrumbs, BreadcrumbItem } from './components/breadcrumbs';
 export { Button, Link, ButtonSizes, ButtonColors } from './components/button';
 export { ButtonGroup, ButtonGroupSizes, ButtonGroupColors } from './components/button-group';
-export { Breadcrumbs, BreadcrumbItem } from './components/breadcrumbs';
 export { Callout, CalloutColors, CalloutSizes } from './components/callout';
 export { CloseButton } from './components/close-button';
 export { FlexVideo } from './components/flex-video';
