@@ -1,14 +1,15 @@
 {
   "name": "react-foundation",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Foundation as React components.",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
   "files": [
     "lib",
     "src",
-    "README.md",
+    ".npmignore",
     "LICENSE",
+    "README.md",
     "package.json"
   ],
   "scripts": {

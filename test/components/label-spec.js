@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import Label, { LabelColors } from 'components/label';
+import { Label, LabelColors } from 'components/label';
 
 describe('Label component', () => {
 

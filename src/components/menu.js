@@ -50,7 +50,7 @@ export const Menu = props => {
 };
 
 /**
- * Menu item sub-component.
+ * Menu item component.
  *
  * @param {Object} props
  * @returns {XML}

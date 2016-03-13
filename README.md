@@ -21,14 +21,15 @@ We hope you enjoy it as much as we do!
 ## What's in the box?
 
 The goal is to wrap every part of Foundation into re-usable React components following the framework's
-best practices. This project's main focus is ease-of-use and extensibility. We use pure render components, 
-also know as stateless components, where ever possible to keep the memory usage to a minimum. Stateful
+best practices. The primary focus is ease-of-use and extensibility. We use pure render components, 
+also know as stateless components, when ever possible to keep the memory usage to a minimum. Stateful
 components are only used for larger components, such as `ResponsiveNavigation`, where state is actually necessary.
 All components are unit-tested to ensure their quality.
 
 Here is a list of the available components:
 
 - [Badge](src/components/badge.js)
+- [Breadcrumbs](src/components/breadcrumbs.js)
 - [Button](src/components/button.js)
 - [ButtonGroup](src/components/button-group.js)
 - [Callout](src/components/callout.js)
@@ -38,9 +39,11 @@ Here is a list of the available components:
 - [Icon](src/components/icon.js)
 - [Label](src/components/label.js)
 - [Menu](src/components/menu.js)
+- [Pagination](src/components/pagination.js)
 - [Progress](src/components/progress-bar.js)
 - [ResponsiveNavigation](src/components/responsive.js)
 - [Switch](src/components/switch.js)
+- [Thumbnail](src/components/thumbnail.js)
 - [TopBar](src/components/top-bar.js)
 
 More components coming soon!
@@ -63,13 +66,6 @@ import Foundation from 'react-foundation';
 
 We are working on proper [documentation](https://github.com/nordsoftware/react-foundation-docs), in the meanwhile
 you can browse the code to get started.
-
-## Compile
-
-Compile library to ES5:
-
-```bash
-npm run compile
 ```
 
 ## Test
