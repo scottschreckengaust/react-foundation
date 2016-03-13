@@ -21,8 +21,8 @@ We hope you enjoy it as much as we do!
 ## What's in the box?
 
 The goal is to wrap every part of Foundation into re-usable React components following the framework's
-best practices. This project's main focus is ease-of-use and extensibility. We use pure render components, 
-also know as stateless components, where ever possible to keep the memory usage to a minimum. Stateful
+best practices. The primary focus is ease-of-use and extensibility. We use pure render components, 
+also know as stateless components, when ever possible to keep the memory usage to a minimum. Stateful
 components are only used for larger components, such as `ResponsiveNavigation`, where state is actually necessary.
 All components are unit-tested to ensure their quality.
 
