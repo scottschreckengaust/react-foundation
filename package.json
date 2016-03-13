@@ -1,8 +1,9 @@
 {
   "name": "react-foundation",
   "version": "0.1.7",
-  "description": "Foundation as React components",
-  "main": "src/index.js",
+  "description": "Foundation as React components.",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
   "scripts": {
     "compile": "babel --loose es6.modules -d lib/ src/",
     "lint": "eslint src test",
