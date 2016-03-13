@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Row, Column } from 'components/grid';
+import { Row, Column, RowHorizontalAlignments, RowVerticalAlignments } from 'components/grid';
 
 describe('Row component', () => {
 
@@ -20,11 +20,37 @@ describe('Row component', () => {
     expect(component).to.have.className('my-row');
     expect(component).to.not.have.className('row');
   });
-  
-  // TODO: Add test cases for horizontal alignment
-  // TODO: Add test cases for vertical alignment
-  // TODO: Add test cases for unstack
 
+  it('sets horizontal alignment', () => {
+    const component = render(<Row horizontalAlignment={RowHorizontalAlignments.RIGHT}/>);
+    expect(component).to.have.className('align-right');
+    expect(component).to.not.have.attr('horizontalAlignment');
+  });
+
+  it('sets vertical alignment', () => {
+    const component = render(<Row verticalAlignment={RowVerticalAlignments.TOP}/>);
+    expect(component).to.have.className('align-top');
+    expect(component).to.not.have.attr('verticalAlignment');
+  });
+
+  it('sets unstack on small', () => {
+    const component = render(<Row unstackOnSmall/>);
+    expect(component).to.have.className('small-unstack');
+    expect(component).to.not.have.attr('unstackOnSmall');
+  });
+
+  it('sets unstack on medium', () => {
+    const component = render(<Row unstackOnMedium/>);
+    expect(component).to.have.className('medium-unstack');
+    expect(component).to.not.have.attr('unstackOnMedium');
+  });
+
+  it('sets unstack on large', () => {
+    const component = render(<Row unstackOnLarge/>);
+    expect(component).to.have.className('large-unstack');
+    expect(component).to.not.have.attr('unstackOnLarge');
+  });
+  
   it('sets column', () => {
     const component = render(<Row isColumn/>);
     expect(component).to.have.className('column');
