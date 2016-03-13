@@ -33,6 +33,12 @@ describe('Menu component', () => {
     expect(component).to.not.have.attr('alignment');
   });
 
+  it('sets icons on top', () => {
+    const component = render(<Menu iconsOnTop/>);
+    expect(component).to.have.className('icon-top');
+    expect(component).to.not.have.attr('iconsOnTop');
+  });
+
   it('sets expanded', () => {
     const component = render(<Menu isExpanded/>);
     expect(component).to.have.className('expanded');

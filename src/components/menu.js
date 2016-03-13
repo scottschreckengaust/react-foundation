@@ -22,6 +22,7 @@ export const MenuAlignments = {
  */
 export const Menu = props => {
   check.assert.maybe.string(props.alignment, 'Menu.props.alignment must be a string.');
+  check.assert.maybe.boolean(props.iconsOnTop, 'Menu.props.iconsOnTop must be a boolean.');
   check.assert.maybe.boolean(props.isExpanded, 'Menu.props.isExpanded must be a boolean.');
   check.assert.maybe.boolean(props.isVertical, 'Menu.props.isVertical must be a boolean.');
   check.assert.maybe.boolean(props.isSimple, 'Menu.props.isSimple must be a boolean.');
@@ -32,6 +33,7 @@ export const Menu = props => {
     {
       'align-right': props.alignment === MenuAlignments.RIGHT,
       'align-center': props.alignment === MenuAlignments.CENTER,
+      'icon-top': props.iconsOnTop,
       'expanded': props.isExpanded,
       'vertical': props.isVertical,
       'simple': props.isSimple,
@@ -41,6 +43,7 @@ export const Menu = props => {
 
   const omitProps = [
     'alignment',
+    'iconsOnTop',
     'isExpanded',
     'isVertical',
     'isSimple',
