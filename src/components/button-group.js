@@ -40,6 +40,9 @@ export const ButtonGroup = props => {
   check.assert.maybe.string(props.color, 'ButtonGroup.props.color must be a string');
   check.assert.maybe.boolean(props.isExpanded, 'ButtonGroup.props.isExpanded must be a boolean.');
   check.assert.maybe.boolean(props.isStacked, 'ButtonGroup.props.isStacked must be a boolean.');
+  check.assert.maybe.boolean(props.stackOnSmall, 'ButtonGroup.props.stackOnSmall must be a boolean.');
+  check.assert.maybe.boolean(props.stackOnMedium, 'ButtonGroup.props.stackOnMedium must be a boolean.');
+  check.assert.maybe.boolean(props.stackOnLarge, 'ButtonGroup.props.stackOnLarge must be a boolean.');
 
   const className = classNames(
     props.className || 'button-group',
@@ -47,7 +50,10 @@ export const ButtonGroup = props => {
     props.color,
     {
       'expanded': props.isExpanded,
-      'stacked': props.isStacked
+      'stacked': props.isStacked,
+      'stacked-for-small': props.stackOnSmall,
+      'stacked-for-medium': props.stackOnMedium,
+      'stacked-for-large': props.stackOnLarge
     }
   );
 
@@ -55,7 +61,10 @@ export const ButtonGroup = props => {
     'size',
     'color',
     'isExpanded',
-    'isStacked'
+    'isStacked',
+    'stackOnSmall',
+    'stackOnMedium',
+    'stackOnLarge'
   ];
 
   return (
