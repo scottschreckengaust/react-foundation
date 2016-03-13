@@ -15,6 +15,23 @@
     "type": "git",
     "url": "git+https://github.com/nordsoftware/react-foundation.git"
   },
+  "keywords": [
+    "badge",
+    "button",
+    "callout",
+    "video",
+    "grid",
+    "icon",
+    "label",
+    "menu",
+    "progress-bar",
+    "responsive",
+    "switch",
+    "top-bar",
+    "react",
+    "foundation",
+    "react-component"
+  ],
   "author": "Christoffer Niska <christofferniska@gmail.com>",
   "license": "MIT",
   "bugs": {
