@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 
 export const ProgressColors = {
+  SECONDARY: 'secondary',
   SUCCESS: 'success',
   WARNING: 'warning',
   ALERT: 'alert'
