@@ -4,6 +4,13 @@
   "description": "Foundation as React components.",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
+  "files": [
+    "lib",
+    "src",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
   "scripts": {
     "compile": "babel --loose es6.modules -d lib/ src/",
     "lint": "eslint src test",
