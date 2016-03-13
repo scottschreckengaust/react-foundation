@@ -25,6 +25,7 @@ export const Menu = props => {
   check.assert.maybe.boolean(props.isExpanded, 'Menu.props.isExpanded must be a boolean.');
   check.assert.maybe.boolean(props.isVertical, 'Menu.props.isVertical must be a boolean.');
   check.assert.maybe.boolean(props.isSimple, 'Menu.props.isSimple must be a boolean.');
+  check.assert.maybe.boolean(props.isNested, 'Menu.props.isNested must be a boolean.');
 
   const className = classNames(
     props.className || 'menu',
@@ -33,7 +34,8 @@ export const Menu = props => {
       'align-center': props.align === MenuAlignments.CENTER,
       'expanded': props.isExpanded,
       'vertical': props.isVertical,
-      'simple': props.isSimple
+      'simple': props.isSimple,
+      'nested': props.isNested
     }
   );
 
@@ -41,7 +43,8 @@ export const Menu = props => {
     'align',
     'isExpanded',
     'isVertical',
-    'isSimple'
+    'isSimple',
+    'isNested'
   ];
 
   return (

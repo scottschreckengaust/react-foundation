@@ -50,6 +50,12 @@ describe('Menu component', () => {
     expect(component).to.have.className('simple');
     expect(component).to.not.have.attr('isSimple');
   });
+
+  it('sets nested', () => {
+    const component = render(<Menu isNested/>);
+    expect(component).to.have.className('nested');
+    expect(component).to.not.have.attr('isNested');
+  });
   
 });
 
