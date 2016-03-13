@@ -31,7 +31,7 @@ export const SwitchSizes = {
  * @param {Object} props
  * @returns {XML}
  */
-const Switch = props => {
+export const Switch = props => {
   check.assert.maybe.string(props.size, 'Switch.props.size must be a string.');
 
   const className = classNames(

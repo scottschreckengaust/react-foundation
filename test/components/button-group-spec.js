@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import ButtonGroup, { ButtonGroupSizes, ButtonGroupColors } from 'components/button-group';
+import { ButtonGroup, ButtonGroupSizes, ButtonGroupColors } from 'components/button-group';
 
 describe('ButtonGroup component', () => {
 

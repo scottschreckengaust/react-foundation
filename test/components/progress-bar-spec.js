@@ -2,7 +2,8 @@ import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import Progress, {
+import {
+  Progress,
   ProgressMeter,
   ProgressMeterWithText,
   ProgressMeterText,
