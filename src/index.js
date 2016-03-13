@@ -13,5 +13,6 @@ export { Pagination, PaginationItem, PaginationPrevious, PaginationNext, Paginat
 export { Progress, ProgressMeter, ProgressMeterWithText, ProgressMeterText, NativeProgress } from './components/progress-bar';
 export { ResponsiveNavigation, TitleBar, MenuIcon, TitleBarTitle } from './components/responsive';
 export { Switch, SwitchInput, SwitchPaddle, SwitchActive, SwitchInactive, SwitchTypes, SwitchSizes } from './components/switch';
+export { Thumbnail, ThumbnailLink } from './components/thumbnail';
 export { TopBar, TopBarTitle, TopBarLeft, TopBarRight } from './components/top-bar';
 
