@@ -38,6 +38,7 @@ Here is a list of the available components:
 - [Icon](src/components/icon.js)
 - [Label](src/components/label.js)
 - [Menu](src/components/menu.js)
+- [Pagination](src/components/pagination.js)
 - [Progress](src/components/progress-bar.js)
 - [ResponsiveNavigation](src/components/responsive.js)
 - [Switch](src/components/switch.js)

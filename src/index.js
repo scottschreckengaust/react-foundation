@@ -8,6 +8,7 @@ export { Row, Column } from './components/grid';
 export { Icon } from './components/icon';
 export { Label, LabelColors } from './components/label';
 export { Menu, MenuItem, MenuText, MenuAlignments } from './components/menu';
+export { Pagination, PaginationItem, PaginationPrevious, PaginationNext, PaginationEllipsis } from './components/pagination';
 export { Progress, ProgressMeter, ProgressMeterWithText, ProgressMeterText, NativeProgress } from './components/progress-bar';
 export { ResponsiveNavigation, TitleBar, MenuIcon, TitleBarTitle } from './components/responsive';
 export { Switch, SwitchInput, SwitchPaddle, SwitchActive, SwitchInactive, SwitchTypes, SwitchSizes } from './components/switch';
