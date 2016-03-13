@@ -53,6 +53,17 @@ Install library:
 npm install react-foundation --save
 ```
 
+## Usage
+
+```js
+import Foundation from 'react-foundation';
+
+// Use components ...
+```
+
+We are working on proper [documentation](https://github.com/nordsoftware/react-foundation-docs), in the meanwhile
+you can browse the code to get started.
+
 ## Compile
 
 Compile library to ES5:
