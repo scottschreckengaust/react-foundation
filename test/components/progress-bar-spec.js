@@ -62,9 +62,9 @@ describe('Progress component', () => {
 
   it('sets contents', () => {
     const renderer = createRenderer();
-    renderer.render(<Progress/>);
+    renderer.render(<Progress value={50}/>);
     const output = renderer.getRenderOutput();
-    expect(output).jsx.to.include(<ProgressMeter/>);
+    expect(output).jsx.to.include(<ProgressMeter style={{ width: '50%' }}/>);
   });
 
 });
