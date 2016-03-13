@@ -22,15 +22,15 @@ describe('Menu component', () => {
   });
 
   it('sets align right', () => {
-    const component = render(<Menu align={MenuAlignments.RIGHT}/>);
+    const component = render(<Menu alignment={MenuAlignments.RIGHT}/>);
     expect(component).to.have.className('align-right');
-    expect(component).to.not.have.attr('align');
+    expect(component).to.not.have.attr('alignment');
   });
 
   it('sets align center', () => {
-    const component = render(<Menu align={MenuAlignments.CENTER}/>);
+    const component = render(<Menu alignment={MenuAlignments.CENTER}/>);
     expect(component).to.have.className('align-center');
-    expect(component).to.not.have.attr('align');
+    expect(component).to.not.have.attr('alignment');
   });
 
   it('sets expanded', () => {
