@@ -29,6 +29,7 @@ All components are unit-tested to ensure their quality.
 Here is a list of the available components:
 
 - [Badge](src/components/badge.js)
+- [Breadcrumbs](src/components/breadcrumbs.js)
 - [Button](src/components/button.js)
 - [ButtonGroup](src/components/button-group.js)
 - [Callout](src/components/callout.js)
