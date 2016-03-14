@@ -36,7 +36,8 @@ export const Progress = props => {
   );
 
   if (props.value) {
-    meterProps.widthPercent = props.value;
+    meterProps.style = meterProps.style || {};
+    meterProps.style.width = `${props.value}%`;
   }
 
   return (

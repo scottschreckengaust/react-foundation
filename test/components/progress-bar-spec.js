@@ -64,7 +64,7 @@ describe('Progress component', () => {
     const renderer = createRenderer();
     renderer.render(<Progress value={50}/>);
     const output = renderer.getRenderOutput();
-    expect(output).jsx.to.include(<ProgressMeter widthPercent={50}/>);
+    expect(output).jsx.to.include(<ProgressMeter style={{ width: '50%' }}/>);
   });
 
 });
