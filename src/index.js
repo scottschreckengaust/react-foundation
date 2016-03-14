@@ -6,6 +6,7 @@ export { Callout, CalloutColors, CalloutSizes } from './components/callout';
 export { CloseButton } from './components/close-button';
 export { FlexVideo } from './components/flex-video';
 export { Row, Column } from './components/grid';
+export { Div, Span } from './components/html';
 export { Icon } from './components/icon';
 export { Label, LabelColors } from './components/label';
 export { MediaObject, MediaObjectSection, MediaObjectSectionAlignments } from './components/media-object';
