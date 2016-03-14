@@ -18,10 +18,10 @@ export const ProgressColors = {
  * @returns {XML}
  */
 export const Progress = props => {
-  check.assert.maybe.number(props.min, 'ProgressBar.props.min must be a number.');
-  check.assert.maybe.number(props.max, 'ProgressBar.props.max must be a number.');
-  check.assert.maybe.number(props.value, 'ProgressBar.props.value must be a number.');
-  check.assert.maybe.string(props.color, 'ProgressBar.props.color must be a string.');
+  check.assert.maybe.number(props.min, 'Progress.props.min must be a number.');
+  check.assert.maybe.number(props.max, 'Progress.props.max must be a number.');
+  check.assert.maybe.number(props.value, 'Progress.props.value must be a number.');
+  check.assert.maybe.string(props.color, 'Progress.props.color must be a string.');
 
   const { meter: meterProps = {} } = props;
 
