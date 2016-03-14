@@ -65,7 +65,8 @@ import Foundation from 'react-foundation';
 ```
 
 We are working on proper [documentation](https://github.com/nordsoftware/react-foundation-docs), in the meanwhile
-you can browse the code to get started.
+you can browse the code to get started. Or you can use our [React starter](https://github.com/nordsoftware/react-starter) template
+as a reference.
 
 ## Test
 
