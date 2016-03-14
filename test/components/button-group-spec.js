@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { ButtonGroup, ButtonGroupSizes, ButtonGroupColors } from 'components/button-group';
+import { ButtonGroup, ButtonGroupSizes, ButtonGroupColors } from 'src/components/button-group';
 
 describe('ButtonGroup component', () => {
 
@@ -46,21 +46,21 @@ describe('ButtonGroup component', () => {
   });
 
   it('sets stack on small', () => {
-    const component = render(<ButtonGroup stackOnSmall/>);
+    const component = render(<ButtonGroup stackedForSmall/>);
     expect(component).to.have.className('stacked-for-small');
-    expect(component).to.not.have.attr('stackOnSmall');
+    expect(component).to.not.have.attr('stackedForSmall');
   });
 
   it('sets stack on medium', () => {
-    const component = render(<ButtonGroup stackOnMedium/>);
+    const component = render(<ButtonGroup stackedForMedium/>);
     expect(component).to.have.className('stacked-for-medium');
-    expect(component).to.not.have.attr('stackOnMedium');
+    expect(component).to.not.have.attr('stackedForMedium');
   });
 
   it('sets stack on large', () => {
-    const component = render(<ButtonGroup stackOnLarge/>);
+    const component = render(<ButtonGroup stackedForLarge/>);
     expect(component).to.have.className('stacked-for-large');
-    expect(component).to.not.have.attr('stackOnLarge');
+    expect(component).to.not.have.attr('stackedForLarge');
   });
 
 });

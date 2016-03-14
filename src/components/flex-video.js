@@ -1,31 +1,29 @@
 import React from 'react';
 import check from 'check-types';
-import classNames from 'classnames';
-import { default as omit } from 'lodash.omit';
+import { createClassName, generalClassNames } from '../utils';
 
 /**
  * FlexVideo component.
  * http://foundation.zurb.com/sites/docs/flex-video.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const FlexVideo = props => {
-  check.assert.maybe.boolean(props.isWidescreen, 'FlexVideo.props.isWidescreen must be a boolean.');
-  check.assert.maybe.boolean(props.isVimeo, 'FlexVideo.props.isVimeo must be a boolean.');
+  check.assert.maybe.boolean(props.isWidescreen, 'Property "isWidescreen" must be a boolean.');
+  check.assert.maybe.boolean(props.isVimeo, 'Property "isVimeo" must be a boolean.');
 
-  const className = classNames(
+  const className = createClassName(
     props.className || 'flex-video',
     {
       widescreen: props.isWidescreen,
       vimeo: props.isVimeo
-    }
+    },
+    generalClassNames(props)
   );
 
-  const omitProps = ['isWidescreen', 'isVimeo'];
-
   return (
-    <div {...omit(props, omitProps)} className={className}></div>
+    <div {...props} className={className} />
   );
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import FlexVideo  from 'components/flex-video';
+import FlexVideo  from 'src/components/flex-video';
 
 describe('FlexVideo component', () => {
 

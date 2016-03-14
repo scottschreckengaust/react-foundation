@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import { createRenderer } from 'react-addons-test-utils';
 import { expect } from 'chai';
-import { Switch, SwitchInput, SwitchPaddle, SwitchActive, SwitchInactive } from 'components/switch';
+import { Switch, SwitchInput, SwitchPaddle, SwitchActive, SwitchInactive } from 'src/components/switch';
 
 describe('Switch component', () => {
 

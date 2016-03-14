@@ -87,8 +87,8 @@
         "babel-plugin-module-alias",
         [
           {
-            "src": "./src/components",
-            "expose": "components"
+            "src": "./src",
+            "expose": "src"
           }
         ]
       ]

@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Row, Column, RowHorizontalAlignments, RowVerticalAlignments } from 'components/grid';
+import { Row, Column } from 'src/components/grid';
+import { HorizontalAlignments, VerticalAlignments } from 'src/utils';
 
 describe('Row component', () => {
 
@@ -22,13 +23,13 @@ describe('Row component', () => {
   });
 
   it('sets horizontal alignment', () => {
-    const component = render(<Row horizontalAlignment={RowHorizontalAlignments.RIGHT}/>);
+    const component = render(<Row horizontalAlignment={HorizontalAlignments.RIGHT}/>);
     expect(component).to.have.className('align-right');
     expect(component).to.not.have.attr('horizontalAlignment');
   });
 
   it('sets vertical alignment', () => {
-    const component = render(<Row verticalAlignment={RowVerticalAlignments.TOP}/>);
+    const component = render(<Row verticalAlignment={VerticalAlignments.TOP}/>);
     expect(component).to.have.className('align-top');
     expect(component).to.not.have.attr('verticalAlignment');
   });

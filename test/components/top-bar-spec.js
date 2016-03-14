@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { TopBar, TopBarTitle, TopBarLeft, TopBarRight } from 'components/top-bar';
+import { TopBar, TopBarTitle, TopBarLeft, TopBarRight } from 'src/components/top-bar';
 
 describe('TopBar component', () => {
 

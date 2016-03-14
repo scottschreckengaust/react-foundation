@@ -1,12 +1,11 @@
 import React from 'react';
 import check from 'check-types';
-import classNames from 'classnames';
-import { default as omit } from 'lodash.omit';
+import { createClassName, generalClassNames, removeProps } from '../utils';
 
 /**
  * Label color enumerable.
  *
- * @type {Object}
+ * @type {{INFO: string, SECONDARY: string, SUCCESS: string, WARNING: string, ALERT: string}}
  */
 export const LabelColors = {
   INFO: 'info',
@@ -21,20 +20,19 @@ export const LabelColors = {
  * http://foundation.zurb.com/sites/docs/label.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const Label = props => {
-  check.assert.maybe.string(props.color, 'Label.props.color must be a string.');
+  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
 
-  const className = classNames(
+  const className = createClassName(
     props.className || 'label',
-    props.color
+    props.color,
+    generalClassNames(props)
   );
 
-  const omitProps = ['color'];
-
   return (
-    <span {...omit(props, omitProps)} className={className}/>
+    <span {...removeProps(props, ['color'])} className={className} />
   );
 };
 

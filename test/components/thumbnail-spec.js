@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import { expect } from 'chai';
-import { Thumbnail, ThumbnailLink } from 'components/thumbnail';
+import { Thumbnail, ThumbnailLink } from 'src/components/thumbnail';
 
 describe('Thumbnail component', () => {
 

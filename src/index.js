@@ -4,7 +4,6 @@ export { Button, Link, ButtonSizes, ButtonColors } from './components/button';
 export { ButtonGroup, ButtonGroupSizes, ButtonGroupColors } from './components/button-group';
 export { Callout, CalloutColors, CalloutSizes } from './components/callout';
 export { CloseButton } from './components/close-button';
-export { FlexHorizontalAlignments, FlexVerticalAlignments } from './components/flex';
 export { FlexVideo } from './components/flex-video';
 export { Row, Column } from './components/grid';
 export { Icon } from './components/icon';

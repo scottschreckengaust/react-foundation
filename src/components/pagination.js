@@ -1,29 +1,27 @@
 import React from 'react';
 import check from 'check-types';
-import classNames from 'classnames';
-import { default as omit } from 'lodash.omit';
+import { createClassName, generalClassNames } from '../utils';
 
 /**
  * Pagination component.
  * http://foundation.zurb.com/sites/docs/pagination.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const Pagination = props => {
-  check.assert.maybe.boolean(props.isCentered, 'Pagination.props.isCentered must be a boolean.');
+  check.assert.maybe.boolean(props.isCentered, 'Property "isCentered" must be a boolean.');
 
-  const className = classNames(
+  const className = createClassName(
     props.className || 'pagination',
     {
       'text-center': props.isCentered
-    }
+    },
+    generalClassNames(props)
   );
 
-  const omitProps = ['isCentered'];
-
   return (
-    <ul {...omit(props, omitProps)} className={className} role="navigation"/>
+    <ul {...props} className={className} role="navigation" />
   );
 };
 
@@ -31,24 +29,23 @@ export const Pagination = props => {
  * Pagination item component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const PaginationItem = props => {
-  check.assert.maybe.boolean(props.isCurrent, 'PaginationItem.props.isCurrent must be a boolean.');
-  check.assert.maybe.boolean(props.isDisabled, 'PaginationItem.props.isDisabled must be a boolean.');
+  check.assert.maybe.boolean(props.isCurrent, 'Property "isCurrent" must be a boolean.');
+  check.assert.maybe.boolean(props.isDisabled, 'Property "isDisabled" must be a boolean.');
 
-  const className = classNames(
+  const className = createClassName(
     props.className,
     {
       'current': props.isCurrent,
       'disabled': props.isDisabled
-    }
+    },
+    generalClassNames(props)
   );
 
-  const omitProps = ['isCurrent', 'isDisabled'];
-
   return (
-    <li {...omit(props, omitProps)} className={className}/>
+    <li {...props} className={className} />
   );
 };
 
@@ -56,30 +53,30 @@ export const PaginationItem = props => {
  * Pagination previous wrapper-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const PaginationPrevious = props => (
-  <PaginationItem {...props} className={props.className || 'pagination-previous'}/>
+  <PaginationItem {...props} className={props.className || 'pagination-previous'} />
 );
 
 /**
  * Pagination next wrapper-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const PaginationNext = props => (
-  <PaginationItem {...props} className={props.className || 'pagination-next'}/>
+  <PaginationItem {...props} className={props.className || 'pagination-next'} />
 );
 
 /**
  * Pagination ellipsis wrapper-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const PaginationEllipsis = props => (
-  <PaginationItem {...props} className={props.className || 'ellipsis'}/>
+  <PaginationItem {...props} className={props.className || 'ellipsis'} />
 );
 
 export default Pagination;

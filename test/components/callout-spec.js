@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Callout, CalloutColors, CalloutSizes } from 'components/callout';
+import { Callout, CalloutColors, CalloutSizes } from 'src/components/callout';
 
 describe('Callout component', () => {
 

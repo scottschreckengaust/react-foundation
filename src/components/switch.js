@@ -1,14 +1,13 @@
 import React from 'react';
 import check from 'check-types';
-import classNames from 'classnames';
-import { default as omit } from 'lodash.omit';
+import { createClassName, generalClassNames, removeProps } from '../utils';
 
 let currentId = 0;
 
 /**
  * Switch type enumerable.
  *
- * @type {Object}
+ * @type {{CHECKBOX: string, RADIO: string}}
  */
 export const SwitchTypes = {
   CHECKBOX: 'checkbox',
@@ -18,7 +17,7 @@ export const SwitchTypes = {
 /**
  * Switch size enumerable.
  *
- * @type {Object}
+ * @type {{TINY: string, SMALL: string, LARGE: string}}
  */
 export const SwitchSizes = {
   TINY: 'tiny',
@@ -31,24 +30,24 @@ export const SwitchSizes = {
  * http://foundation.zurb.com/sites/docs/switch.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const Switch = props => {
-  check.assert.maybe.string(props.size, 'Switch.props.size must be a string.');
-  check.assert.maybe.string(props.id, 'Switch.props.id must be a string.');
+  check.assert.maybe.string(props.size, 'Property "size" must be a string.');
+  check.assert.maybe.string(props.id, 'Property "id" must be a string.');
 
-  const className = classNames(
+  const className = createClassName(
     props.className || 'switch',
-    props.size
+    props.size,
+    generalClassNames(props)
   );
 
   const switchId = props.id || `switch${currentId++}`;
-  const omitProps = ['id', 'size', 'input', 'paddle'];
 
   // TODO: Consider refactoring this, the rendering a little bit messy...
 
   return (
-    <div {...omit(props, omitProps)} className={className}>
+    <div {...removeProps(props, ['id'])} className={className}>
       <SwitchInput {...props.input} id={switchId}/>
       <SwitchPaddle {...props.paddle} htmlFor={switchId}>
         {props.active ? <SwitchActive {...props.active}/> : null}
@@ -62,15 +61,15 @@ export const Switch = props => {
  * Switch input sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const SwitchInput = props => {
-  check.assert.maybe.string(props.type, 'SwitchInput.props.type must be a string.');
-
-  const omitProps = ['type'];
+  check.assert.maybe.string(props.type, 'Property "type" must be a string.');
 
   return (
-    <input {...omit(props, omitProps)} className={props.className || 'switch-input'} type={props.type || SwitchTypes.CHECKBOX}/>
+    <input {...removeProps(props, ['type'])}
+      className={props.className || 'switch-input'}
+      type={props.type || SwitchTypes.CHECKBOX} />
   );
 };
 
@@ -78,17 +77,17 @@ export const SwitchInput = props => {
  * Switch paddle sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const SwitchPaddle = props => (
-  <label {...props} className={props.className || 'switch-paddle'}/>
+  <label {...props} className={props.className || 'switch-paddle'} />
 );
 
 /**
  * Switch active sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const SwitchActive = props => (
   <span {...props} className={props.className || 'switch-active'} aria-hidden="true">
@@ -100,7 +99,7 @@ export const SwitchActive = props => (
  * Switch inactive sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const SwitchInactive = props => (
   <span {...props} className={props.className || 'switch-inactive'} aria-hidden="true">
