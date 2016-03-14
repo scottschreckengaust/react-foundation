@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { MediaObject, MediaObjectSection, MediaObjectSectionAlignments } from 'components/media-object';
+import { MediaObject, MediaObjectSection } from 'src/components/media-object';
+import { HorizontalAlignments } from 'src/utils';
 
 describe('MediaObject component', () => {
 
@@ -21,10 +22,10 @@ describe('MediaObject component', () => {
     expect(component).to.not.have.className('media-object');
   });
 
-  it('sets stack on small', () => {
-    const component = render(<MediaObject stackOnSmall/>);
+  it('sets stack for small', () => {
+    const component = render(<MediaObject stackForSmall/>);
     expect(component).to.have.className('stack-for-small');
-    expect(component).to.not.have.attr('stackOnSmall');
+    expect(component).to.not.have.attr('stackForSmall');
   });
 
 });
@@ -59,8 +60,14 @@ describe('MediaObjectSection component', () => {
     expect(component).to.not.have.attr('isMiddle');
   });
 
+  it('sets bottom', () => {
+    const component = render(<MediaObjectSection isBottom/>);
+    expect(component).to.have.className('bottom');
+    expect(component).to.not.have.attr('isBottom');
+  });
+
   it('sets alignment', () => {
-    const component = render(<MediaObjectSection alignment={MediaObjectSectionAlignments.CENTER}/>);
+    const component = render(<MediaObjectSection alignment={HorizontalAlignments.CENTER}/>);
     expect(component).to.have.className('align-self-center');
     expect(component).to.not.have.attr('alignment');
   });

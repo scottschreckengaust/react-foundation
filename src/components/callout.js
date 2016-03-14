@@ -1,12 +1,11 @@
 import React from 'react';
 import check from 'check-types';
-import classNames from 'classnames';
-import { default as omit } from 'lodash.omit';
+import { createClassName, generalClassNames, removeProps } from '../utils';
 
 /**
  * Callout color enumerable.
  *
- * @type {Object}
+ * @type {{PRIMARY: string, SECONDARY: string, SUCCESS: string, WARNING: string, ALERT: string}}
  */
 export const CalloutColors = {
   PRIMARY: 'primary',
@@ -19,7 +18,7 @@ export const CalloutColors = {
 /**
  * Callout size enumerable.
  *
- * @type {Object}
+ * @type {{SMALL: string, LARGE: string}}
  */
 export const CalloutSizes = {
   SMALL: 'small',
@@ -31,22 +30,21 @@ export const CalloutSizes = {
  * http://foundation.zurb.com/sites/docs/callout.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const Callout = props => {
-  check.assert.maybe.string(props.color, 'Callout.props.color must be a string.');
-  check.assert.maybe.string(props.size, 'Callout.props.size must be a string.');
+  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
+  check.assert.maybe.string(props.size, 'Property "size" must be a string.');
 
-  const className = classNames(
+  const className = createClassName(
     props.className || 'callout',
     props.color,
-    props.size
+    props.size,
+    generalClassNames(props)
   );
 
-  const omitProps = ['color', 'size'];
-
   return (
-    <div {...omit(props, omitProps)} className={className}></div>
+    <div {...removeProps(props, ['color'])} className={className} />
   );
 };
 

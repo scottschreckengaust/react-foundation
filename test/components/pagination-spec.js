@@ -6,7 +6,7 @@ import Pagination, {
   PaginationPrevious,
   PaginationNext,
   PaginationEllipsis
-} from 'components/pagination';
+} from 'src/components/pagination';
 
 describe('Pagination component', () => {
 

@@ -1,6 +1,6 @@
 {
   "name": "react-foundation",
-  "version": "0.1.12",
+  "version": "0.2.0",
   "description": "Foundation as React components.",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
@@ -31,6 +31,7 @@
     "grid",
     "icon",
     "label",
+    "media-object",
     "menu",
     "progress-bar",
     "responsive",
@@ -86,8 +87,8 @@
         "babel-plugin-module-alias",
         [
           {
-            "src": "./src/components",
-            "expose": "components"
+            "src": "./src",
+            "expose": "src"
           }
         ]
       ]

@@ -1,12 +1,11 @@
 import React from 'react';
 import check from 'check-types';
-import classNames from 'classnames';
-import { default as omit } from 'lodash.omit';
+import { createClassName, generalClassNames, removeProps } from '../utils';
 
 /**
  * Button size enumerable.
  *
- * @type {Object}
+ * @type {{TINY: string, SMALL: string, LARGE: string}}
  */
 export const ButtonSizes = {
   TINY: 'tiny',
@@ -17,7 +16,7 @@ export const ButtonSizes = {
 /**
  * Button color enumerable.
  *
- * @type {Object}
+ * @type {{PRIMARY: string, SECONDARY: string, SUCCESS: string, ALERT: string, WARNING: string}}
  */
 export const ButtonColors = {
   PRIMARY: 'primary',
@@ -27,25 +26,15 @@ export const ButtonColors = {
   WARNING: 'warning'
 };
 
-const omitProps = [
-  'color',
-  'size',
-  'isHollow',
-  'isExpanded',
-  'isDisabled',
-  'isDropdown',
-  'isArrowOnly'
-];
-
 /**
  * Button component.
  * http://foundation.zurb.com/sites/docs/button.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const Button = props => (
-  <button {...omit(props, omitProps)} className={classNameFromProps(props)}/>
+  <button {...removeProps(props, ['color'])} className={createButtonClassName(props)} />
 );
 
 /**
@@ -53,10 +42,10 @@ export const Button = props => (
  * http://foundation.zurb.com/sites/docs/button.html#basics
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const Link = props => (
-  <a {...omit(props, omitProps)} className={classNameFromProps(props)}/>
+  <a {...removeProps(props, ['color'])} className={createButtonClassName(props)} />
 );
 
 /**
@@ -66,16 +55,16 @@ export const Link = props => (
  * @param {Object} props
  * @returns {string}
  */
-function classNameFromProps(props) {
+function createButtonClassName(props) {
   // TODO: Consider validating both size and color values.
-  check.assert.maybe.string(props.size, 'Button.props.size must be a string.');
-  check.assert.maybe.string(props.color, 'Button.props.color must be a string.');
-  check.assert.maybe.boolean(props.isHollow, 'Button.props.isHollow must be a boolean.');
-  check.assert.maybe.boolean(props.isExpanded, 'Button.props.isExpanded must be a boolean.');
-  check.assert.maybe.boolean(props.isDisabled, 'Button.props.isDisabled must be a boolean.');
-  check.assert.maybe.boolean(props.isDropdown, 'Button.props.isDropdown must be a boolean.');
+  check.assert.maybe.string(props.size, 'Property "size" must be a string.');
+  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
+  check.assert.maybe.boolean(props.isHollow, 'Property "isHollow" must be a boolean.');
+  check.assert.maybe.boolean(props.isExpanded, 'Property "isExpanded" must be a boolean.');
+  check.assert.maybe.boolean(props.isDisabled, 'Property "isDisabled" must be a boolean.');
+  check.assert.maybe.boolean(props.isDropdown, 'Property "isDropdown" must be a boolean.');
 
-  return classNames(
+  return createClassName(
     props.className || 'button',
     props.size,
     props.color,
@@ -85,7 +74,8 @@ function classNameFromProps(props) {
       'disabled': props.isDisabled,
       'dropdown': props.isDropdown,
       'arrow-only': props.isArrowOnly
-    }
+    },
+    generalClassNames(props)
   );
 }
 

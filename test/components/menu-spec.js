@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Menu, MenuItem, MenuText, MenuAlignments } from 'components/menu';
+import { Menu, MenuItem, MenuText, MenuAlignments } from 'src/components/menu';
 
 describe('Menu component', () => {
 

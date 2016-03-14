@@ -1,8 +1,12 @@
 import React from 'react';
 import check from 'check-types';
-import classNames from 'classnames';
-import { default as omit } from 'lodash.omit';
+import { createClassName, generalClassNames, removeProps } from '../utils';
 
+/**
+ * Progress colors enumerable.
+ *
+ * @type {{SECONDARY: string, SUCCESS: string, WARNING: string, ALERT: string}}
+ */
 export const ProgressColors = {
   SECONDARY: 'secondary',
   SUCCESS: 'success',
@@ -15,43 +19,35 @@ export const ProgressColors = {
  * http://foundation.zurb.com/sites/docs/progress-bar.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const Progress = props => {
-  check.assert.maybe.number(props.min, 'Progress.props.min must be a number.');
-  check.assert.maybe.number(props.max, 'Progress.props.max must be a number.');
-  check.assert.maybe.number(props.value, 'Progress.props.value must be a number.');
-  check.assert.maybe.string(props.color, 'Progress.props.color must be a string.');
+  check.assert.maybe.number(props.min, 'Property "min" must be a number.');
+  check.assert.maybe.number(props.max, 'Property "max" must be a number.');
+  check.assert.maybe.number(props.value, 'Property "value" must be a number.');
+  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
 
   const { meter: meterProps = {} } = props;
 
-  const className = classNames(
+  const className = createClassName(
     props.className || 'progress',
-    props.color
+    props.color,
+    generalClassNames(props)
   );
-
-  const omitProps = [
-    'min',
-    'max',
-    'value',
-    'valueText',
-    'color',
-    'meter'
-  ];
 
   if (props.value) {
     meterProps.widthPercent = props.value;
   }
 
   return (
-    <div {...omit(props, omitProps)}
+    <div {...removeProps(props, ['color', 'value'])}
       className={className}
       role="progressbar"
       aria-valuemin={props.min}
       aria-valuemax={props.max}
       aria-valuenow={props.value}
       aria-valuetext={props.valueText}>
-      {meterProps.text ? <ProgressMeterWithText {...meterProps}/> : <ProgressMeter {...meterProps}/>}
+      {meterProps.text ? <ProgressMeterWithText {...meterProps} /> : <ProgressMeter {...meterProps} />}
     </div>
   );
 };
@@ -60,17 +56,17 @@ export const Progress = props => {
  * Progress meter sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const ProgressMeter = props => (
-  <div {...props} className={props.className || 'progress-meter'}></div>
+  <div {...props} className={props.className || 'progress-meter'} />
 );
 
 /**
  * Progress meter with text sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const ProgressMeterWithText = props => (
   <span {...props} className={props.className || 'progress-meter'}>
@@ -82,10 +78,10 @@ export const ProgressMeterWithText = props => (
  * Progress meter text sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const ProgressMeterText = props => (
-  <p {...props} className={props.className || 'progress-meter-text'}/>
+  <p {...props} className={props.className || 'progress-meter-text'} />
 );
 
 /**
@@ -93,19 +89,17 @@ export const ProgressMeterText = props => (
  * http://foundation.zurb.com/sites/docs/progress-bar.html#native-progress
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const NativeProgress = props => {
-  check.assert.maybe.number(props.max, 'ProgressBar.props.max must be a number.');
-  check.assert.maybe.number(props.value, 'ProgressBar.props.value must be a number.');
-  check.assert.maybe.string(props.color, 'ProgressBar.props.color must be a string.');
+  check.assert.maybe.number(props.max, 'Property "max" must be a number.');
+  check.assert.maybe.number(props.value, 'Property "value" must be a number.');
+  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
 
-  const className = classNames(props.className, props.color);
-
-  const omitProps = ['color'];
+  const className = createClassName(props.className, props.color, generalClassNames(props));
 
   return (
-    <progress {...omit(props, omitProps)} className={className}/>
+    <progress {...removeProps(props, ['color'])} className={className} />
   );
 };
 

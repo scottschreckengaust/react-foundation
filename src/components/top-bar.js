@@ -1,43 +1,43 @@
 import React from 'react';
-import { Hideable } from './utils';
+import { createClassName, generalClassNames } from '../utils';
 
 /**
  * Top bar component.
  * http://foundation.zurb.com/sites/docs/top-bar.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const TopBar = props => (
-  <Hideable {...props} className={props.className || 'top-bar'}/>
+  <div {...props} className={createClassName(props.className || 'top-bar', generalClassNames(props))} />
 );
 
 /**
  * Top bar title sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const TopBarTitle = props => (
-  <div {...props} className={props.className || 'top-bar-title'}></div>
+  <div {...props} className={createClassName(props.className || 'top-bar-title', generalClassNames(props))} />
 );
 
 /**
  * Top bar left sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const TopBarLeft = props => (
-  <div {...props} className={props.className || 'top-bar-left'}></div>
+  <div {...props} className={createClassName(props.className || 'top-bar-left', generalClassNames(props))} />
 );
 
 /**
  * Top bar right sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const TopBarRight = props => (
-  <div {...props} className={props.className || 'top-bar-right'}></div>
+  <div {...props} className={createClassName(props.className || 'top-bar-right', generalClassNames(props))} />
 );

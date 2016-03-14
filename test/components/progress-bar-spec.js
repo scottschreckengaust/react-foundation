@@ -9,7 +9,7 @@ import {
   ProgressMeterText,
   NativeProgress,
   ProgressColors
-} from 'components/progress-bar';
+} from 'src/components/progress-bar';
 
 describe('Progress component', () => {
 

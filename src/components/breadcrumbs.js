@@ -1,39 +1,41 @@
 import React from 'react';
 import check from 'check-types';
-import classNames from 'classnames';
-import { default as omit } from 'lodash.omit';
+import { createClassName, generalClassNames } from '../utils';
 
 /**
  * Breadcrumbs component.
  * http://foundation.zurb.com/sites/docs/breadcrumbs.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
-export const Breadcrumbs = props => (
-  <ul {...props} className={props.className || 'breadcrumbs'}/>
-);
+export const Breadcrumbs = props => {
+  const className = createClassName(props.className || 'breadcrumbs', generalClassNames(props));
+
+  return (
+    <ul {...props} className={className} />
+  );
+};
 
 /**
  * Breadcrumb item component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const BreadcrumbItem = props => {
-  check.assert.maybe.boolean(props.isDisabled, 'BreadcrumbItem.props.isDisabled must be a boolean.');
+  check.assert.maybe.boolean(props.isDisabled, 'Property "isDisabled" must be a boolean.');
 
-  const className = classNames(
+  const className = createClassName(
     props.className,
     {
       'disabled': props.isDisabled
-    }
+    },
+    generalClassNames(props)
   );
 
-  const omitProps = ['isDisabled'];
-
   return (
-    <li {...omit(props, omitProps)} className={className}/>
+    <li {...props} className={className} />
   );
 };
 

@@ -3,9 +3,8 @@ import { createRenderer } from 'react-addons-test-utils';
 import { mount, render } from 'enzyme';
 import { expect } from 'chai';
 import { spy } from 'sinon';
-import { ResponsiveNavigation, TitleBar, MenuIcon, TitleBarTitle } from 'components/responsive';
-import { TopBar } from 'components/top-bar';
-import { Hideable } from 'components/utils';
+import { ResponsiveNavigation, TitleBar, MenuIcon, TitleBarTitle } from 'src/components/responsive';
+import { TopBar } from 'src/components/top-bar';
 
 describe('ResponsiveNavigation component', () => {
 
@@ -54,7 +53,7 @@ describe('ResponsiveNavigation component', () => {
     const renderer = createRenderer();
     renderer.render(<ResponsiveNavigation/>);
     const output = renderer.getRenderOutput();
-    expect(output).jsx.to.equal(<div><TitleBar isVisible={false}><MenuIcon onClick={() => {}}/><TitleBarTitle/></TitleBar><TopBar isVisible={true}/></div>);
+    expect(output).jsx.to.equal(<div><TitleBar isHidden={true}><MenuIcon onClick={() => {}}/><TitleBarTitle/></TitleBar><TopBar isHidden={false}/></div>);
   });
 
   it('passes on props', () => {

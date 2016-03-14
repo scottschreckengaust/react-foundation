@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Badge, BadgeColors } from 'components/badge';
+import { Badge, BadgeColors } from 'src/components/badge';
 
 describe('Badge component', () => {
 

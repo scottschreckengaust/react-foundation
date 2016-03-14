@@ -1,12 +1,11 @@
 import React from 'react';
 import check from 'check-types';
-import classNames from 'classnames';
-import { default as omit } from 'lodash.omit';
+import { createClassName, generalClassNames } from '../utils';
 
 /**
  * Menu alignment enumerable.
  *
- * @type {Object}
+ * @type {{RIGHT: string, CENTER: string}}
  */
 export const MenuAlignments = {
   RIGHT: 'right',
@@ -18,17 +17,17 @@ export const MenuAlignments = {
  * http://foundation.zurb.com/sites/docs/menu.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const Menu = props => {
-  check.assert.maybe.string(props.alignment, 'Menu.props.alignment must be a string.');
-  check.assert.maybe.boolean(props.iconsOnTop, 'Menu.props.iconsOnTop must be a boolean.');
-  check.assert.maybe.boolean(props.isExpanded, 'Menu.props.isExpanded must be a boolean.');
-  check.assert.maybe.boolean(props.isVertical, 'Menu.props.isVertical must be a boolean.');
-  check.assert.maybe.boolean(props.isSimple, 'Menu.props.isSimple must be a boolean.');
-  check.assert.maybe.boolean(props.isNested, 'Menu.props.isNested must be a boolean.');
+  check.assert.maybe.string(props.alignment, 'Property "alignment" must be a string.');
+  check.assert.maybe.boolean(props.iconsOnTop, 'Property "iconsOnTop" must be a boolean.');
+  check.assert.maybe.boolean(props.isExpanded, 'Property "isExpanded" must be a boolean.');
+  check.assert.maybe.boolean(props.isVertical, 'Property "isVertical" must be a boolean.');
+  check.assert.maybe.boolean(props.isSimple, 'Property "isSimple" must be a boolean.');
+  check.assert.maybe.boolean(props.isNested, 'Property "isNested" must be a boolean.');
 
-  const className = classNames(
+  const className = createClassName(
     props.className || 'menu',
     {
       'align-right': props.alignment === MenuAlignments.RIGHT,
@@ -38,20 +37,12 @@ export const Menu = props => {
       'vertical': props.isVertical,
       'simple': props.isSimple,
       'nested': props.isNested
-    }
+    },
+    generalClassNames(props)
   );
 
-  const omitProps = [
-    'alignment',
-    'iconsOnTop',
-    'isExpanded',
-    'isVertical',
-    'isSimple',
-    'isNested'
-  ];
-
   return (
-    <ul {...omit(props, omitProps)} className={className}/>
+    <ul {...props} className={className} />
   );
 };
 
@@ -59,22 +50,21 @@ export const Menu = props => {
  * Menu item component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const MenuItem = props => {
-  check.assert.maybe.boolean(props.isActive, 'MenuItem.props.isActive must be a boolean.');
+  check.assert.maybe.boolean(props.isActive, 'Property "isActive" must be a boolean.');
 
-  const className = classNames(
+  const className = createClassName(
     props.className,
     {
       'active': props.isActive
-    }
+    },
+    generalClassNames(props)
   );
 
-  const omitProps = ['isActive'];
-
   return (
-    <li {...omit(props, omitProps)} className={className}/>
+    <li {...props} className={className} />
   );
 };
 
@@ -85,7 +75,7 @@ export const MenuItem = props => {
  * @returns {XML}
  */
 export const MenuText = props => (
-  <MenuItem {...props} className={props.className || 'menu-text'}/>
+  <MenuItem {...props} className={props.className || 'menu-text'} />
 );
 
 export default Menu;

@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { default as omit } from 'lodash.omit';
 import { TopBar } from './top-bar';
-import { Hideable } from './utils';
+import { createClassName, generalClassNames, removeProps } from '../utils';
 
 // Default pixel value when title bar is displayed and top bar is hidden.
 const DEFAULT_BREAKPOINT = 640;
@@ -69,21 +68,13 @@ export class ResponsiveNavigation extends Component {
       children
     } = this.props;
 
-    const omitProps = [
-      'breakpoint',
-      'titleBar',
-      'menuIcon',
-      'titleBarTitle',
-      'topBar'
-    ];
-
     return (
-      <div {...omit(this.props, omitProps)}>
-        <TitleBar {...titleBarProps} isVisible={isTitleBarVisible}>
+      <div {...removeProps(this.props, ['breakpoint'])}>
+        <TitleBar {...titleBarProps} isHidden={!isTitleBarVisible}>
           <MenuIcon {...menuIconProps} onClick={this.toggle.bind(this)}/>
           <TitleBarTitle {...titleBarTitleProps}/>
         </TitleBar>
-        <TopBar {...topBarProps} isVisible={isTopBarVisible}>
+        <TopBar {...topBarProps} isHidden={!isTopBarVisible}>
           {children}
         </TopBar>
       </div>
@@ -106,7 +97,7 @@ ResponsiveNavigation.defaultProps = {
  * @returns {XML}
  */
 export const TitleBar = props => (
-  <Hideable {...props} className={props.className || 'title-bar'}/>
+  <div {...props} className={createClassName(props.className || 'title-bar', generalClassNames(props))} />
 );
 
 /**
@@ -116,7 +107,7 @@ export const TitleBar = props => (
  * @returns {XML}
  */
 export const MenuIcon = props => (
-  <button {...props} className={props.className || 'menu-icon'} type="button"/>
+  <button {...props} className={createClassName(props.className || 'menu-icon', generalClassNames(props))} type="button" />
 );
 
 /**
@@ -126,7 +117,7 @@ export const MenuIcon = props => (
  * @returns {XML}
  */
 export const TitleBarTitle = props => (
-  <div {...props} className={props.className || 'title-bar-title'}></div>
+  <div {...props} className={createClassName(props.className || 'title-bar-title', generalClassNames(props))} />
 );
 
 export default ResponsiveNavigation;

@@ -1,14 +1,15 @@
 import React from 'react';
+import { createClassName, generalClassNames } from '../utils';
 
 /**
  * Thumbnail component.
  * http://foundation.zurb.com/sites/docs/switch.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const Thumbnail = props => (
-  <img {...props} className={props.className || 'thumbnail'}/>
+  <img {...props} className={createClassName(props.className || 'thumbnail', generalClassNames(props))} />
 );
 
 /**
@@ -16,10 +17,10 @@ export const Thumbnail = props => (
  * http://foundation.zurb.com/sites/docs/switch.html
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const ThumbnailLink = props => (
-  <a className={props.className || 'thumbnail'}>
+  <a className={createClassName(props.className || 'thumbnail', generalClassNames(props))}>
     <img {...props}/>
   </a>
 );

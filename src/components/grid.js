@@ -1,79 +1,45 @@
 import React from 'react';
 import check from 'check-types';
-import classNames from 'classnames';
 import { default as has } from 'lodash.has';
-import { default as omit } from 'lodash.omit';
-
-/**
- * Row horizontal alignments enumerable.
- *
- * @type {Object}
- */
-export const RowHorizontalAlignments = {
-  RIGHT: 'right',
-  CENTER: 'center',
-  JUSTIFY: 'justify',
-  SPACED: 'spaced'
-};
-
-/**
- * Row vertical alignments enumerable.
- *
- * @type {Object}
- */
-export const RowVerticalAlignments = {
-  TOP: 'top',
-  MIDDLE: 'middle',
-  BOTTOM: 'bottom',
-  STRETCH: 'stretch'
-};
+import { HorizontalAlignments, VerticalAlignments, createClassName, generalClassNames, removeProps } from '../utils';
 
 /**
  * Row component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const Row = props => {
-  check.assert.maybe.string(props.horizontalAlignment, 'Row.props.horizontalAlignment must be a string.');
-  check.assert.maybe.string(props.verticalAlignment, 'Row.props.verticalAlignment must be a string.');
-  check.assert.maybe.boolean(props.unstackOnSmall, 'Row.props.unstackOnSmall must be a boolean.');
-  check.assert.maybe.boolean(props.unstackOnMedium, 'Row.props.unstackOnMedium must be a boolean.');
-  check.assert.maybe.boolean(props.unstackOnLarge, 'Row.props.unstackOnLarge must be a boolean.');
-  check.assert.maybe.boolean(props.isColumn, 'Row.props.isColumn must be a boolean.');
-  check.assert.maybe.boolean(props.isExpanded, 'Row.props.isExpanded must be a boolean.');
+  check.assert.maybe.string(props.horizontalAlignment, 'Property "horizontalAlignment" must be a string.');
+  check.assert.maybe.string(props.verticalAlignment, 'Property "verticalAlignment" must be a string.');
+  check.assert.maybe.boolean(props.unstackOnSmall, 'Property "unstackOnSmall" must be a boolean.');
+  check.assert.maybe.boolean(props.unstackOnMedium, 'Property "unstackOnMedium" must be a boolean.');
+  check.assert.maybe.boolean(props.unstackOnLarge, 'Property "unstackOnLarge" must be a boolean.');
+  check.assert.maybe.boolean(props.isColumn, 'Property "isColumn" must be a boolean.');
+  check.assert.maybe.boolean(props.isExpanded, 'Property "isExpanded" must be a boolean.');
 
-  const className = classNames(
+  const className = createClassName(
     props.className || 'row',
     {
-      'align-right': props.horizontalAlignment === RowHorizontalAlignments.RIGHT,
-      'align-center': props.horizontalAlignment === RowHorizontalAlignments.CENTER,
-      'align-justify': props.horizontalAlignment === RowHorizontalAlignments.JUSTIFY,
-      'align-spaced': props.horizontalAlignment === RowHorizontalAlignments.SPACED,
-      'align-top': props.verticalAlignment === RowVerticalAlignments.TOP,
-      'align-middle': props.verticalAlignment === RowVerticalAlignments.MIDDLE,
-      'align-bottom': props.verticalAlignment === RowVerticalAlignments.BOTTOM,
-      'align-stretch': props.verticalAlignment === RowVerticalAlignments.STRETCH,
+      'align-right': props.horizontalAlignment === HorizontalAlignments.RIGHT,
+      'align-center': props.horizontalAlignment === HorizontalAlignments.CENTER,
+      'align-justify': props.horizontalAlignment === HorizontalAlignments.JUSTIFY,
+      'align-spaced': props.horizontalAlignment === HorizontalAlignments.SPACED,
+      'align-top': props.verticalAlignment === VerticalAlignments.TOP,
+      'align-middle': props.verticalAlignment === VerticalAlignments.MIDDLE,
+      'align-bottom': props.verticalAlignment === VerticalAlignments.BOTTOM,
+      'align-stretch': props.verticalAlignment === VerticalAlignments.STRETCH,
       'small-unstack': props.unstackOnSmall,
       'medium-unstack': props.unstackOnMedium,
       'large-unstack': props.unstackOnLarge,
       'column': props.isColumn,
       'expanded': props.isExpanded
-    }
+    },
+    generalClassNames(props)
   );
 
-  const omitProps = [
-    'horizontalAlignment',
-    'verticalAlignment',
-    'unstackOnSmall',
-    'unstackOnMedium',
-    'unstackOnLarge',
-    'column',
-    'isExpanded'
-  ];
-
   return (
-    <div {...omit(props, omitProps)} className={className}></div>
+    <div {...props} className={className} />
   );
 };
 
@@ -81,36 +47,36 @@ export const Row = props => {
  * Column component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
 export const Column = props => {
-  check.assert.maybe.number(props.small, 'Column.props.small must be a number.');
-  check.assert.maybe.number(props.medium, 'Column.props.medium must be a number.');
-  check.assert.maybe.number(props.large, 'Column.props.large must be a number.');
-  check.assert.maybe.object(props.offset, 'Column.props.offset must be an object.');
-  check.assert.maybe.object(props.push, 'Column.props.push must be an object.');
-  check.assert.maybe.object(props.pull, 'Column.props.pull must be an object.');
-  check.assert.maybe.object(props.up, 'Column.props.up must be an object.');
-  check.assert.maybe.object(props.order, 'Column.props.order must be an object.');
-  check.assert.maybe.boolean(props.collapseOnSmall, 'Column.props.collapseOnSmall must be a boolean.');
-  check.assert.maybe.boolean(props.collapseOnMedium, 'Column.props.collapseOnMedium must be a boolean.');
-  check.assert.maybe.boolean(props.collapseOnLarge, 'Column.props.collapseOnLarge must be a boolean.');
-  check.assert.maybe.boolean(props.uncollapseOnSmall, 'Column.props.uncollapseOnSmall must be a boolean.');
-  check.assert.maybe.boolean(props.uncollapseOnMedium, 'Column.props.uncollapseOnMedium must be a boolean.');
-  check.assert.maybe.boolean(props.uncollapseOnLarge, 'Column.props.uncollapseOnLarge must be a boolean.');
-  check.assert.maybe.boolean(props.centerOnSmall, 'Column.props.centerOnSmall must be a boolean.');
-  check.assert.maybe.boolean(props.centerOnMedium, 'Column.props.centerOnMedium must be a boolean.');
-  check.assert.maybe.boolean(props.centerOnLarge, 'Column.props.centerOnLarge must be a boolean.');
-  check.assert.maybe.boolean(props.uncenterOnSmall, 'Column.props.uncenterOnSmall must be a boolean.');
-  check.assert.maybe.boolean(props.uncenterOnMedium, 'Column.props.uncenterOnMedium must be a boolean.');
-  check.assert.maybe.boolean(props.uncenterOnLarge, 'Column.props.uncenterOnLarge must be a boolean.');
-  check.assert.maybe.boolean(props.expandOnSmall, 'Column.props.expandOnSmall must be a boolean.');
-  check.assert.maybe.boolean(props.expandOnMedium, 'Column.props.expandOnMedium must be a boolean.');
-  check.assert.maybe.boolean(props.expandOnLarge, 'Column.props.expandOnLarge must be a boolean.');
-  check.assert.maybe.boolean(props.shrink, 'Column.props.shrink must be a boolean.');
-  check.assert.maybe.boolean(props.isLast, 'Column.props.isLast must be a boolean.');
+  check.assert.maybe.number(props.small, 'Property "small" must be a number.');
+  check.assert.maybe.number(props.medium, 'Property "medium" must be a number.');
+  check.assert.maybe.number(props.large, 'Property "large" must be a number.');
+  check.assert.maybe.object(props.offset, 'Property "offset" must be an object.');
+  check.assert.maybe.object(props.push, 'Property "push" must be an object.');
+  check.assert.maybe.object(props.pull, 'Property "pull" must be an object.');
+  check.assert.maybe.object(props.up, 'Property "up" must be an object.');
+  check.assert.maybe.object(props.order, 'Property "order" must be an object.');
+  check.assert.maybe.boolean(props.collapseOnSmall, 'Property "collapseOnSmall" must be a boolean.');
+  check.assert.maybe.boolean(props.collapseOnMedium, 'Property "collapseOnMedium" must be a boolean.');
+  check.assert.maybe.boolean(props.collapseOnLarge, 'Property "collapseOnLarge" must be a boolean.');
+  check.assert.maybe.boolean(props.uncollapseOnSmall, 'Property "uncollapseOnSmall" must be a boolean.');
+  check.assert.maybe.boolean(props.uncollapseOnMedium, 'Property "uncollapseOnMedium" must be a boolean.');
+  check.assert.maybe.boolean(props.uncollapseOnLarge, 'Property "uncollapseOnLarge" must be a boolean.');
+  check.assert.maybe.boolean(props.centerOnSmall, 'Property "centerOnSmall" must be a boolean.');
+  check.assert.maybe.boolean(props.centerOnMedium, 'Property "centerOnMedium" must be a boolean.');
+  check.assert.maybe.boolean(props.centerOnLarge, 'Property "centerOnLarge" must be a boolean.');
+  check.assert.maybe.boolean(props.uncenterOnSmall, 'Property "uncenterOnSmall" must be a boolean.');
+  check.assert.maybe.boolean(props.uncenterOnMedium, 'Property "uncenterOnMedium" must be a boolean.');
+  check.assert.maybe.boolean(props.uncenterOnLarge, 'Property "uncenterOnLarge" must be a boolean.');
+  check.assert.maybe.boolean(props.expandOnSmall, 'Property "expandOnSmall" must be a boolean.');
+  check.assert.maybe.boolean(props.expandOnMedium, 'Property "expandOnMedium" must be a boolean.');
+  check.assert.maybe.boolean(props.expandOnLarge, 'Property "expandOnLarge" must be a boolean.');
+  check.assert.maybe.boolean(props.shrink, 'Property "shrink" must be a boolean.');
+  check.assert.maybe.boolean(props.isLast, 'Property "isLast" must be a boolean.');
 
-  const className = classNames(
+  const className = createClassName(
     props.className || 'columns',
     props.small ? `small-${props.small}` : null,
     props.medium ? `medium-${props.medium}` : null,
@@ -148,38 +114,11 @@ export const Column = props => {
       'large-expand': props.expandOnLarge,
       'shrink': props.shrink,
       'end': props.isLast
-    }
+    },
+    generalClassNames(props)
   );
 
-  const omitProps = [
-    'small',
-    'medium',
-    'large',
-    'offset',
-    'push',
-    'pull',
-    'up',
-    'order',
-    'collapseOnSmall',
-    'collapseOnMedium',
-    'collapseOnLarge',
-    'uncollapseOnSmall',
-    'uncollapseOnMedium',
-    'uncollapseOnLarge',
-    'centerOnSmall',
-    'centerOnMedium',
-    'centerOnLarge',
-    'uncenterOnSmall',
-    'uncenterOnMedium',
-    'uncenterOnLarge',
-    'expandOnSmall',
-    'expandOnMedium',
-    'expandOnLarge',
-    'shrink',
-    'isLast'
-  ];
-
   return (
-    <div {...omit(props, omitProps)} className={className}></div>
+    <div {...removeProps(props, ['offset'])} className={className} />
   );
 };
