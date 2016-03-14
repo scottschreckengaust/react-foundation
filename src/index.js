@@ -8,6 +8,7 @@ export { FlexVideo } from './components/flex-video';
 export { Row, Column } from './components/grid';
 export { Icon } from './components/icon';
 export { Label, LabelColors } from './components/label';
+export { MediaObject, MediaObjectSection, MediaObjectSectionAlignments } from './components/media-object';
 export { Menu, MenuItem, MenuText, MenuAlignments } from './components/menu';
 export { Pagination, PaginationItem, PaginationPrevious, PaginationNext, PaginationEllipsis } from './components/pagination';
 export { Progress, ProgressMeter, ProgressMeterWithText, ProgressMeterText, NativeProgress, ProgressColors } from './components/progress-bar';

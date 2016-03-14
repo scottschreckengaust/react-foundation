@@ -38,6 +38,7 @@ Here is a list of the available components:
 - [Grid](src/components/grid.js)
 - [Icon](src/components/icon.js)
 - [Label](src/components/label.js)
+- [MediaObject](src/components/media-object.js)
 - [Menu](src/components/menu.js)
 - [Pagination](src/components/pagination.js)
 - [Progress](src/components/progress-bar.js)
