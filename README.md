@@ -14,7 +14,7 @@ It's even more awesome when combined with
 
 After building quite a few applications with React and Foundation we noticed that we were writing the
 same components over and over again. First we tried to find a library that would do the job, 
-but there was no library that met our needs. So we collected our notes, started coding and here's the result. 
+but there was none that met our needs. So we collected our notes, started coding and here's the result. 
 
 We hope you enjoy it as much as we do!
 
@@ -38,6 +38,7 @@ Here is a list of the available components:
 - [Grid](src/components/grid.js)
 - [Icon](src/components/icon.js)
 - [Label](src/components/label.js)
+- [MediaObject](src/components/media-object.js)
 - [Menu](src/components/menu.js)
 - [Pagination](src/components/pagination.js)
 - [Progress](src/components/progress-bar.js)
@@ -65,7 +66,8 @@ import Foundation from 'react-foundation';
 ```
 
 We are working on proper [documentation](https://github.com/nordsoftware/react-foundation-docs), in the meanwhile
-you can browse the code to get started.
+you can browse the code to get started. Or you can use our [React starter](https://github.com/nordsoftware/react-starter) template
+as a reference.
 
 ## Test
 

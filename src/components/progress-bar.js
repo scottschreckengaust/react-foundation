@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { default as omit } from 'lodash.omit';
 
 export const ProgressColors = {
+  SECONDARY: 'secondary',
   SUCCESS: 'success',
   WARNING: 'warning',
   ALERT: 'alert'
@@ -17,10 +18,10 @@ export const ProgressColors = {
  * @returns {XML}
  */
 export const Progress = props => {
-  check.assert.maybe.number(props.min, 'ProgressBar.props.min must be a number.');
-  check.assert.maybe.number(props.max, 'ProgressBar.props.max must be a number.');
-  check.assert.maybe.number(props.value, 'ProgressBar.props.value must be a number.');
-  check.assert.maybe.string(props.color, 'ProgressBar.props.color must be a string.');
+  check.assert.maybe.number(props.min, 'Progress.props.min must be a number.');
+  check.assert.maybe.number(props.max, 'Progress.props.max must be a number.');
+  check.assert.maybe.number(props.value, 'Progress.props.value must be a number.');
+  check.assert.maybe.string(props.color, 'Progress.props.color must be a string.');
 
   const { meter: meterProps = {} } = props;
 
@@ -39,8 +40,7 @@ export const Progress = props => {
   ];
 
   if (props.value) {
-    meterProps.style = meterProps.style || {};
-    meterProps.style.width = `${props.value}%`;
+    meterProps.widthPercent = props.value;
   }
 
   return (
