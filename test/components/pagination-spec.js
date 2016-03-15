@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import Pagination, {
+import {
+  Pagination,
   PaginationItem,
   PaginationPrevious,
   PaginationNext,

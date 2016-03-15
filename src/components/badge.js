@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames, removeProps } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
 
 /**
  * Badge color enumerable.
@@ -22,14 +21,12 @@ export const BadgeColors = {
  * @param {Object} props
  * @returns {JSX}
  */
-export const Badge = props => {
-  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
+export const Badge = props => (
+  <span {...removeProps(props, ['color'])}
+    className={createClassName(props.className || 'badge', props.color, generalClassNames(props))}/>
+);
 
-  const className = createClassName(props.className || 'badge', props.color, generalClassNames(props));
-
-  return (
-    <span {...removeProps(props, ['color'])} className={className} />
-  );
+Badge.propTypes = {
+  color: PropTypes.oneOf(objectValues(BadgeColors)),
+  ...GeneralPropTypes
 };
-
-export default Badge;

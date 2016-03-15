@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames, removeProps } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
 
 let currentId = 0;
 
@@ -9,7 +8,7 @@ let currentId = 0;
  *
  * @type {{CHECKBOX: string, RADIO: string}}
  */
-export const SwitchTypes = {
+export const SwitchInputTypes = {
   CHECKBOX: 'checkbox',
   RADIO: 'radio'
 };
@@ -33,9 +32,6 @@ export const SwitchSizes = {
  * @returns {Object}
  */
 export const Switch = props => {
-  check.assert.maybe.string(props.size, 'Property "size" must be a string.');
-  check.assert.maybe.string(props.id, 'Property "id" must be a string.');
-
   const className = createClassName(
     props.className || 'switch',
     props.size,
@@ -57,6 +53,12 @@ export const Switch = props => {
   );
 };
 
+Switch.propTypes = {
+  size: PropTypes.oneOf(objectValues(SwitchSizes)),
+  id: PropTypes.string,
+  ...GeneralPropTypes
+};
+
 /**
  * Switch input sub-component.
  *
@@ -64,13 +66,16 @@ export const Switch = props => {
  * @returns {Object}
  */
 export const SwitchInput = props => {
-  check.assert.maybe.string(props.type, 'Property "type" must be a string.');
-
   return (
     <input {...removeProps(props, ['type'])}
       className={props.className || 'switch-input'}
-      type={props.type || SwitchTypes.CHECKBOX} />
+      type={props.type || SwitchInputTypes.CHECKBOX} />
   );
+};
+
+SwitchInput.propTypes = {
+  type: PropTypes.oneOf(objectValues(SwitchInputTypes)),
+  ...GeneralPropTypes
 };
 
 /**
@@ -106,5 +111,3 @@ export const SwitchInactive = props => (
     {props.text}
   </span>
 );
-
-export default Switch;

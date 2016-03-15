@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames, removeProps } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
 
 /**
  * Callout color enumerable.
@@ -33,9 +32,6 @@ export const CalloutSizes = {
  * @returns {Object}
  */
 export const Callout = props => {
-  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
-  check.assert.maybe.string(props.size, 'Property "size" must be a string.');
-
   const className = createClassName(
     props.className || 'callout',
     props.color,
@@ -48,6 +44,8 @@ export const Callout = props => {
   );
 };
 
-// TODO: Add support for closable elements.
-
-export default Callout;
+Callout.propTypes = {
+  color: PropTypes.oneOf(objectValues(CalloutColors)),
+  size: PropTypes.oneOf(objectValues(CalloutSizes)),
+  ...GeneralPropTypes
+};

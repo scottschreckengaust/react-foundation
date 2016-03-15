@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames, removeProps } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
 
 /**
  * Button size enumerable.
@@ -37,6 +36,8 @@ export const Button = props => (
   <button {...removeProps(props, ['color'])} className={createButtonClassName(props)} />
 );
 
+Button.propTypes = createPropTypes();
+
 /**
  * Link button component.
  * http://foundation.zurb.com/sites/docs/button.html#basics
@@ -48,22 +49,15 @@ export const Link = props => (
   <a {...removeProps(props, ['color'])} className={createButtonClassName(props)} />
 );
 
+Link.propTypes = createPropTypes();
+
 /**
- * Creates the button class name from the given properties.
- * This method allows us to share code between the `Button` and `Link` components.
+ * Creates button class name from the given properties.
  *
  * @param {Object} props
  * @returns {string}
  */
 function createButtonClassName(props) {
-  // TODO: Consider validating both size and color values.
-  check.assert.maybe.string(props.size, 'Property "size" must be a string.');
-  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
-  check.assert.maybe.boolean(props.isHollow, 'Property "isHollow" must be a boolean.');
-  check.assert.maybe.boolean(props.isExpanded, 'Property "isExpanded" must be a boolean.');
-  check.assert.maybe.boolean(props.isDisabled, 'Property "isDisabled" must be a boolean.');
-  check.assert.maybe.boolean(props.isDropdown, 'Property "isDropdown" must be a boolean.');
-
   return createClassName(
     props.className || 'button',
     props.size,
@@ -79,4 +73,19 @@ function createButtonClassName(props) {
   );
 }
 
-export default Button;
+/**
+ * Creates button prop types.
+ *
+ * @returns {Object}
+ */
+function createPropTypes() {
+  return {
+    color: PropTypes.oneOf(objectValues(ButtonColors)),
+    size: PropTypes.oneOf(objectValues(ButtonSizes)),
+    isHollow: PropTypes.bool,
+    isExpanded: PropTypes.bool,
+    isDisabled: PropTypes.bool,
+    isDropdown: PropTypes.bool,
+    ...GeneralPropTypes
+  }
+}

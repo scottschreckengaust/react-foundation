@@ -1,7 +1,13 @@
-import React from 'react';
-import check from 'check-types';
-import { default as has } from 'lodash.has';
-import { HorizontalAlignments, VerticalAlignments, createClassName, generalClassNames, removeProps } from '../utils';
+import React, { PropTypes } from 'react';
+import {
+  HorizontalAlignments,
+  VerticalAlignments,
+  GeneralPropTypes,
+  objectHasValue,
+  createClassName,
+  generalClassNames,
+  removeProps
+} from '../utils';
 
 /**
  * Row component.
@@ -10,14 +16,6 @@ import { HorizontalAlignments, VerticalAlignments, createClassName, generalClass
  * @returns {Object}
  */
 export const Row = props => {
-  check.assert.maybe.string(props.horizontalAlignment, 'Property "horizontalAlignment" must be a string.');
-  check.assert.maybe.string(props.verticalAlignment, 'Property "verticalAlignment" must be a string.');
-  check.assert.maybe.boolean(props.unstackOnSmall, 'Property "unstackOnSmall" must be a boolean.');
-  check.assert.maybe.boolean(props.unstackOnMedium, 'Property "unstackOnMedium" must be a boolean.');
-  check.assert.maybe.boolean(props.unstackOnLarge, 'Property "unstackOnLarge" must be a boolean.');
-  check.assert.maybe.boolean(props.isColumn, 'Property "isColumn" must be a boolean.');
-  check.assert.maybe.boolean(props.isExpanded, 'Property "isExpanded" must be a boolean.');
-
   const className = createClassName(
     props.className || 'row',
     {
@@ -43,6 +41,17 @@ export const Row = props => {
   );
 };
 
+Row.propTypes = {
+  horizontalAlignment: PropTypes.string,
+  verticalAlignment: PropTypes.string,
+  unstackOnSmall: PropTypes.bool,
+  unstackOnMedium: PropTypes.bool,
+  unstackOnLarge: PropTypes.bool,
+  isColumn: PropTypes.bool,
+  isExpanded: PropTypes.bool,
+  ...GeneralPropTypes
+};
+
 /**
  * Column component.
  *
@@ -50,52 +59,26 @@ export const Row = props => {
  * @returns {Object}
  */
 export const Column = props => {
-  check.assert.maybe.number(props.small, 'Property "small" must be a number.');
-  check.assert.maybe.number(props.medium, 'Property "medium" must be a number.');
-  check.assert.maybe.number(props.large, 'Property "large" must be a number.');
-  check.assert.maybe.object(props.offset, 'Property "offset" must be an object.');
-  check.assert.maybe.object(props.push, 'Property "push" must be an object.');
-  check.assert.maybe.object(props.pull, 'Property "pull" must be an object.');
-  check.assert.maybe.object(props.up, 'Property "up" must be an object.');
-  check.assert.maybe.object(props.order, 'Property "order" must be an object.');
-  check.assert.maybe.boolean(props.collapseOnSmall, 'Property "collapseOnSmall" must be a boolean.');
-  check.assert.maybe.boolean(props.collapseOnMedium, 'Property "collapseOnMedium" must be a boolean.');
-  check.assert.maybe.boolean(props.collapseOnLarge, 'Property "collapseOnLarge" must be a boolean.');
-  check.assert.maybe.boolean(props.uncollapseOnSmall, 'Property "uncollapseOnSmall" must be a boolean.');
-  check.assert.maybe.boolean(props.uncollapseOnMedium, 'Property "uncollapseOnMedium" must be a boolean.');
-  check.assert.maybe.boolean(props.uncollapseOnLarge, 'Property "uncollapseOnLarge" must be a boolean.');
-  check.assert.maybe.boolean(props.centerOnSmall, 'Property "centerOnSmall" must be a boolean.');
-  check.assert.maybe.boolean(props.centerOnMedium, 'Property "centerOnMedium" must be a boolean.');
-  check.assert.maybe.boolean(props.centerOnLarge, 'Property "centerOnLarge" must be a boolean.');
-  check.assert.maybe.boolean(props.uncenterOnSmall, 'Property "uncenterOnSmall" must be a boolean.');
-  check.assert.maybe.boolean(props.uncenterOnMedium, 'Property "uncenterOnMedium" must be a boolean.');
-  check.assert.maybe.boolean(props.uncenterOnLarge, 'Property "uncenterOnLarge" must be a boolean.');
-  check.assert.maybe.boolean(props.expandOnSmall, 'Property "expandOnSmall" must be a boolean.');
-  check.assert.maybe.boolean(props.expandOnMedium, 'Property "expandOnMedium" must be a boolean.');
-  check.assert.maybe.boolean(props.expandOnLarge, 'Property "expandOnLarge" must be a boolean.');
-  check.assert.maybe.boolean(props.shrink, 'Property "shrink" must be a boolean.');
-  check.assert.maybe.boolean(props.isLast, 'Property "isLast" must be a boolean.');
-
   const className = createClassName(
     props.className || 'columns',
     props.small ? `small-${props.small}` : null,
     props.medium ? `medium-${props.medium}` : null,
     props.large ? `large-${props.large}` : null,
-    has(props, 'offset.small') ? `small-offset-${props.offset.small}` : null,
-    has(props, 'offset.medium') ? `medium-offset-${props.offset.medium}` : null,
-    has(props, 'offset.large') ? `large-offset-${props.offset.large}` : null,
-    has(props, 'push.small') ? `small-push-${props.push.small}` : null,
-    has(props, 'push.medium') ? `medium-push-${props.push.medium}` : null,
-    has(props, 'push.large') ? `large-push-${props.push.large}` : null,
-    has(props, 'pull.small') ? `small-pull-${props.pull.small}` : null,
-    has(props, 'pull.medium') ? `medium-pull-${props.pull.medium}` : null,
-    has(props, 'pull.large') ? `large-pull-${props.pull.large}` : null,
-    has(props, 'up.small') ? `small-up-${props.up.small}` : null,
-    has(props, 'up.medium') ? `medium-up-${props.up.medium}` : null,
-    has(props, 'up.large') ? `large-up-${props.up.large}` : null,
-    has(props, 'order.small') ? `small-order-${props.order.small}` : null,
-    has(props, 'order.medium') ? `medium-order-${props.order.medium}` : null,
-    has(props, 'order.large') ? `large-order-${props.order.large}` : null,
+    objectHasValue(props, 'offset.small') ? `small-offset-${props.offset.small}` : null,
+    objectHasValue(props, 'offset.medium') ? `medium-offset-${props.offset.medium}` : null,
+    objectHasValue(props, 'offset.large') ? `large-offset-${props.offset.large}` : null,
+    objectHasValue(props, 'push.small') ? `small-push-${props.push.small}` : null,
+    objectHasValue(props, 'push.medium') ? `medium-push-${props.push.medium}` : null,
+    objectHasValue(props, 'push.large') ? `large-push-${props.push.large}` : null,
+    objectHasValue(props, 'pull.small') ? `small-pull-${props.pull.small}` : null,
+    objectHasValue(props, 'pull.medium') ? `medium-pull-${props.pull.medium}` : null,
+    objectHasValue(props, 'pull.large') ? `large-pull-${props.pull.large}` : null,
+    objectHasValue(props, 'up.small') ? `small-up-${props.up.small}` : null,
+    objectHasValue(props, 'up.medium') ? `medium-up-${props.up.medium}` : null,
+    objectHasValue(props, 'up.large') ? `large-up-${props.up.large}` : null,
+    objectHasValue(props, 'order.small') ? `small-order-${props.order.small}` : null,
+    objectHasValue(props, 'order.medium') ? `medium-order-${props.order.medium}` : null,
+    objectHasValue(props, 'order.large') ? `large-order-${props.order.large}` : null,
     {
       'collapse-small': props.collapseOnSmall,
       'collapse-medium': props.collapseOnMedium,
@@ -121,4 +104,33 @@ export const Column = props => {
   return (
     <div {...removeProps(props, ['offset'])} className={className} />
   );
+};
+
+Column.propTypes = {
+  small: PropTypes.number,
+  medium: PropTypes.number,
+  large: PropTypes.number,
+  offset: PropTypes.object,
+  push: PropTypes.object,
+  pull: PropTypes.object,
+  up: PropTypes.object,
+  order: PropTypes.object,
+  collapseOnSmall: PropTypes.bool,
+  collapseOnMedium: PropTypes.bool,
+  collapseOnLarge: PropTypes.bool,
+  uncollapseOnSmall: PropTypes.bool,
+  uncollapseOnMedium: PropTypes.bool,
+  uncollapseOnLarge: PropTypes.bool,
+  centerOnSmall: PropTypes.bool,
+  centerOnMedium: PropTypes.bool,
+  centerOnLarge: PropTypes.bool,
+  uncenterOnSmall: PropTypes.bool,
+  uncenterOnMedium: PropTypes.bool,
+  uncenterOnLarge: PropTypes.bool,
+  expandOnSmall: PropTypes.bool,
+  expandOnMedium: PropTypes.bool,
+  expandOnLarge: PropTypes.bool,
+  shrink: PropTypes.bool,
+  isLast: PropTypes.bool,
+  ...GeneralPropTypes
 };

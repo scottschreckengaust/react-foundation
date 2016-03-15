@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames, removeProps } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
 
 /**
  * Progress colors enumerable.
@@ -22,11 +21,6 @@ export const ProgressColors = {
  * @returns {Object}
  */
 export const Progress = props => {
-  check.assert.maybe.number(props.min, 'Property "min" must be a number.');
-  check.assert.maybe.number(props.max, 'Property "max" must be a number.');
-  check.assert.maybe.number(props.value, 'Property "value" must be a number.');
-  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
-
   const { meter: meterProps = {} } = props;
 
   const className = createClassName(
@@ -51,6 +45,14 @@ export const Progress = props => {
       {meterProps.text ? <ProgressMeterWithText {...meterProps} /> : <ProgressMeter {...meterProps} />}
     </div>
   );
+};
+
+Progress.propTypes = {
+  min: PropTypes.number,
+  max: PropTypes.number,
+  value: PropTypes.number,
+  color: PropTypes.oneOf(objectValues(ProgressColors)),
+  ...GeneralPropTypes
 };
 
 /**
@@ -93,17 +95,17 @@ export const ProgressMeterText = props => (
  * @returns {Object}
  */
 export const NativeProgress = props => {
-  check.assert.maybe.number(props.max, 'Property "max" must be a number.');
-  check.assert.maybe.number(props.value, 'Property "value" must be a number.');
-  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
-
-  const className = createClassName(props.className, props.color, generalClassNames(props));
-
   return (
-    <progress {...removeProps(props, ['color'])} className={className} />
+    <progress {...removeProps(props, ['color'])}
+      className={createClassName(props.className, props.color, generalClassNames(props))} />
   );
 };
 
-// TODO: Consider adding support for native meter.
+NativeProgress.propTypes = {
+  max: PropTypes.number,
+  value: PropTypes.number,
+  color: PropTypes.oneOf(objectValues(ProgressColors)),
+  ...GeneralPropTypes
+};
 
-export default Progress;
+// TODO: Consider adding support for native meter.
