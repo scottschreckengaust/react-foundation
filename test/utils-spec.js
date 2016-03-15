@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { removeProps, createClassName, generalClassNames } from 'src/utils';
+import { Breakpoints, removeProps, createClassName, generalClassNames, objectHasValue, objectValues } from 'src/utils';
 
 describe('Utilities', () => {
 
@@ -19,12 +19,27 @@ describe('Utilities', () => {
   });
 
   describe('generalClassNames', () => {
-    const props = {showForMedium: true, isHidden: true, showForSr: false, float: 'left'};
+    const props = {showFor: Breakpoints.MEDIUM, isHidden: true, showForSr: false, float: 'left'};
     const classNames = generalClassNames(props);
-    expect(classNames['show-for-medium']).to.be.true;
-    expect(classNames['hide']).to.be.true;
-    expect(classNames['show-for-sr']).to.be.false;
-    expect(classNames['float-left']).to.be.true;
+    expect(classNames['show-for-medium']).to.equal.true;
+    expect(classNames['hide']).to.equal.true;
+    expect(classNames['show-for-sr']).to.equal.false;
+    expect(classNames['float-left']).to.equal.true;
+  });
+
+  describe('objectHasValue', () => {
+    const obj = {foo: 1, bar: {baz: 'foo', qux: undefined}};
+    expect(objectHasValue(obj, 'foo')).to.equal.true;
+    expect(objectHasValue(obj, 'bar.baz')).to.equal.true;
+    expect(objectHasValue(obj, 'bar.qux')).to.equal.false;
+  });
+
+  describe('objectValues', () => {
+    const obj = {FOO: 'foo', BAR: 'bar', BAZ: 'baz', QUX: 'qux'};
+    expect(objectValues(obj)).to.include('foo');
+    expect(objectValues(obj)).to.include('bar');
+    expect(objectValues(obj)).to.include('baz');
+    expect(objectValues(obj)).to.include('qux');
   });
 
 });
