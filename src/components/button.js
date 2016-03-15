@@ -26,6 +26,21 @@ export const ButtonColors = {
 };
 
 /**
+ * Button property types.
+ *
+ * @type {Object}
+ */
+const ButtonPropTypes = {
+  color: PropTypes.oneOf(objectValues(ButtonColors)),
+  size: PropTypes.oneOf(objectValues(ButtonSizes)),
+  isHollow: PropTypes.bool,
+  isExpanded: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  isDropdown: PropTypes.bool,
+  ...GeneralPropTypes
+};
+
+/**
  * Button component.
  * http://foundation.zurb.com/sites/docs/button.html
  *
@@ -33,10 +48,10 @@ export const ButtonColors = {
  * @returns {Object}
  */
 export const Button = props => (
-  <button {...removeProps(props, ['color'])} className={createButtonClassName(props)} />
+  <button {...removeProps(props, ['color'])} className={createButtonClassName(props)}/>
 );
 
-Button.propTypes = createPropTypes();
+Button.propTypes = ButtonPropTypes;
 
 /**
  * Link button component.
@@ -46,10 +61,10 @@ Button.propTypes = createPropTypes();
  * @returns {Object}
  */
 export const Link = props => (
-  <a {...removeProps(props, ['color'])} className={createButtonClassName(props)} />
+  <a {...removeProps(props, ['color'])} className={createButtonClassName(props)}/>
 );
 
-Link.propTypes = createPropTypes();
+Link.propTypes = ButtonPropTypes;
 
 /**
  * Creates button class name from the given properties.
@@ -71,21 +86,4 @@ function createButtonClassName(props) {
     },
     generalClassNames(props)
   );
-}
-
-/**
- * Creates button prop types.
- *
- * @returns {Object}
- */
-function createPropTypes() {
-  return {
-    color: PropTypes.oneOf(objectValues(ButtonColors)),
-    size: PropTypes.oneOf(objectValues(ButtonSizes)),
-    isHollow: PropTypes.bool,
-    isExpanded: PropTypes.bool,
-    isDisabled: PropTypes.bool,
-    isDropdown: PropTypes.bool,
-    ...GeneralPropTypes
-  }
 }
