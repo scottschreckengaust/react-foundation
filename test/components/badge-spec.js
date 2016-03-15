@@ -1,7 +1,10 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Badge, BadgeColors } from 'src/components/badge';
+import { Badge } from 'src/components/badge';
+import { Colors } from 'src/enums';
+
+// TODO: Add test cases for invalid enum values
 
 describe('Badge component', () => {
 
@@ -22,7 +25,7 @@ describe('Badge component', () => {
   });
 
   it('sets color', () => {
-    const component = render(<Badge color={BadgeColors.SUCCESS}/>);
+    const component = render(<Badge color={Colors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
   });

@@ -1,17 +1,6 @@
 import React, { PropTypes } from 'react';
+import { ProgressColors } from '../enums';
 import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
-
-/**
- * Progress colors enumerable.
- *
- * @type {{SECONDARY: string, SUCCESS: string, WARNING: string, ALERT: string}}
- */
-export const ProgressColors = {
-  SECONDARY: 'secondary',
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ALERT: 'alert'
-};
 
 /**
  * Progress component.

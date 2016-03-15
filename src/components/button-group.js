@@ -1,30 +1,6 @@
 import React, { PropTypes } from 'react';
-import { Breakpoints } from '../enums';
+import { Breakpoints, ButtonGroupColors, ButtonGroupSizes } from '../enums';
 import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
-
-/**
- * Button group size enumerable.
- *
- * @type {{TINY: string, SMALL: string, LARGE: string}}
- */
-export const ButtonGroupSizes = {
-  TINY: 'tiny',
-  SMALL: 'small',
-  LARGE: 'large'
-};
-
-/**
- * Button group color enumerable.
- *
- * @type {{PRIMARY: string, SECONDARY: string, SUCCESS: string, ALERT: string, WARNING: string}}
- */
-export const ButtonGroupColors = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-  SUCCESS: 'success',
-  ALERT: 'alert',
-  WARNING: 'warning'
-};
 
 /**
  * Button group component.

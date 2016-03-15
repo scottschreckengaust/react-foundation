@@ -1,15 +1,6 @@
 import React, { PropTypes } from 'react';
+import { MenuAlignments } from '../enums';
 import { GeneralPropTypes, createClassName, generalClassNames, objectValues } from '../utils';
-
-/**
- * Menu alignment enumerable.
- *
- * @type {{RIGHT: string, CENTER: string}}
- */
-export const MenuAlignments = {
-  RIGHT: 'right',
-  CENTER: 'center'
-};
 
 /**
  * Menu component.

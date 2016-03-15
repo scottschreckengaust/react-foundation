@@ -2,6 +2,9 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { Menu, MenuItem, MenuText, MenuAlignments } from 'src/components/menu';
+import { Alignments } from 'src/enums';
+
+// TODO: Add test cases for invalid enum values
 
 describe('Menu component', () => {
 
@@ -22,13 +25,13 @@ describe('Menu component', () => {
   });
 
   it('sets align right', () => {
-    const component = render(<Menu alignment={MenuAlignments.RIGHT}/>);
+    const component = render(<Menu alignment={Alignments.RIGHT}/>);
     expect(component).to.have.className('align-right');
     expect(component).to.not.have.attr('alignment');
   });
 
   it('sets align center', () => {
-    const component = render(<Menu alignment={MenuAlignments.CENTER}/>);
+    const component = render(<Menu alignment={Alignments.CENTER}/>);
     expect(component).to.have.className('align-center');
     expect(component).to.not.have.attr('alignment');
   });

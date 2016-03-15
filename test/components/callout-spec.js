@@ -2,6 +2,9 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { Callout, CalloutColors, CalloutSizes } from 'src/components/callout';
+import { Colors, Sizes } from 'src/enums';
+
+// TODO: Add test cases for invalid enum values
 
 describe('Callout component', () => {
 
@@ -22,13 +25,13 @@ describe('Callout component', () => {
   });
 
   it('sets color', () => {
-    const component = render(<Callout color={CalloutColors.SUCCESS}/>);
+    const component = render(<Callout color={Colors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
   });
 
   it('sets size', () => {
-    const component = render(<Callout size={CalloutSizes.SMALL}/>);
+    const component = render(<Callout size={Sizes.SMALL}/>);
     expect(component).to.have.className('small');
     expect(component).to.not.have.attr('size');
   });

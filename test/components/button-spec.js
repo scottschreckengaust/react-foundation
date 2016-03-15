@@ -2,6 +2,9 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { Button, Link, ButtonSizes, ButtonColors } from 'src/components/button';
+import { Colors, Sizes } from 'src/enums';
+
+// TODO: Add test cases for invalid enum values
 
 describe('Button component', () => {
 
@@ -27,13 +30,13 @@ describe('Button component', () => {
   });
 
   it('sets size', () => {
-    const component = render(<Button size={ButtonSizes.SMALL}/>);
+    const component = render(<Button size={Sizes.SMALL}/>);
     expect(component).to.have.className('small');
     expect(component).to.not.have.attr('size');
   });
 
   it('sets color', () => {
-    const component = render(<Button color={ButtonColors.SUCCESS}/>);
+    const component = render(<Button color={Colors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
   });
@@ -94,13 +97,13 @@ describe('Link component', () => {
   });
 
   it('sets size', () => {
-    const component = render(<Link size={ButtonSizes.SMALL}/>);
+    const component = render(<Link size={Sizes.SMALL}/>);
     expect(component).to.have.className('small');
     expect(component).to.not.have.attr('size');
   });
 
   it('sets color', () => {
-    const component = render(<Link color={ButtonColors.SUCCESS}/>);
+    const component = render(<Link color={Colors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
   });

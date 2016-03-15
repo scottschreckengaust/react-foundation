@@ -1,29 +1,6 @@
 import React, { PropTypes } from 'react';
+import { ButtonSizes, ButtonColors } from '../enums';
 import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
-
-/**
- * Button size enumerable.
- *
- * @type {{TINY: string, SMALL: string, LARGE: string}}
- */
-export const ButtonSizes = {
-  TINY: 'tiny',
-  SMALL: 'small',
-  LARGE: 'large'
-};
-
-/**
- * Button color enumerable.
- *
- * @type {{PRIMARY: string, SECONDARY: string, SUCCESS: string, ALERT: string, WARNING: string}}
- */
-export const ButtonColors = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-  SUCCESS: 'success',
-  ALERT: 'alert',
-  WARNING: 'warning'
-};
 
 /**
  * Button property types.
