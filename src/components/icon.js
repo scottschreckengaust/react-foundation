@@ -10,17 +10,17 @@ import { GeneralPropTypes, createClassName, generalClassNames, removeProps } fro
 export const Icon = props => {
   const className = createClassName(
     props.prefix,
-    props.prefix ? `${props.prefix}-${props.icon}` : props.icon,
+    props.prefix ? `${props.prefix}-${props.name}` : props.name,
     generalClassNames(props)
   );
 
   return (
-    <i {...removeProps(props, ['prefix', 'icon'])} className={className} />
+    <i {...removeProps(props, ['prefix', 'name'])} className={className}/>
   );
 };
 
 Icon.propTypes = {
-  icon: PropTypes.string.isRequired,
-  prefix: PropTypes.string,
-  ...GeneralPropTypes
+  ...GeneralPropTypes,
+  name: PropTypes.string.isRequired,
+  prefix: PropTypes.string
 };

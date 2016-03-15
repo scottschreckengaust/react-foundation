@@ -27,6 +27,6 @@ export const Badge = props => (
 );
 
 Badge.propTypes = {
-  color: PropTypes.oneOf(objectValues(BadgeColors)),
-  ...GeneralPropTypes
+  ...GeneralPropTypes,
+  color: PropTypes.oneOf(objectValues(BadgeColors))
 };

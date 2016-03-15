@@ -34,18 +34,18 @@ export const Menu = props => {
   );
 
   return (
-    <ul {...props} className={className} />
+    <ul {...props} className={className}/>
   );
 };
 
 Menu.propTypes = {
+  ...GeneralPropTypes,
   alignment: PropTypes.oneOf(objectValues(MenuAlignments)),
   iconsOnTop: PropTypes.bool,
   isExpanded: PropTypes.bool,
   isVertical: PropTypes.bool,
   isSimple: PropTypes.bool,
-  isNested: PropTypes.bool,
-  ...GeneralPropTypes
+  isNested: PropTypes.bool
 };
 
 /**
@@ -64,13 +64,13 @@ export const MenuItem = props => {
   );
 
   return (
-    <li {...props} className={className} />
+    <li {...props} className={className}/>
   );
 };
 
 MenuItem.propTypes = {
-  isActive: PropTypes.bool,
-  ...GeneralPropTypes
+  ...GeneralPropTypes,
+  isActive: PropTypes.bool
 };
 
 /**
@@ -80,5 +80,5 @@ MenuItem.propTypes = {
  * @returns {XML}
  */
 export const MenuText = props => (
-  <MenuItem {...props} className={props.className || 'menu-text'} />
+  <MenuItem {...props} className={props.className || 'menu-text'}/>
 );

@@ -7,7 +7,7 @@ import { createClassName, generalClassNames, GeneralPropTypes } from '../utils';
  * @returns {Object}
  */
 export const Div = props => (
-  <div {...props} className={createClassName(props.className, generalClassNames(props))} />
+  <div {...props} className={createClassName(props.className, generalClassNames(props))}/>
 );
 
 Div.propTypes = {
@@ -21,7 +21,7 @@ Div.propTypes = {
  * @returns {Object}
  */
 export const Span = props => (
-  <span {...props} className={createClassName(props.className, generalClassNames(props))} />
+  <span {...props} className={createClassName(props.className, generalClassNames(props))}/>
 );
 
 Span.propTypes = {

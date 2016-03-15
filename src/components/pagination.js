@@ -18,13 +18,13 @@ export const Pagination = props => {
   );
 
   return (
-    <ul {...props} className={className} role="navigation" />
+    <ul {...props} className={className} role="navigation"/>
   );
 };
 
 Pagination.propTypes = {
-  isCentered: PropTypes.bool,
-  ...GeneralPropTypes
+  ...GeneralPropTypes,
+  isCentered: PropTypes.bool
 };
 
 /**
@@ -44,14 +44,14 @@ export const PaginationItem = props => {
   );
 
   return (
-    <li {...props} className={className} />
+    <li {...props} className={className}/>
   );
 };
 
 PaginationItem.propTypes = {
+  ...GeneralPropTypes,
   isCurrent: PropTypes.bool,
-  isDisabled: PropTypes.bool,
-  ...GeneralPropTypes
+  isDisabled: PropTypes.bool
 };
 
 /**
@@ -61,7 +61,7 @@ PaginationItem.propTypes = {
  * @returns {Object}
  */
 export const PaginationPrevious = props => (
-  <PaginationItem {...props} className={props.className || 'pagination-previous'} />
+  <PaginationItem {...props} className={props.className || 'pagination-previous'}/>
 );
 
 /**
@@ -71,7 +71,7 @@ export const PaginationPrevious = props => (
  * @returns {Object}
  */
 export const PaginationNext = props => (
-  <PaginationItem {...props} className={props.className || 'pagination-next'} />
+  <PaginationItem {...props} className={props.className || 'pagination-next'}/>
 );
 
 /**
@@ -81,5 +81,5 @@ export const PaginationNext = props => (
  * @returns {Object}
  */
 export const PaginationEllipsis = props => (
-  <PaginationItem {...props} className={props.className || 'ellipsis'} />
+  <PaginationItem {...props} className={props.className || 'ellipsis'}/>
 );

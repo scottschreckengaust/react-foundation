@@ -19,12 +19,12 @@ export const FlexVideo = props => {
   );
 
   return (
-    <div {...props} className={className} />
+    <div {...props} className={className}/>
   );
 };
 
 FlexVideo.propTypes = {
+  ...GeneralPropTypes,
   isWidescreen: PropTypes.bool,
-  isVimeo: PropTypes.bool,
-  ...GeneralPropTypes
+  isVimeo: PropTypes.bool
 };

@@ -9,7 +9,7 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @returns {Object}
  */
 export const TopBar = props => (
-  <div {...props} className={createClassName(props.className || 'top-bar', generalClassNames(props))} />
+  <div {...props} className={createClassName(props.className || 'top-bar', generalClassNames(props))}/>
 );
 
 TopBar.propTypes = {
@@ -23,7 +23,7 @@ TopBar.propTypes = {
  * @returns {Object}
  */
 export const TopBarTitle = props => (
-  <div {...props} className={createClassName(props.className || 'top-bar-title', generalClassNames(props))} />
+  <div {...props} className={createClassName(props.className || 'top-bar-title', generalClassNames(props))}/>
 );
 
 TopBarTitle.propTypes = {
@@ -37,7 +37,7 @@ TopBarTitle.propTypes = {
  * @returns {Object}
  */
 export const TopBarLeft = props => (
-  <div {...props} className={createClassName(props.className || 'top-bar-left', generalClassNames(props))} />
+  <div {...props} className={createClassName(props.className || 'top-bar-left', generalClassNames(props))}/>
 );
 
 TopBarLeft.propTypes = {
@@ -51,7 +51,7 @@ TopBarLeft.propTypes = {
  * @returns {Object}
  */
 export const TopBarRight = props => (
-  <div {...props} className={createClassName(props.className || 'top-bar-right', generalClassNames(props))} />
+  <div {...props} className={createClassName(props.className || 'top-bar-right', generalClassNames(props))}/>
 );
 
 TopBarRight.propTypes = {

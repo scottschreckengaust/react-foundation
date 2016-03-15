@@ -31,13 +31,13 @@ export const ButtonColors = {
  * @type {Object}
  */
 const ButtonPropTypes = {
+  ...GeneralPropTypes,
   color: PropTypes.oneOf(objectValues(ButtonColors)),
   size: PropTypes.oneOf(objectValues(ButtonSizes)),
   isHollow: PropTypes.bool,
   isExpanded: PropTypes.bool,
   isDisabled: PropTypes.bool,
-  isDropdown: PropTypes.bool,
-  ...GeneralPropTypes
+  isDropdown: PropTypes.bool
 };
 
 /**
