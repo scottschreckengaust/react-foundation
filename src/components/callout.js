@@ -1,28 +1,6 @@
 import React, { PropTypes } from 'react';
+import { CalloutColors, CalloutSizes } from '../enums';
 import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
-
-/**
- * Callout color enumerable.
- *
- * @type {{PRIMARY: string, SECONDARY: string, SUCCESS: string, WARNING: string, ALERT: string}}
- */
-export const CalloutColors = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ALERT: 'alert'
-};
-
-/**
- * Callout size enumerable.
- *
- * @type {{SMALL: string, LARGE: string}}
- */
-export const CalloutSizes = {
-  SMALL: 'small',
-  LARGE: 'large'
-};
 
 /**
  * Callout component.

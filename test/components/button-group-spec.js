@@ -2,7 +2,9 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { ButtonGroup, ButtonGroupSizes, ButtonGroupColors } from 'src/components/button-group';
-import { Breakpoints } from 'src/enums';
+import { Breakpoints, Colors, Sizes } from 'src/enums';
+
+// TODO: Add test cases for invalid enum values
 
 describe('ButtonGroup component', () => {
 
@@ -23,13 +25,13 @@ describe('ButtonGroup component', () => {
   });
 
   it('sets size', () => {
-    const component = render(<ButtonGroup size={ButtonGroupSizes.SMALL}/>);
+    const component = render(<ButtonGroup size={Sizes.SMALL}/>);
     expect(component).to.have.className('small');
     expect(component).to.not.have.attr('size');
   });
 
   it('sets color', () => {
-    const component = render(<ButtonGroup color={ButtonGroupColors.SUCCESS}/>);
+    const component = render(<ButtonGroup color={Colors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
   });

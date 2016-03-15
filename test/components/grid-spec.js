@@ -2,7 +2,9 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { Row, Column } from 'src/components/grid';
-import { HorizontalAlignments, VerticalAlignments } from 'src/enums';
+import { Alignments } from 'src/enums';
+
+// TODO: Add test cases for invalid enum values
 
 describe('Row component', () => {
 
@@ -23,13 +25,13 @@ describe('Row component', () => {
   });
 
   it('sets horizontal alignment', () => {
-    const component = render(<Row horizontalAlignment={HorizontalAlignments.RIGHT}/>);
+    const component = render(<Row horizontalAlignment={Alignments.RIGHT}/>);
     expect(component).to.have.className('align-right');
     expect(component).to.not.have.attr('horizontalAlignment');
   });
 
   it('sets vertical alignment', () => {
-    const component = render(<Row verticalAlignment={VerticalAlignments.TOP}/>);
+    const component = render(<Row verticalAlignment={Alignments.TOP}/>);
     expect(component).to.have.className('align-top');
     expect(component).to.not.have.attr('verticalAlignment');
   });

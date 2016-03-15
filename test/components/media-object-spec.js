@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { MediaObject, MediaObjectSection } from 'src/components/media-object';
-import { HorizontalAlignments } from 'src/enums';
+import { Alignments } from 'src/enums';
 
 describe('MediaObject component', () => {
 
@@ -67,7 +67,7 @@ describe('MediaObjectSection component', () => {
   });
 
   it('sets alignment', () => {
-    const component = render(<MediaObjectSection alignment={HorizontalAlignments.CENTER}/>);
+    const component = render(<MediaObjectSection alignment={Alignments.CENTER}/>);
     expect(component).to.have.className('align-self-center');
     expect(component).to.not.have.attr('alignment');
   });

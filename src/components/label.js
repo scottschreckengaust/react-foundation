@@ -1,18 +1,6 @@
 import React, { PropTypes } from 'react';
+import { LabelColors } from '../enums';
 import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
-
-/**
- * Label color enumerable.
- *
- * @type {{INFO: string, SECONDARY: string, SUCCESS: string, WARNING: string, ALERT: string}}
- */
-export const LabelColors = {
-  INFO: 'info',
-  SECONDARY: 'secondary',
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ALERT: 'alert'
-};
 
 /**
  * Label component.

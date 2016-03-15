@@ -2,6 +2,9 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { Label, LabelColors } from 'src/components/label';
+import { Colors } from 'src/enums';
+
+// TODO: Add test cases for invalid enum values
 
 describe('Label component', () => {
 
@@ -22,7 +25,7 @@ describe('Label component', () => {
   });
 
   it('sets color', () => {
-    const component = render(<Label color={LabelColors.SUCCESS}/>);
+    const component = render(<Label color={Colors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
   });

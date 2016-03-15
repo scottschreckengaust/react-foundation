@@ -1,28 +1,8 @@
 import React, { PropTypes } from 'react';
+import { SwitchSizes, SwitchInputTypes } from '../enums';
 import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
 
 let currentId = 0;
-
-/**
- * Switch type enumerable.
- *
- * @type {{CHECKBOX: string, RADIO: string}}
- */
-export const SwitchInputTypes = {
-  CHECKBOX: 'checkbox',
-  RADIO: 'radio'
-};
-
-/**
- * Switch size enumerable.
- *
- * @type {{TINY: string, SMALL: string, LARGE: string}}
- */
-export const SwitchSizes = {
-  TINY: 'tiny',
-  SMALL: 'small',
-  LARGE: 'large'
-};
 
 /**
  * Switch component.

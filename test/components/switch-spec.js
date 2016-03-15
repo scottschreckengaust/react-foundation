@@ -3,6 +3,9 @@ import { mount, render } from 'enzyme';
 import { createRenderer } from 'react-addons-test-utils';
 import { expect } from 'chai';
 import { Switch, SwitchInput, SwitchPaddle, SwitchActive, SwitchInactive } from 'src/components/switch';
+import { InputTypes } from 'src/enums';
+
+// TODO: Add test cases for input types
 
 describe('Switch component', () => {
 

@@ -1,18 +1,6 @@
 import React, { PropTypes } from 'react';
+import { BadgeColors } from '../enums';
 import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
-
-/**
- * Badge color enumerable.
- *
- * @type {{INFO: string, SECONDARY: string, SUCCESS: string, WARNING: string, ALERT: string}}
- */
-export const BadgeColors = {
-  INFO: 'info',
-  SECONDARY: 'secondary',
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  ALERT: 'alert'
-};
 
 /**
  * Badge component.

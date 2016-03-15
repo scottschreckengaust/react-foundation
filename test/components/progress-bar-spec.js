@@ -7,9 +7,11 @@ import {
   ProgressMeter,
   ProgressMeterWithText,
   ProgressMeterText,
-  NativeProgress,
-  ProgressColors
+  NativeProgress
 } from 'src/components/progress-bar';
+import { Colors } from 'src/enums';
+
+// TODO: Add test cases for invalid enum values
 
 describe('Progress component', () => {
 
@@ -35,7 +37,7 @@ describe('Progress component', () => {
   });
 
   it('sets color', () => {
-    const component = render(<Progress color={ProgressColors.SUCCESS}/>);
+    const component = render(<Progress color={Colors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
   });
@@ -143,7 +145,7 @@ describe('NativeProgress component', () => {
   });
 
   it('sets color', () => {
-    const component = render(<NativeProgress color={ProgressColors.SUCCESS}/>);
+    const component = render(<NativeProgress color={Colors.SUCCESS}/>);
     expect(component).to.have.className('success');
     expect(component).to.not.have.attr('color');
   });
