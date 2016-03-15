@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { HorizontalAlignments, GeneralPropTypes, createClassName, generalClassNames, objectValues } from '../utils';
+import { HorizontalAlignments } from '../enums';
+import { GeneralPropTypes, createClassName, generalClassNames, objectValues } from '../utils';
 
 /**
  * Media object component.

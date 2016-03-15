@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
+import { HorizontalAlignments, VerticalAlignments } from '../enums';
 import {
-  HorizontalAlignments,
-  VerticalAlignments,
   GeneralPropTypes,
   objectHasValue,
   createClassName,

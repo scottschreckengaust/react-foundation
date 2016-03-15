@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { MediaObject, MediaObjectSection } from 'src/components/media-object';
-import { HorizontalAlignments } from 'src/utils';
+import { HorizontalAlignments } from 'src/enums';
 
 describe('MediaObject component', () => {
 

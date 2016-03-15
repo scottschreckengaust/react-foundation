@@ -17,4 +17,5 @@ export { ResponsiveNavigation, TitleBar, MenuIcon, TitleBarTitle } from './compo
 export { SwitchInputTypes, SwitchSizes, Switch, SwitchInput, SwitchPaddle, SwitchActive, SwitchInactive } from './components/switch';
 export { Thumbnail, ThumbnailLink } from './components/thumbnail';
 export { TopBar, TopBarTitle, TopBarLeft, TopBarRight } from './components/top-bar';
+export { Breakpoints, HorizontalAlignments, VerticalAlignments, FloatTypes } from './enums';
 

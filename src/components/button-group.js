@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Breakpoints } from '../enums';
 import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
 
 /**
