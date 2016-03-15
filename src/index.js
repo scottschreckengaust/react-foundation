@@ -6,7 +6,7 @@ export { Callout } from './components/callout';
 export { CloseButton } from './components/close-button';
 export { FlexVideo } from './components/flex-video';
 export { Row, Column } from './components/grid';
-export { Div, Span } from './components/html';
+export { Block, Inline } from './components/element';
 export { Icon } from './components/icon';
 export { Label } from './components/label';
 export { MediaObject, MediaObjectSection } from './components/media-object';

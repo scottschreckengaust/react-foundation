@@ -1,3 +1,4 @@
+import React from 'react';
 import { createClassName, generalClassNames, GeneralPropTypes } from '../utils';
 
 /**
@@ -6,11 +7,11 @@ import { createClassName, generalClassNames, GeneralPropTypes } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const Div = props => (
+export const Block = props => (
   <div {...props} className={createClassName(props.className, generalClassNames(props))}/>
 );
 
-Div.propTypes = {
+Block.propTypes = {
   ...GeneralPropTypes
 };
 
@@ -20,10 +21,10 @@ Div.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const Span = props => (
+export const Inline = props => (
   <span {...props} className={createClassName(props.className, generalClassNames(props))}/>
 );
 
-Span.propTypes = {
+Inline.propTypes = {
   ...GeneralPropTypes
 };
