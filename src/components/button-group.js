@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames, removeProps } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
 
 /**
  * Button group size enumerable.
@@ -34,19 +33,10 @@ export const ButtonGroupColors = {
  * @returns {Object}
  */
 export const ButtonGroup = props => {
-  // TODO: Consider validating both size and color values.
-  check.assert.maybe.string(props.size, 'Property "size" must be a string.');
-  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
-  check.assert.maybe.boolean(props.isExpanded, 'Property "isExpanded" must be a boolean.');
-  check.assert.maybe.boolean(props.isStacked, 'Property "isStacked" must be a boolean.');
-  check.assert.maybe.boolean(props.stackForSmall, 'Property "stackedForSmall" must be a boolean.');
-  check.assert.maybe.boolean(props.stackForMedium, 'Property "stackedForMedium" must be a boolean.');
-  check.assert.maybe.boolean(props.stackForLarge, 'Property "stackedForLarge" must be a boolean.');
-
   const className = createClassName(
     props.className || 'button-group',
-    props.size,
     props.color,
+    props.size,
     {
       'expanded': props.isExpanded,
       'stacked': props.isStacked,
@@ -58,8 +48,16 @@ export const ButtonGroup = props => {
   );
 
   return (
-    <div {...removeProps(props, ['color'])} className={className} />
+    <div {...removeProps(props, ['color'])} className={className}/>
   );
 };
 
-export default ButtonGroup;
+ButtonGroup.propTypes = {
+  color: PropTypes.oneOf(objectValues(ButtonGroupColors)),
+  size: PropTypes.oneOf(objectValues(ButtonGroupSizes)),
+  isExpanded: PropTypes.bool,
+  stackedForSmall: PropTypes.bool,
+  stackedForMedium: PropTypes.bool,
+  stackedForLarge: PropTypes.bool,
+  ...GeneralPropTypes
+};

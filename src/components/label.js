@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames, removeProps } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
 
 /**
  * Label color enumerable.
@@ -23,8 +22,6 @@ export const LabelColors = {
  * @returns {Object}
  */
 export const Label = props => {
-  check.assert.maybe.string(props.color, 'Property "color" must be a string.');
-
   const className = createClassName(
     props.className || 'label',
     props.color,
@@ -36,4 +33,7 @@ export const Label = props => {
   );
 };
 
-export default Label;
+Label.propTypes = {
+  color: PropTypes.oneOf(objectValues(LabelColors)),
+  ...GeneralPropTypes
+};

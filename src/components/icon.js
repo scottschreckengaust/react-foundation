@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames, removeProps } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps } from '../utils';
 
 /**
  * Icon component.
@@ -9,9 +8,6 @@ import { createClassName, generalClassNames, removeProps } from '../utils';
  * @returns {Object}
  */
 export const Icon = props => {
-  check.assert.string(props.icon, 'Property "icon" must be a string.');
-  check.assert.maybe.string(props.prefix, 'Property "prefix" must be a string.');
-
   const className = createClassName(
     props.prefix,
     props.prefix ? `${props.prefix}-${props.icon}` : props.icon,
@@ -23,4 +19,8 @@ export const Icon = props => {
   );
 };
 
-export default Icon;
+Icon.propTypes = {
+  icon: PropTypes.string.isRequired,
+  prefix: PropTypes.string,
+  ...GeneralPropTypes
+};

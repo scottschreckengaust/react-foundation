@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
 
 /**
  * Pagination component.
@@ -10,8 +9,6 @@ import { createClassName, generalClassNames } from '../utils';
  * @returns {Object}
  */
 export const Pagination = props => {
-  check.assert.maybe.boolean(props.isCentered, 'Property "isCentered" must be a boolean.');
-
   const className = createClassName(
     props.className || 'pagination',
     {
@@ -25,6 +22,11 @@ export const Pagination = props => {
   );
 };
 
+Pagination.propTypes = {
+  isCentered: PropTypes.bool,
+  ...GeneralPropTypes
+};
+
 /**
  * Pagination item component.
  *
@@ -32,9 +34,6 @@ export const Pagination = props => {
  * @returns {Object}
  */
 export const PaginationItem = props => {
-  check.assert.maybe.boolean(props.isCurrent, 'Property "isCurrent" must be a boolean.');
-  check.assert.maybe.boolean(props.isDisabled, 'Property "isDisabled" must be a boolean.');
-
   const className = createClassName(
     props.className,
     {
@@ -47,6 +46,12 @@ export const PaginationItem = props => {
   return (
     <li {...props} className={className} />
   );
+};
+
+PaginationItem.propTypes = {
+  isCurrent: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  ...GeneralPropTypes
 };
 
 /**
@@ -78,5 +83,3 @@ export const PaginationNext = props => (
 export const PaginationEllipsis = props => (
   <PaginationItem {...props} className={props.className || 'ellipsis'} />
 );
-
-export default Pagination;

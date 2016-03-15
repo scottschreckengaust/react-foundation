@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
 
 /**
  * Breadcrumbs component.
@@ -9,13 +8,9 @@ import { createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const Breadcrumbs = props => {
-  const className = createClassName(props.className || 'breadcrumbs', generalClassNames(props));
-
-  return (
-    <ul {...props} className={className} />
-  );
-};
+export const Breadcrumbs = props => (
+  <ul {...props} className={createClassName(props.className || 'breadcrumbs', generalClassNames(props))}/>
+);
 
 /**
  * Breadcrumb item component.
@@ -24,8 +19,6 @@ export const Breadcrumbs = props => {
  * @returns {Object}
  */
 export const BreadcrumbItem = props => {
-  check.assert.maybe.boolean(props.isDisabled, 'Property "isDisabled" must be a boolean.');
-
   const className = createClassName(
     props.className,
     {
@@ -35,8 +28,11 @@ export const BreadcrumbItem = props => {
   );
 
   return (
-    <li {...props} className={className} />
+    <li {...props} className={className}/>
   );
 };
 
-export default Breadcrumbs;
+BreadcrumbItem.propTypes = {
+  isDisabled: PropTypes.bool,
+  ...GeneralPropTypes
+};

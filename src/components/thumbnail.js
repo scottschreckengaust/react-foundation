@@ -1,5 +1,5 @@
 import React from 'react';
-import { createClassName, generalClassNames } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
 
 /**
  * Thumbnail component.
@@ -11,6 +11,10 @@ import { createClassName, generalClassNames } from '../utils';
 export const Thumbnail = props => (
   <img {...props} className={createClassName(props.className || 'thumbnail', generalClassNames(props))} />
 );
+
+Thumbnail.propTypes = {
+  ...GeneralPropTypes
+};
 
 /**
  * Thumbnail link component.
@@ -25,4 +29,6 @@ export const ThumbnailLink = props => (
   </a>
 );
 
-export default Thumbnail;
+ThumbnailLink.propTypes = {
+  ...GeneralPropTypes
+};

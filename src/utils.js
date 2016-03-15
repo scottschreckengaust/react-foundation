@@ -1,6 +1,8 @@
-import check from 'check-types';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
-import { default as omit } from 'lodash.omit';
+import { default as lodashHas } from 'lodash.has';
+import { default as lodashOmit } from 'lodash.omit';
+import { default as lodashValues } from 'lodash.values';
 
 /**
  * Breakpoints enumerable.
@@ -51,6 +53,28 @@ export const FloatTypes = {
 };
 
 /**
+ * Property types for general properties.
+ *
+ * @returns {Object}
+ */
+export const GeneralPropTypes = {
+  showForMedium: PropTypes.bool,
+  showForLarge: PropTypes.bool,
+  showOnlyFor: PropTypes.oneOf(objectValues(Breakpoints)),
+  hideForMedium: PropTypes.bool,
+  hideForLarge: PropTypes.bool,
+  hideOnlyFor: PropTypes.oneOf(objectValues(Breakpoints)),
+  isHidden: PropTypes.bool,
+  isInvisible: PropTypes.bool,
+  showForLandscape: PropTypes.bool,
+  showForPortrait: PropTypes.bool,
+  showForSr: PropTypes.bool,
+  showOnFocus: PropTypes.bool,
+  isClearfix: PropTypes.bool,
+  float: PropTypes.oneOf(objectValues(FloatTypes))
+};
+
+/**
  * Removes properties by name.
  *
  * @param {Object} props
@@ -58,9 +82,7 @@ export const FloatTypes = {
  * @returns {Object}
  */
 export function removeProps(props, omitProps) {
-  check.assert.array(omitProps, 'Argument "omitProps" must be an array.');
-
-  return omit(props, omitProps);
+  return lodashOmit(props, omitProps);
 }
 
 /**
@@ -80,23 +102,7 @@ export function createClassName(...args) {
  * @returns {Object}
  */
 export function generalClassNames(props) {
-  check.assert.maybe.boolean(props.showForMedium, 'Property "showForMedium" must be a boolean.');
-  check.assert.maybe.boolean(props.showForLarge, 'Property "showForLarge" must be a boolean.');
-  check.assert.maybe.string(props.showOnlyFor, 'Property "showOnlyFor" must be a string.');
-  check.assert.maybe.boolean(props.hideForMedium, 'Property "hideForMedium" must be a boolean.');
-  check.assert.maybe.boolean(props.hideForLarge, 'Property "hideForLarge" must be a boolean.');
-  check.assert.maybe.string(props.hideOnlyFor, 'Property "hideOnlyFor" must be a string.');
-  check.assert.maybe.boolean(props.isHidden, 'Property "isHidden" must be a boolean.');
-  check.assert.maybe.boolean(props.isInvisible, 'Property "isInvisible" must be a boolean.');
-  check.assert.maybe.boolean(props.showForLandscape, 'Property "showForLandscape" must be a boolean.');
-  check.assert.maybe.boolean(props.showForPortrait, 'Property "showForPortrait" must be a boolean.');
-  check.assert.maybe.boolean(props.showForSr, 'Property "showForSr" must be a boolean.');
-  check.assert.maybe.boolean(props.showOnFocus, 'Property "showOnFocus" must be a boolean.');
-  check.assert.maybe.boolean(props.isClearfix, 'Property "isClearfix" must be a boolean.');
-  check.assert.maybe.string(props.float, 'Property "float" must be a string.');
-
   return {
-    // Visibility props
     'show-for-medium': props.showForMedium,
     'show-for-large': props.showForLarge,
     'show-for-small-only': props.showOnlyFor === Breakpoints.SMALL,
@@ -113,10 +119,31 @@ export function generalClassNames(props) {
     'show-for-portrait': props.showForPortrait,
     'show-for-sr': props.showForSr,
     'show-on-focus': props.showOnFocus,
-    // Float props
     'clearfix': props.isClearfix,
     'float-left': props.float === FloatTypes.LEFT,
     'float-center': props.float === FloatTypes.CENTER,
     'float-right': props.float === FloatTypes.RIGHT
   };
+}
+
+/**
+ * Returns whether the given object has a specific value.
+ * You can use key paths such as 'foo.bar[1]' for the sake of simplicity.
+ *
+ * @param {Object} object
+ * @param {string} key
+ */
+export function objectHasValue(object, key) {
+  return lodashHas(object, key);
+}
+
+/**
+ * Returns the values for the given object.
+ * This method is mainly used for getting the values for enumerables.
+ *
+ * @param {Object} object
+ * @returns {Array}
+ */
+export function objectValues(object) {
+  return lodashValues(object);
 }

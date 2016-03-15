@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
 
 /**
  * FlexVideo component.
@@ -10,9 +9,6 @@ import { createClassName, generalClassNames } from '../utils';
  * @returns {Object}
  */
 export const FlexVideo = props => {
-  check.assert.maybe.boolean(props.isWidescreen, 'Property "isWidescreen" must be a boolean.');
-  check.assert.maybe.boolean(props.isVimeo, 'Property "isVimeo" must be a boolean.');
-
   const className = createClassName(
     props.className || 'flex-video',
     {
@@ -27,4 +23,8 @@ export const FlexVideo = props => {
   );
 };
 
-export default FlexVideo;
+FlexVideo.propTypes = {
+  isWidescreen: PropTypes.bool,
+  isVimeo: PropTypes.bool,
+  ...GeneralPropTypes
+};

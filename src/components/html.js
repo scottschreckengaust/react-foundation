@@ -1,4 +1,4 @@
-import { createClassName, generalClassNames } from '../utils';
+import { createClassName, generalClassNames, GeneralPropTypes } from '../utils';
 
 /**
  * Div component.
@@ -10,6 +10,10 @@ export const Div = props => (
   <div {...props} className={createClassName(props.className, generalClassNames(props))} />
 );
 
+Div.propTypes = {
+  ...GeneralPropTypes
+};
+
 /**
  * Span component.
  *
@@ -19,3 +23,7 @@ export const Div = props => (
 export const Span = props => (
   <span {...props} className={createClassName(props.className, generalClassNames(props))} />
 );
+
+Span.propTypes = {
+  ...GeneralPropTypes
+};

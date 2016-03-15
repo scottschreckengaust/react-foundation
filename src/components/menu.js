@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { createClassName, generalClassNames } from '../utils';
+import React, { PropTypes } from 'react';
+import { GeneralPropTypes, createClassName, generalClassNames, objectValues } from '../utils';
 
 /**
  * Menu alignment enumerable.
@@ -20,13 +19,6 @@ export const MenuAlignments = {
  * @returns {Object}
  */
 export const Menu = props => {
-  check.assert.maybe.string(props.alignment, 'Property "alignment" must be a string.');
-  check.assert.maybe.boolean(props.iconsOnTop, 'Property "iconsOnTop" must be a boolean.');
-  check.assert.maybe.boolean(props.isExpanded, 'Property "isExpanded" must be a boolean.');
-  check.assert.maybe.boolean(props.isVertical, 'Property "isVertical" must be a boolean.');
-  check.assert.maybe.boolean(props.isSimple, 'Property "isSimple" must be a boolean.');
-  check.assert.maybe.boolean(props.isNested, 'Property "isNested" must be a boolean.');
-
   const className = createClassName(
     props.className || 'menu',
     {
@@ -46,6 +38,16 @@ export const Menu = props => {
   );
 };
 
+Menu.propTypes = {
+  alignment: PropTypes.oneOf(objectValues(MenuAlignments)),
+  iconsOnTop: PropTypes.bool,
+  isExpanded: PropTypes.bool,
+  isVertical: PropTypes.bool,
+  isSimple: PropTypes.bool,
+  isNested: PropTypes.bool,
+  ...GeneralPropTypes
+};
+
 /**
  * Menu item component.
  *
@@ -53,8 +55,6 @@ export const Menu = props => {
  * @returns {Object}
  */
 export const MenuItem = props => {
-  check.assert.maybe.boolean(props.isActive, 'Property "isActive" must be a boolean.');
-
   const className = createClassName(
     props.className,
     {
@@ -68,6 +68,11 @@ export const MenuItem = props => {
   );
 };
 
+MenuItem.propTypes = {
+  isActive: PropTypes.bool,
+  ...GeneralPropTypes
+};
+
 /**
  * Menu text wrapper-component.
  *
@@ -77,5 +82,3 @@ export const MenuItem = props => {
 export const MenuText = props => (
   <MenuItem {...props} className={props.className || 'menu-text'} />
 );
-
-export default Menu;

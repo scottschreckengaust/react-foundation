@@ -1,5 +1,5 @@
 import React from 'react';
-import { createClassName, generalClassNames } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
 
 /**
  * Close button component.
@@ -8,14 +8,10 @@ import { createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const CloseButton = props => {
-  const className = createClassName(props.className || 'close-button', generalClassNames(props));
+export const CloseButton = props => (
+  <button {...props} className={createClassName(props.className || 'close-button', generalClassNames(props))}/>
+);
 
-  return (
-    <button {...props} className={className} />
-  );
+CloseButton.propTypes = {
+  ...GeneralPropTypes
 };
-
-// TODO: Add support for closable elements.
-
-export default CloseButton;

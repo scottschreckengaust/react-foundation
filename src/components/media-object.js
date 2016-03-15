@@ -1,6 +1,5 @@
-import React from 'react';
-import check from 'check-types';
-import { HorizontalAlignments, createClassName, generalClassNames } from '../utils';
+import React, { PropTypes } from 'react';
+import { HorizontalAlignments, GeneralPropTypes, createClassName, generalClassNames, objectValues } from '../utils';
 
 /**
  * Media object component.
@@ -9,8 +8,6 @@ import { HorizontalAlignments, createClassName, generalClassNames } from '../uti
  * @returns {Object}
  */
 export const MediaObject = props => {
-  check.assert.maybe.boolean(props.stackForSmall, 'Property "stackForSmall" must be a boolean.');
-
   const className = createClassName(
     props.className || 'media-object',
     {
@@ -24,6 +21,11 @@ export const MediaObject = props => {
   );
 };
 
+MediaObject.propTypes = {
+  stackForSmall: PropTypes.bool,
+  ...GeneralPropTypes
+};
+
 /**
  * Media object section component.
  *
@@ -31,11 +33,6 @@ export const MediaObject = props => {
  * @returns {Object}
  */
 export const MediaObjectSection = props => {
-  check.assert.maybe.string(props.alignment, 'Property "alignment" must be a string.');
-  check.assert.maybe.boolean(props.isMain, 'Property "isMain" must be a boolean.');
-  check.assert.maybe.boolean(props.isMiddle, 'Property "isMiddle" must be a boolean.');
-  check.assert.maybe.boolean(props.isBottom, 'Property "isBottom" must be a boolean.');
-
   const className = createClassName(
     props.className || 'media-object-section',
     {
@@ -53,4 +50,12 @@ export const MediaObjectSection = props => {
   return (
     <div {...props} className={className} />
   );
+};
+
+MediaObjectSection.propTypes = {
+  alignment: PropTypes.oneOf(objectValues(HorizontalAlignments)),
+  isMain: PropTypes.bool,
+  isMiddle: PropTypes.bool,
+  isBottom: PropTypes.bool,
+  ...GeneralPropTypes
 };
