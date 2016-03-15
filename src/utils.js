@@ -3,54 +3,7 @@ import classNames from 'classnames';
 import { default as lodashHas } from 'lodash.has';
 import { default as lodashOmit } from 'lodash.omit';
 import { default as lodashValues } from 'lodash.values';
-
-/**
- * Breakpoints enumerable.
- *
- * @type {{SMALL: string, MEDIUM: string, LARGE: string, XLARGE: string, XXLARGE: string}}
- */
-export const Breakpoints = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
-  XLARGE: 'xlarge',
-  XXLARGE: 'xxlarge'
-};
-
-/**
- * Horizontal alignment enumerable.
- *
- * @type {{CENTER: string, RIGHT: string, JUSTIFY: string, SPACED: string}}
- */
-export const HorizontalAlignments = {
-  CENTER: 'center',
-  RIGHT: 'right',
-  JUSTIFY: 'justify',
-  SPACED: 'spaced'
-};
-
-/**
- * Vertical alignment enumerable.
- *
- * @type {{TOP: string, MIDDLE: string, BOTTOM: string, STRETCH: string}}
- */
-export const VerticalAlignments = {
-  TOP: 'top',
-  MIDDLE: 'middle',
-  BOTTOM: 'bottom',
-  STRETCH: 'stretch'
-};
-
-/**
- * Float types enumerable.
- *
- * @type {{LEFT: string, CENTER: string, RIGHT: string}}
- */
-export const FloatTypes = {
-  LEFT: 'left',
-  CENTER: 'center',
-  RIGHT: 'right'
-};
+import { Breakpoints, FloatTypes } from './enums';
 
 /**
  * Property types for general properties.
@@ -58,11 +11,9 @@ export const FloatTypes = {
  * @returns {Object}
  */
 export const GeneralPropTypes = {
-  showForMedium: PropTypes.bool,
-  showForLarge: PropTypes.bool,
+  showFor: PropTypes.oneOf([Breakpoints.MEDIUM, Breakpoints.LARGE]),
   showOnlyFor: PropTypes.oneOf(objectValues(Breakpoints)),
-  hideForMedium: PropTypes.bool,
-  hideForLarge: PropTypes.bool,
+  hideFor: PropTypes.oneOf([Breakpoints.MEDIUM, Breakpoints.LARGE]),
   hideOnlyFor: PropTypes.oneOf(objectValues(Breakpoints)),
   isHidden: PropTypes.bool,
   isInvisible: PropTypes.bool,
@@ -103,13 +54,13 @@ export function createClassName(...args) {
  */
 export function generalClassNames(props) {
   return {
-    'show-for-medium': props.showForMedium,
-    'show-for-large': props.showForLarge,
+    'show-for-medium': props.showFor === Breakpoints.MEDIUM,
+    'show-for-large': props.showFor === Breakpoints.LARGE,
     'show-for-small-only': props.showOnlyFor === Breakpoints.SMALL,
     'show-for-medium-only': props.showOnlyFor === Breakpoints.MEDIUM,
     'show-for-large-only': props.showOnlyFor === Breakpoints.LARGE,
-    'hide-for-medium': props.hideForMedium,
-    'hide-for-large': props.hideForLarge,
+    'hide-for-medium': props.hideFor === Breakpoints.MEDIUM,
+    'hide-for-large': props.hideFor === Breakpoints.LARGE,
     'hide-for-small-only': props.hideOnlyFor === Breakpoints.SMALL,
     'hide-for-medium-only': props.hideOnlyFor === Breakpoints.MEDIUM,
     'hide-for-large-only': props.hideOnlyFor === Breakpoints.LARGE,

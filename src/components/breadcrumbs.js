@@ -33,6 +33,6 @@ export const BreadcrumbItem = props => {
 };
 
 BreadcrumbItem.propTypes = {
-  isDisabled: PropTypes.bool,
-  ...GeneralPropTypes
+  ...GeneralPropTypes,
+  isDisabled: PropTypes.bool
 };

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { HorizontalAlignments, GeneralPropTypes, createClassName, generalClassNames, objectValues } from '../utils';
+import { HorizontalAlignments } from '../enums';
+import { GeneralPropTypes, createClassName, generalClassNames, objectValues } from '../utils';
 
 /**
  * Media object component.
@@ -17,13 +18,13 @@ export const MediaObject = props => {
   );
 
   return (
-    <div {...props} className={className} />
+    <div {...props} className={className}/>
   );
 };
 
 MediaObject.propTypes = {
-  stackForSmall: PropTypes.bool,
-  ...GeneralPropTypes
+  ...GeneralPropTypes,
+  stackForSmall: PropTypes.bool
 };
 
 /**
@@ -48,14 +49,14 @@ export const MediaObjectSection = props => {
   );
 
   return (
-    <div {...props} className={className} />
+    <div {...props} className={className}/>
   );
 };
 
 MediaObjectSection.propTypes = {
+  ...GeneralPropTypes,
   alignment: PropTypes.oneOf(objectValues(HorizontalAlignments)),
   isMain: PropTypes.bool,
   isMiddle: PropTypes.bool,
-  isBottom: PropTypes.bool,
-  ...GeneralPropTypes
+  isBottom: PropTypes.bool
 };

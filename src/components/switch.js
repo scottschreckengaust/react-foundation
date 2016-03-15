@@ -54,9 +54,9 @@ export const Switch = props => {
 };
 
 Switch.propTypes = {
+  ...GeneralPropTypes,
   size: PropTypes.oneOf(objectValues(SwitchSizes)),
-  id: PropTypes.string,
-  ...GeneralPropTypes
+  id: PropTypes.string
 };
 
 /**
@@ -69,7 +69,7 @@ export const SwitchInput = props => {
   return (
     <input {...removeProps(props, ['type'])}
       className={props.className || 'switch-input'}
-      type={props.type || SwitchInputTypes.CHECKBOX} />
+      type={props.type || SwitchInputTypes.CHECKBOX}/>
   );
 };
 
@@ -85,7 +85,7 @@ SwitchInput.propTypes = {
  * @returns {Object}
  */
 export const SwitchPaddle = props => (
-  <label {...props} className={props.className || 'switch-paddle'} />
+  <label {...props} className={props.className || 'switch-paddle'}/>
 );
 
 /**

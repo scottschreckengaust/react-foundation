@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { ButtonGroup, ButtonGroupSizes, ButtonGroupColors } from 'src/components/button-group';
+import { Breakpoints } from 'src/enums';
 
 describe('ButtonGroup component', () => {
 
@@ -46,19 +47,19 @@ describe('ButtonGroup component', () => {
   });
 
   it('sets stack on small', () => {
-    const component = render(<ButtonGroup stackedForSmall/>);
+    const component = render(<ButtonGroup stackFor={Breakpoints.SMALL}/>);
     expect(component).to.have.className('stacked-for-small');
     expect(component).to.not.have.attr('stackedForSmall');
   });
 
   it('sets stack on medium', () => {
-    const component = render(<ButtonGroup stackedForMedium/>);
+    const component = render(<ButtonGroup stackFor={Breakpoints.MEDIUM}/>);
     expect(component).to.have.className('stacked-for-medium');
     expect(component).to.not.have.attr('stackedForMedium');
   });
 
   it('sets stack on large', () => {
-    const component = render(<ButtonGroup stackedForLarge/>);
+    const component = render(<ButtonGroup stackFor={Breakpoints.LARGE}/>);
     expect(component).to.have.className('stacked-for-large');
     expect(component).to.not.have.attr('stackedForLarge');
   });

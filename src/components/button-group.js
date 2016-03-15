@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Breakpoints } from '../enums';
 import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
 
 /**
@@ -39,10 +40,10 @@ export const ButtonGroup = props => {
     props.size,
     {
       'expanded': props.isExpanded,
-      'stacked': props.isStacked,
-      'stacked-for-small': props.stackedForSmall,
-      'stacked-for-medium': props.stackedForMedium,
-      'stacked-for-large': props.stackedForLarge
+      'stacked-for-small': props.stackFor === Breakpoints.SMALL,
+      'stacked-for-medium': props.stackFor === Breakpoints.MEDIUM,
+      'stacked-for-large': props.stackFor === Breakpoints.LARGE,
+      'stacked': props.isStacked
     },
     generalClassNames(props)
   );
@@ -53,11 +54,10 @@ export const ButtonGroup = props => {
 };
 
 ButtonGroup.propTypes = {
+  ...GeneralPropTypes,
   color: PropTypes.oneOf(objectValues(ButtonGroupColors)),
   size: PropTypes.oneOf(objectValues(ButtonGroupSizes)),
+  stackFor: PropTypes.oneOf(objectValues(Breakpoints)),
   isExpanded: PropTypes.bool,
-  stackedForSmall: PropTypes.bool,
-  stackedForMedium: PropTypes.bool,
-  stackedForLarge: PropTypes.bool,
-  ...GeneralPropTypes
+  isStacked: PropTypes.bool
 };

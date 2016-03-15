@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { TopBar } from './top-bar';
-import { createClassName, generalClassNames, removeProps } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps } from '../utils';
 
 // Default pixel value when title bar is displayed and top bar is hidden.
 const DEFAULT_BREAKPOINT = 640;
@@ -83,6 +83,7 @@ export class ResponsiveNavigation extends Component {
 }
 
 ResponsiveNavigation.propTypes = {
+  ...GeneralPropTypes,
   breakpoint: PropTypes.number.isRequired
 };
 
@@ -97,7 +98,7 @@ ResponsiveNavigation.defaultProps = {
  * @returns {XML}
  */
 export const TitleBar = props => (
-  <div {...props} className={createClassName(props.className || 'title-bar', generalClassNames(props))} />
+  <div {...props} className={createClassName(props.className || 'title-bar', generalClassNames(props))}/>
 );
 
 /**
@@ -107,7 +108,9 @@ export const TitleBar = props => (
  * @returns {XML}
  */
 export const MenuIcon = props => (
-  <button {...props} className={createClassName(props.className || 'menu-icon', generalClassNames(props))} type="button" />
+  <button {...props}
+    className={createClassName(props.className || 'menu-icon', generalClassNames(props))}
+    type="button"/>
 );
 
 /**
@@ -117,7 +120,5 @@ export const MenuIcon = props => (
  * @returns {XML}
  */
 export const TitleBarTitle = props => (
-  <div {...props} className={createClassName(props.className || 'title-bar-title', generalClassNames(props))} />
+  <div {...props} className={createClassName(props.className || 'title-bar-title', generalClassNames(props))}/>
 );
-
-export default ResponsiveNavigation;

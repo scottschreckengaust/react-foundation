@@ -9,7 +9,7 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @returns {Object}
  */
 export const Thumbnail = props => (
-  <img {...props} className={createClassName(props.className || 'thumbnail', generalClassNames(props))} />
+  <img {...props} className={createClassName(props.className || 'thumbnail', generalClassNames(props))}/>
 );
 
 Thumbnail.propTypes = {

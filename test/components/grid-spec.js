@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { Row, Column } from 'src/components/grid';
-import { HorizontalAlignments, VerticalAlignments } from 'src/utils';
+import { HorizontalAlignments, VerticalAlignments } from 'src/enums';
 
 describe('Row component', () => {
 

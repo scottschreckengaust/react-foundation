@@ -48,11 +48,11 @@ export const Progress = props => {
 };
 
 Progress.propTypes = {
+  ...GeneralPropTypes,
   min: PropTypes.number,
   max: PropTypes.number,
   value: PropTypes.number,
-  color: PropTypes.oneOf(objectValues(ProgressColors)),
-  ...GeneralPropTypes
+  color: PropTypes.oneOf(objectValues(ProgressColors))
 };
 
 /**
@@ -62,7 +62,7 @@ Progress.propTypes = {
  * @returns {Object}
  */
 export const ProgressMeter = props => (
-  <div {...props} className={props.className || 'progress-meter'} />
+  <div {...props} className={props.className || 'progress-meter'}/>
 );
 
 /**
@@ -84,7 +84,7 @@ export const ProgressMeterWithText = props => (
  * @returns {Object}
  */
 export const ProgressMeterText = props => (
-  <p {...props} className={props.className || 'progress-meter-text'} />
+  <p {...props} className={props.className || 'progress-meter-text'}/>
 );
 
 /**
@@ -97,15 +97,15 @@ export const ProgressMeterText = props => (
 export const NativeProgress = props => {
   return (
     <progress {...removeProps(props, ['color'])}
-      className={createClassName(props.className, props.color, generalClassNames(props))} />
+      className={createClassName(props.className, props.color, generalClassNames(props))}/>
   );
 };
 
 NativeProgress.propTypes = {
+  ...GeneralPropTypes,
   max: PropTypes.number,
   value: PropTypes.number,
-  color: PropTypes.oneOf(objectValues(ProgressColors)),
-  ...GeneralPropTypes
+  color: PropTypes.oneOf(objectValues(ProgressColors))
 };
 
 // TODO: Consider adding support for native meter.

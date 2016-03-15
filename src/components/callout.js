@@ -40,12 +40,12 @@ export const Callout = props => {
   );
 
   return (
-    <div {...removeProps(props, ['color'])} className={className} />
+    <div {...removeProps(props, ['color'])} className={className}/>
   );
 };
 
 Callout.propTypes = {
+  ...GeneralPropTypes,
   color: PropTypes.oneOf(objectValues(CalloutColors)),
-  size: PropTypes.oneOf(objectValues(CalloutSizes)),
-  ...GeneralPropTypes
+  size: PropTypes.oneOf(objectValues(CalloutSizes))
 };

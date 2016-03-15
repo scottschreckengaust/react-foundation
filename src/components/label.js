@@ -29,11 +29,11 @@ export const Label = props => {
   );
 
   return (
-    <span {...removeProps(props, ['color'])} className={className} />
+    <span {...removeProps(props, ['color'])} className={className}/>
   );
 };
 
 Label.propTypes = {
-  color: PropTypes.oneOf(objectValues(LabelColors)),
-  ...GeneralPropTypes
+  ...GeneralPropTypes,
+  color: PropTypes.oneOf(objectValues(LabelColors))
 };

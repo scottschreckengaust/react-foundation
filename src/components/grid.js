@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
+import { HorizontalAlignments, VerticalAlignments } from '../enums';
 import {
-  HorizontalAlignments,
-  VerticalAlignments,
   GeneralPropTypes,
   objectHasValue,
   createClassName,
@@ -37,19 +36,19 @@ export const Row = props => {
   );
 
   return (
-    <div {...props} className={className} />
+    <div {...props} className={className}/>
   );
 };
 
 Row.propTypes = {
+  ...GeneralPropTypes,
   horizontalAlignment: PropTypes.string,
   verticalAlignment: PropTypes.string,
   unstackOnSmall: PropTypes.bool,
   unstackOnMedium: PropTypes.bool,
   unstackOnLarge: PropTypes.bool,
   isColumn: PropTypes.bool,
-  isExpanded: PropTypes.bool,
-  ...GeneralPropTypes
+  isExpanded: PropTypes.bool
 };
 
 /**
@@ -102,11 +101,12 @@ export const Column = props => {
   );
 
   return (
-    <div {...removeProps(props, ['offset'])} className={className} />
+    <div {...removeProps(props, ['offset'])} className={className}/>
   );
 };
 
 Column.propTypes = {
+  ...GeneralPropTypes,
   small: PropTypes.number,
   medium: PropTypes.number,
   large: PropTypes.number,
@@ -131,6 +131,5 @@ Column.propTypes = {
   expandOnMedium: PropTypes.bool,
   expandOnLarge: PropTypes.bool,
   shrink: PropTypes.bool,
-  isLast: PropTypes.bool,
-  ...GeneralPropTypes
+  isLast: PropTypes.bool
 };
