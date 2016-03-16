@@ -1,6 +1,5 @@
 import { PropTypes } from 'react';
 import classNames from 'classnames';
-import { default as lodashHas } from 'lodash.has';
 import { default as lodashOmit } from 'lodash.omit';
 import { default as lodashValues } from 'lodash.values';
 import { Breakpoints, FloatTypes } from './enums';
@@ -75,17 +74,6 @@ export function generalClassNames(props) {
     'float-center': props.float === FloatTypes.CENTER,
     'float-right': props.float === FloatTypes.RIGHT
   };
-}
-
-/**
- * Returns whether the given object has a specific value.
- * You can use key paths such as 'foo.bar[1]' for the sake of simplicity.
- *
- * @param {Object} object
- * @param {string} key
- */
-export function objectHasValue(object, key) {
-  return lodashHas(object, key);
 }
 
 /**

@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { HorizontalAlignments, VerticalAlignments } from '../enums';
 import {
   GeneralPropTypes,
-  objectHasValue,
   createClassName,
   generalClassNames,
   removeProps
@@ -17,6 +16,9 @@ import {
 export const Row = props => {
   const className = createClassName(
     props.className || 'row',
+    props.upOnSmall ? `small-up-${props.upOnSmall}` : null,
+    props.upOnMedium ? `medium-up-${props.upOnMedium}` : null,
+    props.upOnLarge ? `large-up-${props.upOnLarge}` : null,
     {
       'align-right': props.horizontalAlignment === HorizontalAlignments.RIGHT,
       'align-center': props.horizontalAlignment === HorizontalAlignments.CENTER,
@@ -36,8 +38,8 @@ export const Row = props => {
       'medium-uncollapse': props.uncollapseOnMedium,
       'large-uncollapse': props.uncollapseOnLarge,
       'collapse': props.isCollapsed,
-      'column': props.isColumn,
-      'expanded': props.isExpanded
+      'expanded': props.isExpanded,
+      'column': props.isColumn
     },
     generalClassNames(props)
   );
@@ -77,21 +79,18 @@ export const Column = props => {
     props.small ? `small-${props.small}` : null,
     props.medium ? `medium-${props.medium}` : null,
     props.large ? `large-${props.large}` : null,
-    objectHasValue(props, 'offset.small') ? `small-offset-${props.offset.small}` : null,
-    objectHasValue(props, 'offset.medium') ? `medium-offset-${props.offset.medium}` : null,
-    objectHasValue(props, 'offset.large') ? `large-offset-${props.offset.large}` : null,
-    objectHasValue(props, 'push.small') ? `small-push-${props.push.small}` : null,
-    objectHasValue(props, 'push.medium') ? `medium-push-${props.push.medium}` : null,
-    objectHasValue(props, 'push.large') ? `large-push-${props.push.large}` : null,
-    objectHasValue(props, 'pull.small') ? `small-pull-${props.pull.small}` : null,
-    objectHasValue(props, 'pull.medium') ? `medium-pull-${props.pull.medium}` : null,
-    objectHasValue(props, 'pull.large') ? `large-pull-${props.pull.large}` : null,
-    objectHasValue(props, 'up.small') ? `small-up-${props.up.small}` : null,
-    objectHasValue(props, 'up.medium') ? `medium-up-${props.up.medium}` : null,
-    objectHasValue(props, 'up.large') ? `large-up-${props.up.large}` : null,
-    objectHasValue(props, 'order.small') ? `small-order-${props.order.small}` : null,
-    objectHasValue(props, 'order.medium') ? `medium-order-${props.order.medium}` : null,
-    objectHasValue(props, 'order.large') ? `large-order-${props.order.large}` : null,
+    props.offsetOnSmall ? `small-offset-${props.offsetOnSmall}` : null,
+    props.offsetOnMedium ? `medium-offset-${props.offsetOnMedium}` : null,
+    props.offsetOnLarge ? `large-offset-${props.offsetOnLarge}` : null,
+    props.pushOnSmall ? `small-push-${props.pushOnSmall}` : null,
+    props.pushOnMedium ? `medium-push-${props.pushOnMedium}` : null,
+    props.pushOnLarge ? `large-push-${props.pushOnLarge}` : null,
+    props.pullOnSmall ? `small-pull-${props.pullOnSmall}` : null,
+    props.pullOnMedium ? `medium-pull-${props.pullOnMedium}` : null,
+    props.pullOnLarge ? `large-pull-${props.pullOnLarge}` : null,
+    props.orderOnSmall ? `small-order-${props.orderOnSmall}` : null,
+    props.orderOnMedium ? `medium-order-${props.orderOnMedium}` : null,
+    props.orderOnLarge ? `large-order-${props.orderOnLarge}` : null,
     {
       'small-centered': props.centerOnSmall,
       'medium-centered': props.centerOnMedium,
