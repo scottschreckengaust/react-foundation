@@ -1,6 +1,6 @@
 {
   "name": "react-foundation",
-  "version": "0.4.2",
+  "version": "0.4.4",
   "description": "Foundation as React components.",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
