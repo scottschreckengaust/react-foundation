@@ -19,7 +19,8 @@ export const Menu = props => {
       'expanded': props.isExpanded,
       'vertical': props.isVertical,
       'simple': props.isSimple,
-      'nested': props.isNested
+      'nested': props.isNested,
+      'medium-horizontal': props.isHorizontalOnMedium
     },
     generalClassNames(props)
   );
@@ -36,7 +37,8 @@ Menu.propTypes = {
   isExpanded: PropTypes.bool,
   isVertical: PropTypes.bool,
   isSimple: PropTypes.bool,
-  isNested: PropTypes.bool
+  isNested: PropTypes.bool,
+  isHorizontalOnMedium: PropTypes.bool
 };
 
 /**

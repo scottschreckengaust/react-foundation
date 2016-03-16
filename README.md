@@ -8,7 +8,7 @@
 ## Motivation
 
 [Foundation](http://foundation.zurb.com) is both feature-rich and easy to customize. 
-[React](https://facebook.github.io/react/) on the other hand is awesome because of it's simplicity.
+[React](https://facebook.github.io/react/) on the other hand is awesome because of its simplicity.
 It's even more awesome when combined with
 [Redux](http://redux.js.org/) and [Immutable](https://facebook.github.io/immutable-js/).
 
@@ -22,7 +22,7 @@ We hope you enjoy it as much as we do!
 
 The goal is to wrap every part of Foundation into re-usable React components following the framework's
 best practices. The primary focus is ease-of-use and extensibility. We use pure render components, 
-also know as stateless components, when ever possible to keep the memory usage to a minimum. Stateful
+also known as stateless components, whenever possible to keep the memory usage to a minimum. Stateful
 components are only used for larger components, such as `ResponsiveNavigation`, where state is actually necessary.
 All components are unit-tested to ensure their quality.
 
