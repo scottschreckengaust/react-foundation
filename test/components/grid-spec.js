@@ -56,37 +56,37 @@ describe('Row component', () => {
 
   it('sets collapse on small', () => {
     const component = render(<Row collapseOnSmall/>);
-    expect(component).to.have.className('collapse-small');
+    expect(component).to.have.className('small-collapse');
     expect(component).to.not.have.attr('collapseOnSmall');
   });
 
   it('sets collapse on medium', () => {
     const component = render(<Row collapseOnMedium/>);
-    expect(component).to.have.className('collapse-medium');
+    expect(component).to.have.className('medium-collapse');
     expect(component).to.not.have.attr('collapseOnMedium');
   });
 
   it('sets collapse on large', () => {
     const component = render(<Row collapseOnLarge/>);
-    expect(component).to.have.className('collapse-large');
+    expect(component).to.have.className('large-collapse');
     expect(component).to.not.have.attr('collapseOnLarge');
   });
 
   it('sets uncollapse on small', () => {
     const component = render(<Row uncollapseOnSmall/>);
-    expect(component).to.have.className('uncollapse-small');
+    expect(component).to.have.className('small-uncollapse');
     expect(component).to.not.have.attr('uncollapseOnSmall');
   });
 
   it('sets uncollapse on medium', () => {
     const component = render(<Row uncollapseOnMedium/>);
-    expect(component).to.have.className('uncollapse-medium');
+    expect(component).to.have.className('medium-uncollapse');
     expect(component).to.not.have.attr('uncollapseOnMedium');
   });
 
   it('sets uncollapse on large', () => {
     const component = render(<Row uncollapseOnLarge/>);
-    expect(component).to.have.className('uncollapse-large');
+    expect(component).to.have.className('large-uncollapse');
     expect(component).to.not.have.attr('uncollapseOnLarge');
   });
 
