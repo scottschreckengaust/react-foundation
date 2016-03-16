@@ -24,6 +24,24 @@ describe('Row component', () => {
     expect(component).to.not.have.className('row');
   });
 
+  it('sets up on small', () => {
+    const component = render(<Row upOnSmall={1}/>);
+    expect(component).to.have.className('small-up-1');
+    expect(component).to.not.have.attr('upOnSmall');
+  });
+
+  it('sets up on medium', () => {
+    const component = render(<Row upOnMedium={2}/>);
+    expect(component).to.have.className('medium-up-2');
+    expect(component).to.not.have.attr('upOnMedium');
+  });
+
+  it('sets up on large', () => {
+    const component = render(<Row upOnLarge={3}/>);
+    expect(component).to.have.className('large-up-3');
+    expect(component).to.not.have.attr('upOnLarge');
+  });
+
   it('sets horizontal alignment', () => {
     const component = render(<Row horizontalAlignment={Alignments.RIGHT}/>);
     expect(component).to.have.className('align-right');
@@ -146,44 +164,76 @@ describe('Column component', () => {
     expect(component).to.not.have.attr('large');
   });
 
-  it('sets offset', () => {
-    const component = render(<Column offset={{ small: 1, medium: 2, large: 3 }}/>);
+  it('sets offset on small', () => {
+    const component = render(<Column offsetOnSmall={1}/>);
     expect(component).to.have.className('small-offset-1');
+    expect(component).to.not.have.attr('offsetOnSmall');
+  });
+
+  it('sets offset on medium', () => {
+    const component = render(<Column offsetOnMedium={2}/>);
     expect(component).to.have.className('medium-offset-2');
+    expect(component).to.not.have.attr('offsetOnMedium');
+  });
+
+  it('sets offset on large', () => {
+    const component = render(<Column offsetOnLarge={3}/>);
     expect(component).to.have.className('large-offset-3');
-    expect(component).to.not.have.attr('offset');
+    expect(component).to.not.have.attr('offsetOnLarge');
   });
 
-  it('sets push', () => {
-    const component = render(<Column push={{ small: 1, medium: 2, large: 3 }}/>);
+  it('sets push on small', () => {
+    const component = render(<Column pushOnSmall={1}/>);
     expect(component).to.have.className('small-push-1');
+    expect(component).to.not.have.attr('pushOnSmall');
+  });
+
+  it('sets push on medium', () => {
+    const component = render(<Column pushOnMedium={2}/>);
     expect(component).to.have.className('medium-push-2');
+    expect(component).to.not.have.attr('pushOnMedium');
+  });
+
+  it('sets push on large', () => {
+    const component = render(<Column pushOnLarge={3}/>);
     expect(component).to.have.className('large-push-3');
-    expect(component).to.not.have.attr('push');
+    expect(component).to.not.have.attr('pushOnLarge');
   });
 
-  it('sets pull', () => {
-    const component = render(<Column pull={{ small: 1, medium: 2, large: 3 }}/>);
-    expect(component).to.have.className('small-pull-1');
-    expect(component).to.have.className('medium-pull-2');
-    expect(component).to.have.className('large-pull-3');
-    expect(component).to.not.have.attr('pull');
+  it('sets push on small', () => {
+    const component = render(<Column pushOnSmall={1}/>);
+    expect(component).to.have.className('small-push-1');
+    expect(component).to.not.have.attr('pushOnSmall');
   });
 
-  it('sets up', () => {
-    const component = render(<Column up={{ small: 1, medium: 2, large: 3 }}/>);
-    expect(component).to.have.className('small-up-1');
-    expect(component).to.have.className('medium-up-2');
-    expect(component).to.have.className('large-up-3');
-    expect(component).to.not.have.className('up');
+  it('sets push on medium', () => {
+    const component = render(<Column pushOnMedium={2}/>);
+    expect(component).to.have.className('medium-push-2');
+    expect(component).to.not.have.attr('pushOnMedium');
   });
 
-  it('sets order', () => {
-    const component = render(<Column order={{ small: 1, medium: 2, large: 3 }}/>);
+  it('sets push on large', () => {
+    const component = render(<Column pushOnLarge={3}/>);
+    expect(component).to.have.className('large-push-3');
+    expect(component).to.not.have.attr('pushOnLarge');
+  });
+
+  it('sets order on small', () => {
+    const component = render(<Column orderOnSmall={1}/>);
     expect(component).to.have.className('small-order-1');
+    expect(component).to.not.have.attr('orderOnSmall');
+  });
+
+  it('sets order on medium', () => {
+    const component = render(<Column orderOnMedium={2}/>);
     expect(component).to.have.className('medium-order-2');
+    expect(component).to.not.have.attr('orderOnMedium');
+  });
+
+  it('sets order on large', () => {
+    const component = render(<Column orderOnLarge={3}/>);
     expect(component).to.have.className('large-order-3');
-    expect(component).to.not.have.className('order');
+    expect(component).to.not.have.attr('orderOnLarge');
   });
 
   it('sets center on small', () => {
