@@ -51,6 +51,9 @@ export const Row = props => {
 
 Row.propTypes = {
   ...GeneralPropTypes,
+  upOnSmall: PropTypes.number,
+  upOnMedium: PropTypes.number,
+  upOnLarge: PropTypes.number,
   horizontalAlignment: PropTypes.string,
   verticalAlignment: PropTypes.string,
   unstackOnSmall: PropTypes.bool,
@@ -63,8 +66,8 @@ Row.propTypes = {
   uncollapseOnMedium: PropTypes.bool,
   uncollapseOnLarge: PropTypes.bool,
   isCollapsed: PropTypes.bool,
-  isColumn: PropTypes.bool,
-  isExpanded: PropTypes.bool
+  isExpanded: PropTypes.bool,
+  isColumn: PropTypes.bool
 };
 
 /**
@@ -117,11 +120,18 @@ Column.propTypes = {
   small: PropTypes.number,
   medium: PropTypes.number,
   large: PropTypes.number,
-  offset: PropTypes.object,
-  push: PropTypes.object,
-  pull: PropTypes.object,
-  up: PropTypes.object,
-  order: PropTypes.object,
+  offsetOnSmall: PropTypes.number,
+  offsetOnMedium: PropTypes.number,
+  offsetOnLarge: PropTypes.number,
+  pushOnSmall: PropTypes.number,
+  pushOnMedium: PropTypes.number,
+  pushOnLarge: PropTypes.number,
+  pullOnSmall: PropTypes.number,
+  pullOnMedium: PropTypes.number,
+  pullOnLarge: PropTypes.number,
+  orderOnSmall: PropTypes.number,
+  orderOnMedium: PropTypes.number,
+  orderOnLarge: PropTypes.number,
   centerOnSmall: PropTypes.bool,
   centerOnMedium: PropTypes.bool,
   centerOnLarge: PropTypes.bool,

@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { Breakpoints } from 'src/enums';
-import { removeProps, createClassName, generalClassNames, objectHasValue, objectValues } from 'src/utils';
+import { removeProps, createClassName, generalClassNames, objectValues } from 'src/utils';
 
 describe('Utilities', () => {
 
@@ -26,13 +26,6 @@ describe('Utilities', () => {
     expect(classNames['hide']).to.equal.true;
     expect(classNames['show-for-sr']).to.equal.false;
     expect(classNames['float-left']).to.equal.true;
-  });
-
-  describe('objectHasValue', () => {
-    const obj = {foo: 1, bar: {baz: 'foo', qux: undefined}};
-    expect(objectHasValue(obj, 'foo')).to.equal.true;
-    expect(objectHasValue(obj, 'bar.baz')).to.equal.true;
-    expect(objectHasValue(obj, 'bar.qux')).to.equal.false;
   });
 
   describe('objectValues', () => {
