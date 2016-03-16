@@ -102,7 +102,7 @@ export const Column = props => {
       'small-expand': props.expandOnSmall,
       'medium-expand': props.expandOnMedium,
       'large-expand': props.expandOnLarge,
-      'shrink': props.shrink,
+      'shrink': props.isShrunk,
       'end': props.isLast
     },
     generalClassNames(props)
@@ -132,6 +132,6 @@ Column.propTypes = {
   expandOnSmall: PropTypes.bool,
   expandOnMedium: PropTypes.bool,
   expandOnLarge: PropTypes.bool,
-  shrink: PropTypes.bool,
+  isShrunk: PropTypes.bool,
   isLast: PropTypes.bool
 };

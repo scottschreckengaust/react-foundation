@@ -241,9 +241,9 @@ describe('Column component', () => {
   });
 
   it('sets shrink', () => {
-    const component = render(<Column shrink/>);
+    const component = render(<Column isShrunk/>);
     expect(component).to.have.className('shrink');
-    expect(component).to.not.have.attr('shrink');
+    expect(component).to.not.have.attr('isShrunk');
   });
 
   it('sets last', () => {
