@@ -65,6 +65,12 @@ describe('Menu component', () => {
     expect(component).to.have.className('nested');
     expect(component).to.not.have.attr('isNested');
   });
+
+  it('sets horizontal on medium', () => {
+    const component = render(<Menu isHorizontalOnMedium/>);
+    expect(component).to.have.className('medium-horizontal');
+    expect(component).to.not.have.attr('isHorizontalOnMedium');
+  });
   
 });
 
