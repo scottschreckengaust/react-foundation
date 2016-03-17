@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Label, LabelColors } from 'src/components/label';
-import { Colors } from 'src/enums';
+import { Label, LabelColors } from '../../src/components/label';
+import { Colors } from '../../src/enums';
 
 // TODO: Add test cases for invalid enum values
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Block, Inline } from 'src/components/element';
+import { Block, Inline } from '../../src/components/element';
 
 describe('Block component', () => {
 

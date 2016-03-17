@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { MediaObject, MediaObjectSection } from 'src/components/media-object';
-import { Alignments } from 'src/enums';
+import { MediaObject, MediaObjectSection } from '../../src/components/media-object';
+import { Alignments } from '../../src/enums';
 
 describe('MediaObject component', () => {
 

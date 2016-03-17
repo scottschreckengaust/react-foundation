@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Breakpoints } from 'src/enums';
-import { removeProps, createClassName, generalClassNames, objectValues } from 'src/utils';
+import { Breakpoints } from '../src/enums';
+import { removeProps, createClassName, generalClassNames, objectValues } from '../src/utils';
 
 describe('Utilities', () => {
 

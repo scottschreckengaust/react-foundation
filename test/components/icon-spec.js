@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Icon } from 'src/components/icon';
+import { Icon } from '../../src/components/icon';
 
 describe('Icon component', () => {
 

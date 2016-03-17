@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { CloseButton } from 'src/components/close-button';
+import { CloseButton } from '../../src/components/close-button';
 
 describe('CloseButton component', () => {
 

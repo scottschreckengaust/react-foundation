@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Menu, MenuItem, MenuText, MenuAlignments } from 'src/components/menu';
-import { Alignments } from 'src/enums';
+import { Menu, MenuItem, MenuText, MenuAlignments } from '../../src/components/menu';
+import { Alignments } from '../../src/enums';
 
 // TODO: Add test cases for invalid enum values
 
