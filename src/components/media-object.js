@@ -10,7 +10,8 @@ import { GeneralPropTypes, createClassName, generalClassNames, objectValues } fr
  */
 export const MediaObject = props => {
   const className = createClassName(
-    props.className || 'media-object',
+    props.noDefaultClassName ? null : 'media-object',
+    props.className,
     {
       'stack-for-small': props.stackForSmall
     },
@@ -35,7 +36,8 @@ MediaObject.propTypes = {
  */
 export const MediaObjectSection = props => {
   const className = createClassName(
-    props.className || 'media-object-section',
+    props.noDefaultClassName ? null : 'media-object-section',
+    props.className,
     {
       'align-self-center': props.alignment === HorizontalAlignments.CENTER,
       'align-self-right': props.alignment === HorizontalAlignments.RIGHT,

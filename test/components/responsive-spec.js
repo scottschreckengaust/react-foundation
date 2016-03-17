@@ -13,7 +13,7 @@ describe('ResponsiveNavigation component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<ResponsiveNavigation className="navbar"/>);
     expect(component).to.have.className('navbar');
   });
@@ -71,15 +71,19 @@ describe('TitleBar component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<TitleBar/>);
     expect(component).to.have.className('title-bar');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<TitleBar noDefaultClassName/>);
+    expect(component).to.not.have.className('title-bar');
   });
 
   it('sets custom class name', () => {
     const component = render(<TitleBar className="my-title-bar"/>);
     expect(component).to.have.className('my-title-bar');
-    expect(component).to.not.have.className('title-bar');
   });
 
 });
@@ -91,15 +95,19 @@ describe('MenuIcon component', () => {
     expect(component).to.have.tagName('button');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<MenuIcon/>);
     expect(component).to.have.className('menu-icon');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<MenuIcon noDefaultClassName/>);
+    expect(component).to.not.have.className('menu-icon');
   });
 
   it('sets custom class name', () => {
     const component = render(<MenuIcon className="my-menu-icon"/>);
     expect(component).to.have.className('my-menu-icon');
-    expect(component).to.not.have.className('menu-icon');
   });
 
   it('sets button type', () => {
@@ -121,15 +129,19 @@ describe('TitleBarTitle component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<TitleBarTitle/>);
     expect(component).to.have.className('title-bar-title');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<TitleBarTitle noDefaultClassName/>);
+    expect(component).to.not.have.className('title-bar-title');
   });
 
   it('sets custom class name', () => {
     const component = render(<TitleBarTitle className="my-title-bar-title"/>);
     expect(component).to.have.className('my-title-bar-title');
-    expect(component).to.not.have.className('title-bar-title');
   });
 
   it('sets contents', () => {

@@ -13,15 +13,19 @@ describe('Badge component', () => {
     expect(component).to.have.tagName('span');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Badge/>);
     expect(component).to.have.className('badge');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<Badge noDefaultClassName/>);
+    expect(component).to.not.have.className('badge');
   });
 
   it('sets custom class name', () => {
     const component = render(<Badge className="my-badge"/>);
     expect(component).to.have.className('my-badge');
-    expect(component).to.not.have.className('badge');
   });
 
   it('sets color', () => {

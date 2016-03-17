@@ -10,7 +10,7 @@ describe('Block component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Block className="block"/>);
     expect(component).to.have.className('block');
   });
@@ -35,7 +35,7 @@ describe('Inline component', () => {
     expect(component).to.have.tagName('span');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Inline className="inline"/>);
     expect(component).to.have.className('inline');
   });

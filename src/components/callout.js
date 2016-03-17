@@ -11,7 +11,8 @@ import { GeneralPropTypes, createClassName, generalClassNames, removeProps, obje
  */
 export const Callout = props => {
   const className = createClassName(
-    props.className || 'callout',
+    props.noDefaultClassName ? null : 'callout',
+    props.className,
     props.color,
     props.size,
     generalClassNames(props)

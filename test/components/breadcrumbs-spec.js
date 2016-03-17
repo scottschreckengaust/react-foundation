@@ -10,15 +10,19 @@ describe('Breadcrumbs component', () => {
     expect(component).to.have.tagName('ul');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Breadcrumbs/>);
     expect(component).to.have.className('breadcrumbs');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<Breadcrumbs noDefaultClassName/>);
+    expect(component).to.not.have.className('breadcrumbs');
   });
 
   it('sets custom class name', () => {
     const component = render(<Breadcrumbs className="my-breadcrumbs"/>);
     expect(component).to.have.className('my-breadcrumbs');
-    expect(component).to.not.have.className('breadcrumbs');
   });
 
 });

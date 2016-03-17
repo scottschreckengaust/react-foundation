@@ -95,30 +95,52 @@ ResponsiveNavigation.defaultProps = {
  * Title bar sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
-export const TitleBar = props => (
-  <div {...props} className={createClassName(props.className || 'title-bar', generalClassNames(props))}/>
-);
+export const TitleBar = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'title-bar',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <div {...props} className={className}/>
+  );
+};
 
 /**
  * Title bar menu icon sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
-export const MenuIcon = props => (
-  <button {...props}
-    className={createClassName(props.className || 'menu-icon', generalClassNames(props))}
-    type="button"/>
-);
+export const MenuIcon = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'menu-icon',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <button {...props} className={className} type="button"/>
+  );
+};
 
 /**
  * Title bar title sub-component.
  *
  * @param {Object} props
- * @returns {XML}
+ * @returns {Object}
  */
-export const TitleBarTitle = props => (
-  <div {...props} className={createClassName(props.className || 'title-bar-title', generalClassNames(props))}/>
-);
+export const TitleBarTitle = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'title-bar-title',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <div {...props} className={className}/>
+  );
+};

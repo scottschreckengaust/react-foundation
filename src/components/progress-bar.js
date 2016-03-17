@@ -13,7 +13,8 @@ export const Progress = props => {
   const { meter: meterProps = {} } = props;
 
   const className = createClassName(
-    props.className || 'progress',
+    props.noDefaultClassName ? null : 'progress',
+    props.className,
     props.color,
     generalClassNames(props)
   );
@@ -50,9 +51,17 @@ Progress.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const ProgressMeter = props => (
-  <div {...props} className={props.className || 'progress-meter'}/>
-);
+export const ProgressMeter = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'progress-meter',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <div {...props} className={className}/>
+  );
+};
 
 /**
  * Progress meter with text sub-component.
@@ -60,11 +69,19 @@ export const ProgressMeter = props => (
  * @param {Object} props
  * @returns {Object}
  */
-export const ProgressMeterWithText = props => (
-  <span {...props} className={props.className || 'progress-meter'}>
-    <ProgressMeterText>{props.text}</ProgressMeterText>
-  </span>
-);
+export const ProgressMeterWithText = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'progress-meter',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <span {...props} className={className}>
+      <ProgressMeterText>{props.text}</ProgressMeterText>
+    </span>
+  );
+};
 
 /**
  * Progress meter text sub-component.
@@ -72,9 +89,17 @@ export const ProgressMeterWithText = props => (
  * @param {Object} props
  * @returns {Object}
  */
-export const ProgressMeterText = props => (
-  <p {...props} className={props.className || 'progress-meter-text'}/>
-);
+export const ProgressMeterText = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'progress-meter-text',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <p {...props} className={className}/>
+  );
+};
 
 /**
  * Native progress component.
@@ -84,9 +109,14 @@ export const ProgressMeterText = props => (
  * @returns {Object}
  */
 export const NativeProgress = props => {
+  const className = createClassName(
+    props.className,
+    props.color,
+    generalClassNames(props)
+  );
+
   return (
-    <progress {...removeProps(props, ['color'])}
-      className={createClassName(props.className, props.color, generalClassNames(props))}/>
+    <progress {...removeProps(props, ['color'])} className={className}/>
   );
 };
 

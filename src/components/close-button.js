@@ -8,9 +8,17 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const CloseButton = props => (
-  <button {...props} className={createClassName(props.className || 'close-button', generalClassNames(props))}/>
-);
+export const CloseButton = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'close-button',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <button {...props} className={className}/>
+  );
+};
 
 CloseButton.propTypes = {
   ...GeneralPropTypes

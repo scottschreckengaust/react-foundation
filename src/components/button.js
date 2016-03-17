@@ -51,7 +51,8 @@ Link.propTypes = ButtonPropTypes;
  */
 function createButtonClassName(props) {
   return createClassName(
-    props.className || 'button',
+    props.noDefaultClassName ? null : 'button',
+    props.className,
     props.size,
     props.color,
     {

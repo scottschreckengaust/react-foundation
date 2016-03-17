@@ -11,15 +11,19 @@ describe('FlexVideo component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<FlexVideo/>);
     expect(component).to.have.className('flex-video');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<FlexVideo noDefaultClassName/>);
+    expect(component).to.not.have.className('flex-video');
   });
 
   it('sets custom class name', () => {
     const component = render(<FlexVideo className="my-flex-video"/>);
     expect(component).to.have.className('my-flex-video');
-    expect(component).to.not.have.className('flex-video');
   });
 
   it('sets widescreen', () => {

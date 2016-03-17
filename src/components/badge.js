@@ -7,12 +7,20 @@ import { GeneralPropTypes, createClassName, generalClassNames, removeProps, obje
  * http://foundation.zurb.com/sites/docs/badge.html
  *
  * @param {Object} props
- * @returns {JSX}
+ * @returns {Object}
  */
-export const Badge = props => (
-  <span {...removeProps(props, ['color'])}
-    className={createClassName(props.className || 'badge', props.color, generalClassNames(props))}/>
-);
+export const Badge = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'badge',
+    props.className,
+    props.color,
+    generalClassNames(props)
+  );
+
+  return (
+    <span {...removeProps(props, ['color'])} className={className}/>
+  );
+};
 
 Badge.propTypes = {
   ...GeneralPropTypes,

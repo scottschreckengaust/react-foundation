@@ -13,15 +13,19 @@ describe('ButtonGroup component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<ButtonGroup/>);
     expect(component).to.have.className('button-group');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<ButtonGroup noDefaultClassName/>);
+    expect(component).to.not.have.className('button-group');
   });
 
   it('sets custom class name', () => {
     const component = render(<ButtonGroup className="my-button-group"/>);
     expect(component).to.have.className('my-button-group');
-    expect(component).to.not.have.className('button-group');
   });
 
   it('sets size', () => {

@@ -20,15 +20,19 @@ describe('Progress component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Progress/>);
     expect(component).to.have.className('progress');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<Progress noDefaultClassName/>);
+    expect(component).to.not.have.className('progress');
   });
 
   it('sets custom class name', () => {
     const component = render(<Progress className="my-progress"/>);
     expect(component).to.have.className('my-progress');
-    expect(component).to.not.have.className('progress');
   });
 
   it('sets role', () => {
@@ -78,15 +82,19 @@ describe('ProgressMeter component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<ProgressMeter/>);
     expect(component).to.have.className('progress-meter');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<ProgressMeter noDefaultClassName/>);
+    expect(component).to.not.have.className('progress-meter');
   });
 
   it('sets custom class name', () => {
     const component = render(<ProgressMeter className="my-progress-meter"/>);
     expect(component).to.have.className('my-progress-meter');
-    expect(component).to.not.have.className('progress-meter');
   });
 
   it('sets width', () => {
@@ -97,6 +105,11 @@ describe('ProgressMeter component', () => {
 });
 
 describe('ProgressMeterWithText component', () => {
+
+  it('does not set default class name', () => {
+    const component = render(<ProgressMeterWithText noDefaultClassName/>);
+    expect(component).to.not.have.className('progress-meter');
+  });
 
   it('sets text', () => {
     const renderer = createRenderer();
@@ -114,22 +127,26 @@ describe('ProgressMeterText component', () => {
     expect(component).to.have.tagName('p');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<ProgressMeterText/>);
     expect(component).to.have.className('progress-meter-text');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<ProgressMeterText noDefaultClassName/>);
+    expect(component).to.not.have.className('progress-meter-text');
   });
 
   it('sets custom class name', () => {
     const component = render(<ProgressMeterText className="my-progress-meter-text"/>);
     expect(component).to.have.className('my-progress-meter-text');
-    expect(component).to.not.have.className('progress-meter-text');
   });
 
   it('sets contents', () => {
     const component = render(<ProgressMeterText>25%</ProgressMeterText>);
     expect(component).to.have.text('25%');
   });
-  
+
 });
 
 describe('NativeProgress component', () => {

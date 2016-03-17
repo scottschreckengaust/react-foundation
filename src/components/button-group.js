@@ -11,7 +11,8 @@ import { GeneralPropTypes, createClassName, generalClassNames, removeProps, obje
  */
 export const ButtonGroup = props => {
   const className = createClassName(
-    props.className || 'button-group',
+    props.noDefaultClassName ? null : 'button-group',
+    props.className,
     props.color,
     props.size,
     {
