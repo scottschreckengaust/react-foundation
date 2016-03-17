@@ -10,15 +10,19 @@ describe('Thumbnail component', () => {
     expect(component).to.have.tagName('img');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Thumbnail/>);
     expect(component).to.have.className('thumbnail');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<Thumbnail noDefaultClassName/>);
+    expect(component).to.not.have.className('thumbnail');
   });
 
   it('sets custom class name', () => {
     const component = render(<Thumbnail className="my-thumbnail"/>);
     expect(component).to.have.className('my-thumbnail');
-    expect(component).to.not.have.className('thumbnail');
   });
 
   it('sets source url', () => {
@@ -40,15 +44,19 @@ describe('ThumbnailLink component', () => {
     expect(component).to.have.tagName('a');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<ThumbnailLink/>);
     expect(component).to.have.className('thumbnail');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<ThumbnailLink noDefaultClassName/>);
+    expect(component).to.not.have.className('thumbnail');
   });
 
   it('sets custom class name', () => {
     const component = render(<ThumbnailLink className="my-thumbnail"/>);
     expect(component).to.have.className('my-thumbnail');
-    expect(component).to.not.have.className('thumbnail');
   });
 
   it('sets source url', () => {

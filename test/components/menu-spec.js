@@ -13,15 +13,19 @@ describe('Menu component', () => {
     expect(component).to.have.tagName('ul');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Menu/>);
     expect(component).to.have.className('menu');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<Menu noDefaultClassName/>);
+    expect(component).to.not.have.className('menu');
   });
 
   it('sets custom class name', () => {
     const component = render(<Menu className="my-menu"/>);
     expect(component).to.have.className('my-menu');
-    expect(component).to.not.have.className('menu');
   });
 
   it('sets align right', () => {
@@ -71,7 +75,7 @@ describe('Menu component', () => {
     expect(component).to.have.className('medium-horizontal');
     expect(component).to.not.have.attr('isHorizontalOnMedium');
   });
-  
+
 });
 
 describe('MenuItem component', () => {
@@ -96,7 +100,7 @@ describe('MenuItem component', () => {
 
 describe('MenuText component', () => {
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<MenuText/>);
     expect(component).to.have.className('menu-text');
   });

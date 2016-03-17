@@ -13,15 +13,19 @@ describe('Row component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Row/>);
     expect(component).to.have.className('row');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<Row noDefaultClassName/>);
+    expect(component).to.not.have.className('row');
   });
 
   it('sets custom class name', () => {
     const component = render(<Row className="my-row"/>);
     expect(component).to.have.className('my-row');
-    expect(component).to.not.have.className('row');
   });
 
   it('sets up on small', () => {
@@ -113,7 +117,7 @@ describe('Row component', () => {
     expect(component).to.have.className('collapse');
     expect(component).to.not.have.attr('isCollapsed');
   });
-  
+
   it('sets column', () => {
     const component = render(<Row isColumn/>);
     expect(component).to.have.className('column');
@@ -125,7 +129,7 @@ describe('Row component', () => {
     expect(component).to.have.className('expanded');
     expect(component).to.not.have.attr('isExpanded');
   });
-  
+
 });
 
 describe('Column component', () => {
@@ -135,15 +139,19 @@ describe('Column component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Column/>);
     expect(component).to.have.className('columns');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<Column noDefaultClassName/>);
+    expect(component).to.not.have.className('columns');
   });
 
   it('sets custom class name', () => {
     const component = render(<Column className="my-column"/>);
     expect(component).to.have.className('my-column');
-    expect(component).to.not.have.className('columns');
   });
 
   it('sets small', () => {
@@ -300,6 +308,12 @@ describe('Column component', () => {
     const component = render(<Column isLast/>);
     expect(component).to.have.className('end');
     expect(component).to.not.have.attr('isLast');
+  });
+
+  it('sets column', () => {
+    const component = render(<Column isColumn/>);
+    expect(component).to.have.className('column');
+    expect(component).to.not.have.className('columns');
   });
 
 });

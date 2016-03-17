@@ -16,15 +16,19 @@ describe('Pagination component', () => {
     expect(component).to.have.tagName('ul');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Pagination/>);
     expect(component).to.have.className('pagination');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<Pagination noDefaultClassName/>);
+    expect(component).to.not.have.className('pagination');
   });
 
   it('sets custom class name', () => {
     const component = render(<Pagination className="my-pagination"/>);
     expect(component).to.have.className('my-pagination');
-    expect(component).to.not.have.className('pagination');
   });
 
   it('sets role', () => {
@@ -68,27 +72,42 @@ describe('PaginationItem component', () => {
 
 describe('PaginationPrevious component', () => {
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<PaginationPrevious/>);
     expect(component).to.have.className('pagination-previous');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<PaginationPrevious noDefaultClassName/>);
+    expect(component).to.not.have.className('pagination-previous');
   });
 
 });
 
 describe('PaginationNext component', () => {
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<PaginationNext/>);
     expect(component).to.have.className('pagination-next');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<PaginationNext noDefaultClassName/>);
+    expect(component).to.not.have.className('pagination-next');
   });
 
 });
 
 describe('PaginationEllipsis component', () => {
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<PaginationEllipsis/>);
     expect(component).to.have.className('ellipsis');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<PaginationEllipsis noDefaultClassName/>);
+    expect(component).to.not.have.className('ellipsis');
   });
 
 });

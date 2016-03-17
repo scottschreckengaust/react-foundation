@@ -8,9 +8,17 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const Thumbnail = props => (
-  <img {...props} className={createClassName(props.className || 'thumbnail', generalClassNames(props))}/>
-);
+export const Thumbnail = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'thumbnail',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <img {...props} className={className}/>
+  );
+};
 
 Thumbnail.propTypes = {
   ...GeneralPropTypes
@@ -23,11 +31,19 @@ Thumbnail.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const ThumbnailLink = props => (
-  <a className={createClassName(props.className || 'thumbnail', generalClassNames(props))}>
-    <img {...props}/>
-  </a>
-);
+export const ThumbnailLink = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'thumbnail',
+    props.className,
+    generalClassNames(props)
+  );
+
+  // TODO: Consider improving how properties are set for both the link and image.
+
+  return (
+    <a className={className}><img {...props}/></a>
+  );
+};
 
 ThumbnailLink.propTypes = {
   ...GeneralPropTypes

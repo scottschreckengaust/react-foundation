@@ -13,7 +13,7 @@ describe('Button component', () => {
     expect(component).to.have.tagName('button');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Button/>);
     expect(component).to.have.className('button');
   });
@@ -21,12 +21,11 @@ describe('Button component', () => {
   it('sets custom class name', () => {
     const component = render(<Button className="my-button"/>);
     expect(component).to.have.className('my-button');
-    expect(component).to.not.have.className('button');
   });
 
-  it('sets contents', () => {
-    const component = render(<Button>Submit</Button>);
-    expect(component).to.have.text('Submit');
+  it('does not set default class name', () => {
+    const component = render(<Button noDefaultClassName/>);
+    expect(component).to.not.have.className('button');
   });
 
   it('sets size', () => {
@@ -71,6 +70,11 @@ describe('Button component', () => {
     expect(component).to.not.have.attr('isArrowOnly');
   });
 
+  it('sets contents', () => {
+    const component = render(<Button>Submit</Button>);
+    expect(component).to.have.text('Submit');
+  });
+
 });
 
 describe('Link component', () => {
@@ -80,20 +84,19 @@ describe('Link component', () => {
     expect(component).to.have.tagName('a');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Link/>);
     expect(component).to.have.className('button');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<Link noDefaultClassName/>);
+    expect(component).to.not.have.className('button');
   });
 
   it('sets custom class name', () => {
     const component = render(<Link className="my-button"/>);
     expect(component).to.have.className('my-button');
-    expect(component).to.not.have.className('button');
-  });
-
-  it('sets contents', () => {
-    const component = render(<Link>Link</Link>);
-    expect(component).to.have.text('Link');
   });
 
   it('sets size', () => {
@@ -136,6 +139,11 @@ describe('Link component', () => {
     const component = render(<Link isArrowOnly/>);
     expect(component).to.have.className('arrow-only');
     expect(component).to.not.have.attr('isArrowOnly');
+  });
+
+  it('sets contents', () => {
+    const component = render(<Link>Link</Link>);
+    expect(component).to.have.text('Link');
   });
 
 });

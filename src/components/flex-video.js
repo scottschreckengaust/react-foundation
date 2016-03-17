@@ -10,7 +10,8 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  */
 export const FlexVideo = props => {
   const className = createClassName(
-    props.className || 'flex-video',
+    props.noDefaultClassName ? null : 'flex-video',
+    props.className,
     {
       widescreen: props.isWidescreen,
       vimeo: props.isVimeo

@@ -11,15 +11,19 @@ describe('MediaObject component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<MediaObject/>);
     expect(component).to.have.className('media-object');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<MediaObject noDefaultClassName/>);
+    expect(component).to.not.have.className('media-object');
   });
 
   it('sets custom class name', () => {
     const component = render(<MediaObject className="my-media-object"/>);
     expect(component).to.have.className('my-media-object');
-    expect(component).to.not.have.className('media-object');
   });
 
   it('sets stack for small', () => {
@@ -37,15 +41,19 @@ describe('MediaObjectSection component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<MediaObjectSection/>);
     expect(component).to.have.className('media-object-section');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<MediaObjectSection noDefaultClassName/>);
+    expect(component).to.not.have.className('media-object-section');
   });
 
   it('sets custom class name', () => {
     const component = render(<MediaObjectSection className="my-media-object-section"/>);
     expect(component).to.have.className('my-media-object-section');
-    expect(component).to.not.have.className('media-object-section');
   });
 
   it('sets main', () => {

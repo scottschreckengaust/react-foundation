@@ -8,9 +8,17 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const Breadcrumbs = props => (
-  <ul {...props} className={createClassName(props.className || 'breadcrumbs', generalClassNames(props))}/>
-);
+export const Breadcrumbs = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'breadcrumbs',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <ul {...props} className={className}/>
+  );
+};
 
 /**
  * Breadcrumb item component.

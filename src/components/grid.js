@@ -15,7 +15,8 @@ import {
  */
 export const Row = props => {
   const className = createClassName(
-    props.className || 'row',
+    props.noDefaultClassName ? null : 'row',
+    props.className,
     props.upOnSmall ? `small-up-${props.upOnSmall}` : null,
     props.upOnMedium ? `medium-up-${props.upOnMedium}` : null,
     props.upOnLarge ? `large-up-${props.upOnLarge}` : null,
@@ -77,8 +78,10 @@ Row.propTypes = {
  * @returns {Object}
  */
 export const Column = props => {
+  const defaultClassName = props.isColumn ? 'column' : 'columns';
   const className = createClassName(
-    props.className || 'columns',
+    props.noDefaultClassName ? null : defaultClassName,
+    props.className,
     props.small ? `small-${props.small}` : null,
     props.medium ? `medium-${props.medium}` : null,
     props.large ? `large-${props.large}` : null,

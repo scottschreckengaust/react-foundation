@@ -11,7 +11,8 @@ import { GeneralPropTypes, createClassName, generalClassNames, removeProps, obje
  */
 export const Label = props => {
   const className = createClassName(
-    props.className || 'label',
+    props.noDefaultClassName ? null : 'label',
+    props.className,
     props.color,
     generalClassNames(props)
   );

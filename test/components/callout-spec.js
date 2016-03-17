@@ -13,15 +13,19 @@ describe('Callout component', () => {
     expect(component).to.have.tagName('div');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Callout/>);
     expect(component).to.have.className('callout');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<Callout noDefaultClassName/>);
+    expect(component).to.not.have.className('callout');
   });
 
   it('sets custom class name', () => {
     const component = render(<Callout className="my-callout"/>);
     expect(component).to.have.className('my-callout');
-    expect(component).to.not.have.className('callout');
   });
 
   it('sets color', () => {

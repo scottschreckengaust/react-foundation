@@ -8,9 +8,17 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const TopBar = props => (
-  <div {...props} className={createClassName(props.className || 'top-bar', generalClassNames(props))}/>
-);
+export const TopBar = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'top-bar',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <div {...props} className={className}/>
+  );
+};
 
 TopBar.propTypes = {
   ...GeneralPropTypes
@@ -22,9 +30,17 @@ TopBar.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const TopBarTitle = props => (
-  <div {...props} className={createClassName(props.className || 'top-bar-title', generalClassNames(props))}/>
-);
+export const TopBarTitle = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'top-bar-title',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <div {...props} className={className}/>
+  );
+};
 
 TopBarTitle.propTypes = {
   ...GeneralPropTypes
@@ -36,9 +52,17 @@ TopBarTitle.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const TopBarLeft = props => (
-  <div {...props} className={createClassName(props.className || 'top-bar-left', generalClassNames(props))}/>
-);
+export const TopBarLeft = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'top-bar-left',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <div {...props} className={className}/>
+  );
+};
 
 TopBarLeft.propTypes = {
   ...GeneralPropTypes
@@ -50,9 +74,17 @@ TopBarLeft.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const TopBarRight = props => (
-  <div {...props} className={createClassName(props.className || 'top-bar-right', generalClassNames(props))}/>
-);
+export const TopBarRight = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'top-bar-right',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <div {...props} className={className}/>
+  );
+};
 
 TopBarRight.propTypes = {
   ...GeneralPropTypes

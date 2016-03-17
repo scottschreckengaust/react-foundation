@@ -11,7 +11,8 @@ import { GeneralPropTypes, createClassName, generalClassNames, objectValues } fr
  */
 export const Menu = props => {
   const className = createClassName(
-    props.className || 'menu',
+    props.noDefaultClassName ? null : 'menu',
+    props.className,
     {
       'align-right': props.alignment === MenuAlignments.RIGHT,
       'align-center': props.alignment === MenuAlignments.CENTER,

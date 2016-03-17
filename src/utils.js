@@ -1,7 +1,5 @@
 import { PropTypes } from 'react';
 import classNames from 'classnames';
-import { default as lodashOmit } from 'lodash.omit';
-import { default as lodashValues } from 'lodash.values';
 import { Breakpoints, FloatTypes } from './enums';
 
 /**
@@ -23,17 +21,6 @@ export const GeneralPropTypes = {
   isClearfix: PropTypes.bool,
   float: PropTypes.oneOf(objectValues(FloatTypes))
 };
-
-/**
- * Removes properties by name.
- *
- * @param {Object} props
- * @param {Array} omitProps
- * @returns {Object}
- */
-export function removeProps(props, omitProps) {
-  return lodashOmit(props, omitProps);
-}
 
 /**
  * Creates class names from the given arguments.
@@ -78,11 +65,39 @@ export function generalClassNames(props) {
 
 /**
  * Returns the values for the given object.
- * This method is mainly used for getting the values for enumerables.
+ * This method is used for getting the values for enumerables.
  *
  * @param {Object} object
  * @returns {Array}
  */
 export function objectValues(object) {
-  return lodashValues(object);
+  const values = [];
+
+  for (const property in object) {
+    if (object.hasOwnProperty(property)) {
+      values.push(object[property]);
+    }
+  }
+
+  return values;
+}
+
+/**
+ * Removes properties from the given object.
+ * This method is used for removing valid attributes from component props prior to rendering.
+ *
+ * @param {Object} object
+ * @param {Array} remove
+ * @returns {Object}
+ */
+export function removeProps(object, remove) {
+  const result = {};
+
+  for (const property in object) {
+    if (object.hasOwnProperty(property) && remove.indexOf(property) === -1) {
+      result[property] = object[property];
+    }
+  }
+
+  return result;
 }

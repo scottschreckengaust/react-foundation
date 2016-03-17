@@ -13,7 +13,8 @@ let currentId = 0;
  */
 export const Switch = props => {
   const className = createClassName(
-    props.className || 'switch',
+    props.noDefaultClassName ? null : 'switch',
+    props.className,
     props.size,
     generalClassNames(props)
   );
@@ -46,10 +47,14 @@ Switch.propTypes = {
  * @returns {Object}
  */
 export const SwitchInput = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'switch-input',
+    props.className,
+    generalClassNames(props)
+  );
+
   return (
-    <input {...removeProps(props, ['type'])}
-      className={props.className || 'switch-input'}
-      type={props.type || SwitchInputTypes.CHECKBOX}/>
+    <input {...removeProps(props, ['type'])} className={className} type={props.type || SwitchInputTypes.CHECKBOX}/>
   );
 };
 
@@ -64,9 +69,17 @@ SwitchInput.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const SwitchPaddle = props => (
-  <label {...props} className={props.className || 'switch-paddle'}/>
-);
+export const SwitchPaddle = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'switch-paddle',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <label {...props} className={className}/>
+  );
+};
 
 /**
  * Switch active sub-component.
@@ -74,11 +87,17 @@ export const SwitchPaddle = props => (
  * @param {Object} props
  * @returns {Object}
  */
-export const SwitchActive = props => (
-  <span {...props} className={props.className || 'switch-active'} aria-hidden="true">
-    {props.text}
-  </span>
-);
+export const SwitchActive = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'switch-active',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <span {...props} className={className} aria-hidden="true">{props.text}</span>
+  );
+};
 
 /**
  * Switch inactive sub-component.
@@ -86,8 +105,14 @@ export const SwitchActive = props => (
  * @param {Object} props
  * @returns {Object}
  */
-export const SwitchInactive = props => (
-  <span {...props} className={props.className || 'switch-inactive'} aria-hidden="true">
-    {props.text}
-  </span>
-);
+export const SwitchInactive = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'switch-inactive',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <span {...props} className={className} aria-hidden="true">{props.text}</span>
+  );
+};

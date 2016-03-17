@@ -10,7 +10,8 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  */
 export const Pagination = props => {
   const className = createClassName(
-    props.className || 'pagination',
+    props.noDefaultClassName ? null : 'pagination',
+    props.className,
     {
       'text-center': props.isCentered
     },
@@ -60,9 +61,17 @@ PaginationItem.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const PaginationPrevious = props => (
-  <PaginationItem {...props} className={props.className || 'pagination-previous'}/>
-);
+export const PaginationPrevious = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'pagination-previous',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <PaginationItem {...props} className={className}/>
+  );
+};
 
 /**
  * Pagination next wrapper-component.
@@ -70,9 +79,17 @@ export const PaginationPrevious = props => (
  * @param {Object} props
  * @returns {Object}
  */
-export const PaginationNext = props => (
-  <PaginationItem {...props} className={props.className || 'pagination-next'}/>
-);
+export const PaginationNext = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'pagination-next',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <PaginationItem {...props} className={className}/>
+  );
+};
 
 /**
  * Pagination ellipsis wrapper-component.
@@ -80,6 +97,14 @@ export const PaginationNext = props => (
  * @param {Object} props
  * @returns {Object}
  */
-export const PaginationEllipsis = props => (
-  <PaginationItem {...props} className={props.className || 'ellipsis'}/>
-);
+export const PaginationEllipsis = props => {
+  const className = createClassName(
+    props.noDefaultClassName ? null : 'ellipsis',
+    props.className,
+    generalClassNames(props)
+  );
+
+  return (
+    <PaginationItem {...props} className={className}/>
+  );
+};

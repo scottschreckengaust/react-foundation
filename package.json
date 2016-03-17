@@ -1,6 +1,6 @@
 {
   "name": "react-foundation",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "description": "Foundation as React components.",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
@@ -48,9 +48,7 @@
   },
   "homepage": "https://github.com/nordsoftware/react-foundation#readme",
   "dependencies": {
-    "classnames": "^2.2.3",
-    "lodash.omit": "^4.1.0",
-    "lodash.values": "^4.1.0"
+    "classnames": "^2.2.3"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",

@@ -13,15 +13,19 @@ describe('Label component', () => {
     expect(component).to.have.tagName('span');
   });
 
-  it('sets class name', () => {
+  it('sets default class name', () => {
     const component = render(<Label/>);
     expect(component).to.have.className('label');
+  });
+
+  it('does not set default class name', () => {
+    const component = render(<Label noDefaultClassName/>);
+    expect(component).to.not.have.className('label');
   });
 
   it('sets custom class name', () => {
     const component = render(<Label className="my-label"/>);
     expect(component).to.have.className('my-label');
-    expect(component).to.not.have.className('label');
   });
 
   it('sets color', () => {
@@ -34,5 +38,5 @@ describe('Label component', () => {
     const component = render(<Label>Build passing</Label>);
     expect(component).to.have.text('Build passing');
   });
-  
+
 });
