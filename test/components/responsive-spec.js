@@ -3,8 +3,8 @@ import { createRenderer } from 'react-addons-test-utils';
 import { mount, render } from 'enzyme';
 import { expect } from 'chai';
 import { spy } from 'sinon';
-import { ResponsiveNavigation, TitleBar, MenuIcon, TitleBarTitle } from 'src/components/responsive';
-import { TopBar } from 'src/components/top-bar';
+import { ResponsiveNavigation, TitleBar, MenuIcon, TitleBarTitle } from '../../src/components/responsive';
+import { TopBar } from '../../src/components/top-bar';
 
 describe('ResponsiveNavigation component', () => {
 

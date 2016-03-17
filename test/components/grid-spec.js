@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Row, Column } from 'src/components/grid';
-import { Alignments } from 'src/enums';
+import { Row, Column } from '../../src/components/grid';
+import { Alignments } from '../../src/enums';
 
 // TODO: Add test cases for invalid enum values
 

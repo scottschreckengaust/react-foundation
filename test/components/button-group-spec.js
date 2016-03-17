@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { ButtonGroup, ButtonGroupSizes, ButtonGroupColors } from 'src/components/button-group';
-import { Breakpoints, Colors, Sizes } from 'src/enums';
+import { ButtonGroup, ButtonGroupSizes, ButtonGroupColors } from '../../src/components/button-group';
+import { Breakpoints, Colors, Sizes } from '../../src/enums';
 
 // TODO: Add test cases for invalid enum values
 

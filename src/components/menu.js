@@ -21,7 +21,7 @@ export const Menu = props => {
       'vertical': props.isVertical,
       'simple': props.isSimple,
       'nested': props.isNested,
-      'medium-horizontal': props.isHorizontalOnMedium
+      'medium-horizontal': props.horizontalOnMedium
     },
     generalClassNames(props)
   );

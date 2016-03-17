@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Menu, MenuItem, MenuText, MenuAlignments } from 'src/components/menu';
-import { Alignments } from 'src/enums';
+import { Menu, MenuItem, MenuText, MenuAlignments } from '../../src/components/menu';
+import { Alignments } from '../../src/enums';
 
 // TODO: Add test cases for invalid enum values
 
@@ -71,9 +71,9 @@ describe('Menu component', () => {
   });
 
   it('sets horizontal on medium', () => {
-    const component = render(<Menu isHorizontalOnMedium/>);
+    const component = render(<Menu horizontalOnMedium/>);
     expect(component).to.have.className('medium-horizontal');
-    expect(component).to.not.have.attr('isHorizontalOnMedium');
+    expect(component).to.not.have.attr('horizontalOnMedium');
   });
 
 });

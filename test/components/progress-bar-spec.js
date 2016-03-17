@@ -8,8 +8,8 @@ import {
   ProgressMeterWithText,
   ProgressMeterText,
   NativeProgress
-} from 'src/components/progress-bar';
-import { Colors } from 'src/enums';
+} from '../../src/components/progress-bar';
+import { Colors } from '../../src/enums';
 
 // TODO: Add test cases for invalid enum values
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Callout, CalloutColors, CalloutSizes } from 'src/components/callout';
-import { Colors, Sizes } from 'src/enums';
+import { Callout, CalloutColors, CalloutSizes } from '../../src/components/callout';
+import { Colors, Sizes } from '../../src/enums';
 
 // TODO: Add test cases for invalid enum values
 

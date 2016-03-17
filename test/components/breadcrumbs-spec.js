@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Breadcrumbs, BreadcrumbItem } from 'src/components/breadcrumbs';
+import { Breadcrumbs, BreadcrumbItem } from '../../src/components/breadcrumbs';
 
 describe('Breadcrumbs component', () => {
 
