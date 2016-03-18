@@ -13,4 +13,11 @@ node_js:
 
 script:
   - npm run lint
-  - npm test
+  - npm run test:cover
+
+after_script:
+  - codeclimate-test-reporter < lcov.info
+
+addons:
+    code_climate:
+        repo_token: 9eac8d2b468e15ffa2109c1984945db4230ab94232c64064a9a658b17be43c14
