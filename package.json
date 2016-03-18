@@ -15,7 +15,7 @@
   "scripts": {
     "compile": "babel --loose es6.modules -d lib/ src/",
     "lint": "eslint src test",
-    "prepublish": "npm run compile",
+    "prepublish": "npm run lint && npm run compile",
     "test": "NODE_ENV=test mocha --compilers js:babel-core/register --require test/index.js --recursive",
     "test:cover": "istanbul cover _mocha -- --compilers js:babel-core/register --require test/index.js --recursive",
     "test:watch": "npm test -- --watch --reporter min"
