@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
-import { mount, render } from 'enzyme';
+import { mount, shallow, render } from 'enzyme';
 import { expect } from 'chai';
 import { spy } from 'sinon';
 import { ResponsiveNavigation, TitleBar, MenuIcon, TitleBarTitle } from '../../src/components/responsive';
@@ -23,14 +23,6 @@ describe('ResponsiveNavigation component', () => {
     mount(<ResponsiveNavigation/>);
     expect(ResponsiveNavigation.prototype.componentDidMount.calledOnce).to.equal(true);
     ResponsiveNavigation.prototype.componentDidMount.restore();
-  });
-
-  it('calls componentWillUnmount', () => {
-    spy(ResponsiveNavigation.prototype, 'componentWillUnmount');
-    const component = mount(<ResponsiveNavigation/>);
-    component.unmount();
-    expect(ResponsiveNavigation.prototype.componentWillUnmount.calledOnce).to.equal(true);
-    ResponsiveNavigation.prototype.componentWillUnmount.restore();
   });
 
   it('calls update', () => {
@@ -76,6 +68,14 @@ describe('ResponsiveNavigation component', () => {
     const component = mount(<ResponsiveNavigation titleBar={{ id: 'foo' }} topBar={{ id: 'bar' }}/>);
     expect(component.find('.title-bar')).to.have.attr('id', 'foo');
     expect(component.find('.top-bar')).to.have.attr('id', 'bar');
+  });
+
+  it('calls componentWillUnmount', () => {
+    spy(ResponsiveNavigation.prototype, 'componentWillUnmount');
+    const component = shallow(<ResponsiveNavigation/>);
+    component.unmount();
+    expect(ResponsiveNavigation.prototype.componentWillUnmount.calledOnce).to.equal(true);
+    ResponsiveNavigation.prototype.componentWillUnmount.restore();
   });
 
 });
