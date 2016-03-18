@@ -25,11 +25,27 @@ describe('ResponsiveNavigation component', () => {
     ResponsiveNavigation.prototype.componentDidMount.restore();
   });
 
+  it('calls componentWillUnmount', () => {
+    spy(ResponsiveNavigation.prototype, 'componentWillUnmount');
+    const component = mount(<ResponsiveNavigation/>);
+    component.unmount();
+    expect(ResponsiveNavigation.prototype.componentWillUnmount.calledOnce).to.equal(true);
+    ResponsiveNavigation.prototype.componentWillUnmount.restore();
+  });
+
   it('calls update', () => {
     spy(ResponsiveNavigation.prototype, 'update');
     mount(<ResponsiveNavigation/>);
     expect(ResponsiveNavigation.prototype.update.calledOnce).to.equal(true);
     ResponsiveNavigation.prototype.update.restore();
+  });
+
+  it('calls toggle', () => {
+    spy(ResponsiveNavigation.prototype, 'toggle');
+    const component = mount(<ResponsiveNavigation/>);
+    component.find('.menu-icon').simulate('click');
+    expect(ResponsiveNavigation.prototype.toggle.calledOnce).to.equal(true);
+    ResponsiveNavigation.prototype.toggle.restore();
   });
 
   it('sets correct state on small screens', () => {
