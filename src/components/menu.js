@@ -39,7 +39,7 @@ Menu.propTypes = {
   isVertical: PropTypes.bool,
   isSimple: PropTypes.bool,
   isNested: PropTypes.bool,
-  isHorizontalOnMedium: PropTypes.bool
+  horizontalOnMedium: PropTypes.bool
 };
 
 /**
