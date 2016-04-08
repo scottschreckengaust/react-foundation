@@ -33,4 +33,22 @@ describe('Reveal component', () => {
     expect(component).to.not.have.attr('isTiny');
   });
 
+  it('sets small', () => {
+    const component = render(<Reveal isSmall/>);
+    expect(component).to.have.className('small');
+    expect(component).to.not.have.attr('isSmall');
+  });
+
+  it('sets large', () => {
+    const component = render(<Reveal isLarge/>);
+    expect(component).to.have.className('large');
+    expect(component).to.not.have.attr('isLarge');
+  });
+
+  it('sets full', () => {
+    const component = render(<Reveal isFullscreen/>);
+    expect(component).to.have.className('full');
+    expect(component).to.not.have.attr('isFullscreen');
+  });
+
 });
