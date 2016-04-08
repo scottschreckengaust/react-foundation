@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
-import { CloseButton } from './close-button';
-import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
 
 /**
  * Reveal component.
@@ -18,7 +17,7 @@ export const Reveal = props => {
       'tiny': props.isTiny,
       'small': props.isSmall,
       'large': props.isLarge,
-      'full': props.isFull
+      'full': props.isFullscreen
     },
     generalClassNames(props)
   );
@@ -29,5 +28,9 @@ export const Reveal = props => {
 };
 
 Reveal.propTypes = {
-  ...GeneralPropTypes
+  ...GeneralPropTypes,
+  isTiny: PropTypes.bool,
+  isSmall: PropTypes.bool,
+  isLarge: PropTypes.bool,
+  isFullscreen: PropTypes.bool
 };
