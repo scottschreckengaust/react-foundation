@@ -52,6 +52,7 @@ Here is a list of the available components:
 - [Progress](src/components/progress-bar.js)
 - [ResponsiveNavigation](src/components/responsive.js)
 - [Switch](src/components/switch.js)
+- [Tabs](src/components/tabs.js)
 - [Thumbnail](src/components/thumbnail.js)
 - [TopBar](src/components/top-bar.js)
 

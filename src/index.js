@@ -17,5 +17,6 @@ export { Progress, ProgressMeter, ProgressMeterWithText, ProgressMeterText, Nati
 export { ResponsiveNavigation, TitleBar, MenuIcon, TitleBarTitle } from './components/responsive';
 export { Switch, SwitchInput, SwitchPaddle, SwitchActive, SwitchInactive } from './components/switch';
 export { Thumbnail, ThumbnailLink } from './components/thumbnail';
+export { Tabs, TabItem, TabsContent, TabPanel } from './components/tabs';
 export { TopBar, TopBarTitle, TopBarLeft, TopBarRight } from './components/top-bar';
 export { Breakpoints, Colors, Sizes, Alignments, FloatTypes, InputTypes } from './enums';
