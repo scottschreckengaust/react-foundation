@@ -60,7 +60,7 @@ TabItem.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const PanelContainer = props => {
+export const TabsContent = props => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'tabs-content',
     props.className,
@@ -75,7 +75,7 @@ export const PanelContainer = props => {
   );
 };
 
-PanelContainer.propTypes = {
+TabsContent.propTypes = {
   ...GeneralPropTypes,
   isActive: PropTypes.bool,
   isVertical: PropTypes.bool
@@ -87,7 +87,7 @@ PanelContainer.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const PanelItem = props => {
+export const TabPanel = props => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'tabs-panel',
     props.className,
@@ -102,7 +102,7 @@ export const PanelItem = props => {
   );
 };
 
-PanelItem.propTypes = {
+TabPanel.propTypes = {
   ...GeneralPropTypes,
   isActive: PropTypes.bool
 };

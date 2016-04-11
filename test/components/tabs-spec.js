@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render } from 'enzyme';
 import { expect } from 'chai';
-import { Tabs, TabItem, PanelContainer, PanelItem } from '../../src/components/tabs';
+import { Tabs, TabItem, TabsContent, TabPanel } from '../../src/components/tabs';
 
 // TODO: Add test cases for invalid enum values
 
@@ -61,60 +61,60 @@ describe('TabItem component', () => {
 
 });
 
-describe('PanelContainer component', () => {
+describe('TabsContent component', () => {
 
   it('sets tag name', () => {
-    const component = render(<PanelContainer/>);
+    const component = render(<TabsContent/>);
     expect(component).to.have.tagName('div');
   });
 
   it('sets default class name', () => {
-    const component = render(<PanelContainer/>);
+    const component = render(<TabsContent/>);
     expect(component).to.have.className('tabs-content');
   });
 
   it('does not set default class name', () => {
-    const component = render(<PanelContainer noDefaultClassName/>);
+    const component = render(<TabsContent noDefaultClassName/>);
     expect(component).to.not.have.className('tabs-content');
   });
 
   it('sets custom class name', () => {
-    const component = render(<PanelContainer className="my-panel-container"/>);
+    const component = render(<TabsContent className="my-panel-container"/>);
     expect(component).to.have.className('my-panel-container');
   });
 
   it('sets vertical', () => {
-    const component = render(<PanelContainer isVertical/>);
+    const component = render(<TabsContent isVertical/>);
     expect(component).to.have.className('vertical');
     expect(component).to.not.have.attr('isVertical');
   });
 
 });
 
-describe('PanelItem component', () => {
+describe('TabPanel component', () => {
 
   it('sets tag name', () => {
-    const component = render(<PanelItem/>);
+    const component = render(<TabPanel/>);
     expect(component).to.have.tagName('div');
   });
 
   it('sets default class name', () => {
-    const component = render(<PanelItem/>);
+    const component = render(<TabPanel/>);
     expect(component).to.have.className('tabs-panel');
   });
 
   it('does not set default class name', () => {
-    const component = render(<PanelItem noDefaultClassName/>);
+    const component = render(<TabPanel noDefaultClassName/>);
     expect(component).to.not.have.className('tabs-panel');
   });
 
   it('sets custom class name', () => {
-    const component = render(<PanelItem className="my-panel-item"/>);
+    const component = render(<TabPanel className="my-panel-item"/>);
     expect(component).to.have.className('my-panel-item');
   });
 
   it('sets active', () => {
-    const component = render(<PanelItem isActive/>);
+    const component = render(<TabPanel isActive/>);
     expect(component).to.have.className('is-active');
     expect(component).to.not.have.attr('isActive');
   });
