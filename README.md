@@ -6,6 +6,7 @@
 [![npm version](https://img.shields.io/npm/v/react-foundation.svg)](https://www.npmjs.com/package/react-foundation)
 [![npm downloads](https://img.shields.io/npm/dt/react-foundation.svg)](https://www.npmjs.com/package/react-foundation)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nordsoftware/react-foundation/master/LICENSE)
+[![Gitter](https://img.shields.io/gitter/room/norsoftware/chat.svg?maxAge=2592000)](https://gitter.im/nordsoftware/chat)
 
 [Foundation](http://foundation.zurb.com/sites/docs/) as [React](https://facebook.github.io/react/) components.
 
