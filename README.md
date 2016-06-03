@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/nordsoftware/react-foundation.svg?branch=develop)](https://travis-ci.org/nordsoftware/react-foundation)
 [![Test Coverage](https://codeclimate.com/github/nordsoftware/react-foundation/badges/coverage.svg)](https://codeclimate.com/github/nordsoftware/react-foundation/coverage)
 [![Code Climate](https://codeclimate.com/github/nordsoftware/react-foundation/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/react-foundation)
+[![StyleCI](https://styleci.io/repos/53612920/shield?style=flat)](https://styleci.io/repos/53612920)
 [![npm version](https://img.shields.io/npm/v/react-foundation.svg)](https://www.npmjs.com/package/react-foundation)
 [![npm downloads](https://img.shields.io/npm/dt/react-foundation.svg)](https://www.npmjs.com/package/react-foundation)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nordsoftware/react-foundation/master/LICENSE)
