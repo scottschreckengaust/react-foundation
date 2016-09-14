@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { GeneralPropTypes, createClassName, generalClassNames, removeProps } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
 
 /**
  * Icon component.
@@ -7,16 +7,16 @@ import { GeneralPropTypes, createClassName, generalClassNames, removeProps } fro
  * @param {Object} props
  * @returns {Object}
  */
-export const Icon = props => {
+export const Icon = (props) => {
   const className = createClassName(
     props.prefix,
     props.prefix ? `${props.prefix}-${props.name}` : props.name,
     generalClassNames(props)
   );
 
-  return (
-    <i {...removeProps(props, ['prefix', 'name'])} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(Icon.propTypes));
+
+  return <i {...passProps} className={className}/>;
 };
 
 Icon.propTypes = {

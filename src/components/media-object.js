@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { HorizontalAlignments } from '../enums';
-import { GeneralPropTypes, createClassName, generalClassNames, objectValues } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
 
 /**
  * Media object component.
@@ -8,7 +8,7 @@ import { GeneralPropTypes, createClassName, generalClassNames, objectValues } fr
  * @param {Object} props
  * @returns {Object}
  */
-export const MediaObject = props => {
+export const MediaObject = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'media-object',
     props.className,
@@ -18,9 +18,9 @@ export const MediaObject = props => {
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(MediaObject.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 MediaObject.propTypes = {
@@ -34,7 +34,7 @@ MediaObject.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const MediaObjectSection = props => {
+export const MediaObjectSection = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'media-object-section',
     props.className,
@@ -50,9 +50,9 @@ export const MediaObjectSection = props => {
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(MediaObjectSection.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 MediaObjectSection.propTypes = {

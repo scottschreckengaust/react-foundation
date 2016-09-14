@@ -64,6 +64,17 @@ export function generalClassNames(props) {
 }
 
 /**
+ * Returns the keys for the given object.
+ * This method is used for getting the keys for prop types.
+ *
+ * @param {Object} object
+ * @returns {Array}
+ */
+export function objectKeys(object) {
+  return Object.keys(object);
+}
+
+/**
  * Returns the values for the given object.
  * This method is used for getting the values for enumerables.
  *
@@ -100,4 +111,14 @@ export function removeProps(object, remove) {
   }
 
   return result;
+}
+
+/**
+ * Returns whether or not the given value is defined.
+ *
+ * @param {*} value
+ * @returns {boolean}
+ */
+export function isDefined(value) {
+  return typeof value !== 'undefined';
 }

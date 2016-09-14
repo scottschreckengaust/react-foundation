@@ -1,5 +1,5 @@
 import React from 'react';
-import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
 
 /**
  * Thumbnail component.
@@ -8,16 +8,16 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const Thumbnail = props => {
+export const Thumbnail = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'thumbnail',
     props.className,
     generalClassNames(props)
   );
 
-  return (
-    <img {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(Thumbnail.propTypes));
+
+  return <img {...passProps} className={className}/>;
 };
 
 Thumbnail.propTypes = {
@@ -31,7 +31,7 @@ Thumbnail.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const ThumbnailLink = props => {
+export const ThumbnailLink = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'thumbnail',
     props.className,
@@ -40,9 +40,9 @@ export const ThumbnailLink = props => {
 
   // TODO: Consider improving how properties are set for both the link and image.
 
-  return (
-    <a className={className}><img {...props}/></a>
-  );
+  const passProps = removeProps(props, objectKeys(ThumbnailLink.propTypes));
+
+  return <a className={className}><img {...passProps}/></a>;
 };
 
 ThumbnailLink.propTypes = {

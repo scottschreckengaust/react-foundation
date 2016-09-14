@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
 
 /**
  * Reveal component.
@@ -9,7 +9,7 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @returns {Object}
  */
 
-export const Reveal = props => {
+export const Reveal = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'reveal',
     props.className,
@@ -22,9 +22,9 @@ export const Reveal = props => {
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className} data-reveal />
-  );
+  const passProps = removeProps(props, objectKeys(Reveal.propTypes));
+
+  return <div {...passProps} className={className} data-reveal/>;
 };
 
 Reveal.propTypes = {

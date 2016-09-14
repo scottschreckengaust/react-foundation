@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Breakpoints, ButtonGroupColors, ButtonGroupSizes } from '../enums';
-import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
 
 /**
  * Button group component.
@@ -9,7 +9,7 @@ import { GeneralPropTypes, createClassName, generalClassNames, removeProps, obje
  * @param {Object} props
  * @returns {Object}
  */
-export const ButtonGroup = props => {
+export const ButtonGroup = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'button-group',
     props.className,
@@ -25,9 +25,9 @@ export const ButtonGroup = props => {
     generalClassNames(props)
   );
 
-  return (
-    <div {...removeProps(props, ['color'])} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(ButtonGroup.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 ButtonGroup.propTypes = {

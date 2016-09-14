@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
 
 /**
  * Tabs component.
@@ -8,7 +8,7 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const Tabs = props => {
+export const Tabs = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'tabs',
     props.className,
@@ -18,9 +18,9 @@ export const Tabs = props => {
     generalClassNames(props)
   );
 
-  return (
-    <ul {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(Tabs.propTypes));
+
+  return <ul {...passProps} className={className}/>;
 };
 
 Tabs.propTypes = {
@@ -34,7 +34,7 @@ Tabs.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const TabItem = props => {
+export const TabItem = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'tabs-title',
     props.className,
@@ -44,9 +44,9 @@ export const TabItem = props => {
     generalClassNames(props)
   );
 
-  return (
-    <li {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(TabItem.propTypes));
+
+  return <li {...passProps} className={className}/>;
 };
 
 TabItem.propTypes = {
@@ -60,7 +60,7 @@ TabItem.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const TabsContent = props => {
+export const TabsContent = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'tabs-content',
     props.className,
@@ -70,9 +70,9 @@ export const TabsContent = props => {
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(TabsContent.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 TabsContent.propTypes = {
@@ -87,7 +87,7 @@ TabsContent.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const TabPanel = props => {
+export const TabPanel = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'tabs-panel',
     props.className,
@@ -97,9 +97,9 @@ export const TabPanel = props => {
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(TabPanel.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 TabPanel.propTypes = {

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { ButtonSizes, ButtonColors } from '../enums';
-import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
 
 /**
  * Button property types.
@@ -24,9 +24,11 @@ const ButtonPropTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const Button = props => (
-  <button {...removeProps(props, ['color'])} className={createButtonClassName(props)}/>
-);
+export const Button = (props) => {
+  const passProps = removeProps(props, objectKeys(Button.propTypes));
+
+  return <button {...passProps} className={createButtonClassName(props)}/>;
+};
 
 Button.propTypes = ButtonPropTypes;
 
@@ -37,9 +39,11 @@ Button.propTypes = ButtonPropTypes;
  * @param {Object} props
  * @returns {Object}
  */
-export const Link = props => (
-  <a {...removeProps(props, ['color'])} className={createButtonClassName(props)}/>
-);
+export const Link = (props) => {
+  const passProps = removeProps(props, objectKeys(Button.propTypes));
+
+  return <a {...passProps} className={createButtonClassName(props)}/>;
+};
 
 Link.propTypes = ButtonPropTypes;
 

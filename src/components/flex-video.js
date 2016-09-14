@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
 
 /**
  * FlexVideo component.
@@ -8,7 +8,7 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const FlexVideo = props => {
+export const FlexVideo = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'flex-video',
     props.className,
@@ -19,9 +19,9 @@ export const FlexVideo = props => {
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(FlexVideo.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 FlexVideo.propTypes = {

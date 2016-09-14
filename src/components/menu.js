@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { MenuAlignments } from '../enums';
-import { GeneralPropTypes, createClassName, generalClassNames, objectValues } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
 
 /**
  * Menu component.
@@ -9,7 +9,7 @@ import { GeneralPropTypes, createClassName, generalClassNames, objectValues } fr
  * @param {Object} props
  * @returns {Object}
  */
-export const Menu = props => {
+export const Menu = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'menu',
     props.className,
@@ -27,9 +27,9 @@ export const Menu = props => {
     generalClassNames(props)
   );
 
-  return (
-    <ul {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(Menu.propTypes));
+
+  return <ul {...passProps} className={className}/>;
 };
 
 Menu.propTypes = {
@@ -50,7 +50,7 @@ Menu.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const MenuItem = props => {
+export const MenuItem = (props) => {
   const className = createClassName(
     props.className,
     {
@@ -59,9 +59,9 @@ export const MenuItem = props => {
     generalClassNames(props)
   );
 
-  return (
-    <li {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(MenuItem.propTypes));
+
+  return <li {...passProps} className={className}/>;
 };
 
 MenuItem.propTypes = {
@@ -75,6 +75,6 @@ MenuItem.propTypes = {
  * @param {Object} props
  * @returns {XML}
  */
-export const MenuText = props => (
+export const MenuText = (props) => (
   <MenuItem {...props} className={props.className || 'menu-text'}/>
 );
