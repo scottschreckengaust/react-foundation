@@ -3,9 +3,12 @@
 [![Build Status](https://travis-ci.org/nordsoftware/react-foundation.svg?branch=develop)](https://travis-ci.org/nordsoftware/react-foundation)
 [![Test Coverage](https://codeclimate.com/github/nordsoftware/react-foundation/badges/coverage.svg)](https://codeclimate.com/github/nordsoftware/react-foundation/coverage)
 [![Code Climate](https://codeclimate.com/github/nordsoftware/react-foundation/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/react-foundation)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nordsoftware/react-foundation/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/nordsoftware/react-foundation/?branch=master)
+[![StyleCI](https://styleci.io/repos/53612920/shield?style=flat)](https://styleci.io/repos/53612920)
 [![npm version](https://img.shields.io/npm/v/react-foundation.svg)](https://www.npmjs.com/package/react-foundation)
 [![npm downloads](https://img.shields.io/npm/dt/react-foundation.svg)](https://www.npmjs.com/package/react-foundation)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nordsoftware/react-foundation/master/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nordsoftware/react-foundation/master/LICENSE)
+[![Gitter](https://img.shields.io/gitter/room/norsoftware/open-source.svg?maxAge=2592000)](https://gitter.im/nordsoftware/open-source)
 
 [Foundation](http://foundation.zurb.com/sites/docs/) as [React](https://facebook.github.io/react/) components.
 

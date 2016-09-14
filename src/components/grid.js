@@ -1,11 +1,6 @@
 import React, { PropTypes } from 'react';
 import { HorizontalAlignments, VerticalAlignments } from '../enums';
-import {
-  GeneralPropTypes,
-  createClassName,
-  generalClassNames,
-  removeProps
-} from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys, isDefined } from '../utils';
 
 /**
  * Row component.
@@ -13,13 +8,13 @@ import {
  * @param {Object} props
  * @returns {Object}
  */
-export const Row = props => {
+export const Row = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'row',
     props.className,
-    props.upOnSmall ? `small-up-${props.upOnSmall}` : null,
-    props.upOnMedium ? `medium-up-${props.upOnMedium}` : null,
-    props.upOnLarge ? `large-up-${props.upOnLarge}` : null,
+    isDefined(props.upOnSmall) ? `small-up-${props.upOnSmall}` : null,
+    isDefined(props.upOnMedium) ? `medium-up-${props.upOnMedium}` : null,
+    isDefined(props.upOnLarge) ? `large-up-${props.upOnLarge}` : null,
     {
       'align-right': props.horizontalAlignment === HorizontalAlignments.RIGHT,
       'align-center': props.horizontalAlignment === HorizontalAlignments.CENTER,
@@ -45,9 +40,9 @@ export const Row = props => {
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(Row.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 Row.propTypes = {
@@ -77,7 +72,7 @@ Row.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const Column = props => {
+export const Column = (props) => {
   const defaultClassName = props.isColumn ? 'column' : 'columns';
   const className = createClassName(
     props.noDefaultClassName ? null : defaultClassName,
@@ -85,18 +80,18 @@ export const Column = props => {
     props.small ? `small-${props.small}` : null,
     props.medium ? `medium-${props.medium}` : null,
     props.large ? `large-${props.large}` : null,
-    props.offsetOnSmall ? `small-offset-${props.offsetOnSmall}` : null,
-    props.offsetOnMedium ? `medium-offset-${props.offsetOnMedium}` : null,
-    props.offsetOnLarge ? `large-offset-${props.offsetOnLarge}` : null,
-    props.pushOnSmall ? `small-push-${props.pushOnSmall}` : null,
-    props.pushOnMedium ? `medium-push-${props.pushOnMedium}` : null,
-    props.pushOnLarge ? `large-push-${props.pushOnLarge}` : null,
-    props.pullOnSmall ? `small-pull-${props.pullOnSmall}` : null,
-    props.pullOnMedium ? `medium-pull-${props.pullOnMedium}` : null,
-    props.pullOnLarge ? `large-pull-${props.pullOnLarge}` : null,
-    props.orderOnSmall ? `small-order-${props.orderOnSmall}` : null,
-    props.orderOnMedium ? `medium-order-${props.orderOnMedium}` : null,
-    props.orderOnLarge ? `large-order-${props.orderOnLarge}` : null,
+    isDefined(props.offsetOnSmall) ? `small-offset-${props.offsetOnSmall}` : null,
+    isDefined(props.offsetOnMedium) ? `medium-offset-${props.offsetOnMedium}` : null,
+    isDefined(props.offsetOnLarge) ? `large-offset-${props.offsetOnLarge}` : null,
+    isDefined(props.pushOnSmall) ? `small-push-${props.pushOnSmall}` : null,
+    isDefined(props.pushOnMedium) ? `medium-push-${props.pushOnMedium}` : null,
+    isDefined(props.pushOnLarge) ? `large-push-${props.pushOnLarge}` : null,
+    isDefined(props.pullOnSmall) ? `small-pull-${props.pullOnSmall}` : null,
+    isDefined(props.pullOnMedium) ? `medium-pull-${props.pullOnMedium}` : null,
+    isDefined(props.pullOnLarge) ? `large-pull-${props.pullOnLarge}` : null,
+    isDefined(props.orderOnSmall) ? `small-order-${props.orderOnSmall}` : null,
+    isDefined(props.orderOnMedium) ? `medium-order-${props.orderOnMedium}` : null,
+    isDefined(props.orderOnLarge) ? `large-order-${props.orderOnLarge}` : null,
     {
       'small-centered': props.centerOnSmall,
       'medium-centered': props.centerOnMedium,
@@ -113,9 +108,9 @@ export const Column = props => {
     generalClassNames(props)
   );
 
-  return (
-    <div {...removeProps(props, ['offset'])} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(Column.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 Column.propTypes = {

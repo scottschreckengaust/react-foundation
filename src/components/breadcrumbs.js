@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
 
 /**
  * Breadcrumbs component.
@@ -8,16 +8,20 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const Breadcrumbs = props => {
+export const Breadcrumbs = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'breadcrumbs',
     props.className,
     generalClassNames(props)
   );
 
-  return (
-    <ul {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(Breadcrumbs.propTypes));
+
+  return <ul {...passProps} className={className}/>;
+};
+
+Breadcrumbs.propTypes = {
+  ...GeneralPropTypes
 };
 
 /**
@@ -26,7 +30,7 @@ export const Breadcrumbs = props => {
  * @param {Object} props
  * @returns {Object}
  */
-export const BreadcrumbItem = props => {
+export const BreadcrumbItem = (props) => {
   const className = createClassName(
     props.className,
     {
@@ -35,9 +39,9 @@ export const BreadcrumbItem = props => {
     generalClassNames(props)
   );
 
-  return (
-    <li {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(BreadcrumbItem.propTypes));
+
+  return <li {...passProps} className={className}/>;
 };
 
 BreadcrumbItem.propTypes = {

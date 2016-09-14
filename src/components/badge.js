@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { BadgeColors } from '../enums';
-import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
 
 /**
  * Badge component.
@@ -9,7 +9,7 @@ import { GeneralPropTypes, createClassName, generalClassNames, removeProps, obje
  * @param {Object} props
  * @returns {Object}
  */
-export const Badge = props => {
+export const Badge = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'badge',
     props.className,
@@ -17,9 +17,9 @@ export const Badge = props => {
     generalClassNames(props)
   );
 
-  return (
-    <span {...removeProps(props, ['color'])} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(Badge.propTypes));
+
+  return <span {...passProps} className={className}/>;
 };
 
 Badge.propTypes = {

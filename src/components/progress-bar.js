@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { ProgressColors } from '../enums';
-import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
 
 /**
  * Progress component.
@@ -9,7 +9,7 @@ import { GeneralPropTypes, createClassName, generalClassNames, removeProps, obje
  * @param {Object} props
  * @returns {Object}
  */
-export const Progress = props => {
+export const Progress = (props) => {
   const { meter: meterProps = {} } = props;
 
   const className = createClassName(
@@ -24,8 +24,10 @@ export const Progress = props => {
     meterProps.style.width = `${props.value}%`;
   }
 
+  const passProps = removeProps(props, objectKeys(Progress.propTypes));
+
   return (
-    <div {...removeProps(props, ['color', 'value'])}
+    <div {...passProps}
       className={className}
       role="progressbar"
       aria-valuemin={props.min}
@@ -51,16 +53,20 @@ Progress.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const ProgressMeter = props => {
+export const ProgressMeter = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'progress-meter',
     props.className,
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(ProgressMeter.propTypes));
+
+  return <div {...passProps} className={className}/>;
+};
+
+ProgressMeter.propTypes = {
+  ...GeneralPropTypes
 };
 
 /**
@@ -69,18 +75,25 @@ export const ProgressMeter = props => {
  * @param {Object} props
  * @returns {Object}
  */
-export const ProgressMeterWithText = props => {
+export const ProgressMeterWithText = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'progress-meter',
     props.className,
     generalClassNames(props)
   );
 
+  const passProps = removeProps(props, objectKeys(ProgressMeterWithText.propTypes));
+
   return (
-    <span {...props} className={className}>
+    <span {...passProps} className={className}>
       <ProgressMeterText>{props.text}</ProgressMeterText>
     </span>
   );
+};
+
+ProgressMeterWithText.propTypes = {
+  ...GeneralPropTypes,
+  text: PropTypes.string.isRequired
 };
 
 /**
@@ -89,35 +102,38 @@ export const ProgressMeterWithText = props => {
  * @param {Object} props
  * @returns {Object}
  */
-export const ProgressMeterText = props => {
+export const ProgressMeterText = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'progress-meter-text',
     props.className,
     generalClassNames(props)
   );
 
-  return (
-    <p {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(ProgressMeterText.propTypes));
+
+  return <p {...passProps} className={className}/>;
+};
+
+ProgressMeterText.propTypes = {
+  ...GeneralPropTypes
 };
 
 /**
  * Native progress component.
  * http://foundation.zurb.com/sites/docs/progress-bar.html#native-progress
  *
- * @param {Object} props
  * @returns {Object}
  */
-export const NativeProgress = props => {
+export const NativeProgress = (props) => {
   const className = createClassName(
     props.className,
     props.color,
     generalClassNames(props)
   );
 
-  return (
-    <progress {...removeProps(props, ['color'])} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(NativeProgress.propTypes));
+
+  return <progress {...passProps} max={props.max} value={props.value} className={className}/>;
 };
 
 NativeProgress.propTypes = {

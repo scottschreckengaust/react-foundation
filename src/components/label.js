@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { LabelColors } from '../enums';
-import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
 
 /**
  * Label component.
@@ -9,7 +9,7 @@ import { GeneralPropTypes, createClassName, generalClassNames, removeProps, obje
  * @param {Object} props
  * @returns {Object}
  */
-export const Label = props => {
+export const Label = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'label',
     props.className,
@@ -17,9 +17,9 @@ export const Label = props => {
     generalClassNames(props)
   );
 
-  return (
-    <span {...removeProps(props, ['color'])} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(Label.propTypes));
+
+  return <span {...passProps} className={className}/>;
 };
 
 Label.propTypes = {

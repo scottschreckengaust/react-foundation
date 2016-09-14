@@ -1,5 +1,5 @@
 import React from 'react';
-import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
 
 /**
  * Top bar component.
@@ -8,16 +8,16 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const TopBar = props => {
+export const TopBar = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'top-bar',
     props.className,
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(TopBar.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 TopBar.propTypes = {
@@ -30,16 +30,16 @@ TopBar.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const TopBarTitle = props => {
+export const TopBarTitle = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'top-bar-title',
     props.className,
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(TopBarTitle.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 TopBarTitle.propTypes = {
@@ -52,16 +52,16 @@ TopBarTitle.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const TopBarLeft = props => {
+export const TopBarLeft = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'top-bar-left',
     props.className,
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(TopBarLeft.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 TopBarLeft.propTypes = {
@@ -81,9 +81,9 @@ export const TopBarRight = props => {
     generalClassNames(props)
   );
 
-  return (
-    <div {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(TopBarRight.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 TopBarRight.propTypes = {

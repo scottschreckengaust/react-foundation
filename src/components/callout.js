@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { CalloutColors, CalloutSizes } from '../enums';
-import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectValues } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
 
 /**
  * Callout component.
@@ -18,9 +18,9 @@ export const Callout = props => {
     generalClassNames(props)
   );
 
-  return (
-    <div {...removeProps(props, ['color'])} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(Callout.propTypes));
+
+  return <div {...passProps} className={className}/>;
 };
 
 Callout.propTypes = {

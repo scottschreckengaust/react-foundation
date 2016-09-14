@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
+import { GeneralPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
 
 /**
  * Pagination component.
@@ -8,7 +8,7 @@ import { GeneralPropTypes, createClassName, generalClassNames } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const Pagination = props => {
+export const Pagination = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'pagination',
     props.className,
@@ -18,9 +18,9 @@ export const Pagination = props => {
     generalClassNames(props)
   );
 
-  return (
-    <ul {...props} className={className} role="navigation"/>
-  );
+  const passProps = removeProps(props, objectKeys(Pagination.propTypes));
+
+  return <ul {...passProps} className={className} role="navigation"/>;
 };
 
 Pagination.propTypes = {
@@ -34,7 +34,7 @@ Pagination.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const PaginationItem = props => {
+export const PaginationItem = (props) => {
   const className = createClassName(
     props.className,
     {
@@ -44,9 +44,9 @@ export const PaginationItem = props => {
     generalClassNames(props)
   );
 
-  return (
-    <li {...props} className={className}/>
-  );
+  const passProps = removeProps(props, objectKeys(PaginationItem.propTypes));
+
+  return <li {...passProps} className={className}/>;
 };
 
 PaginationItem.propTypes = {
@@ -61,16 +61,14 @@ PaginationItem.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const PaginationPrevious = props => {
+export const PaginationPrevious = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'pagination-previous',
     props.className,
     generalClassNames(props)
   );
 
-  return (
-    <PaginationItem {...props} className={className}/>
-  );
+  return <PaginationItem {...props} className={className}/>;
 };
 
 /**
@@ -79,16 +77,14 @@ export const PaginationPrevious = props => {
  * @param {Object} props
  * @returns {Object}
  */
-export const PaginationNext = props => {
+export const PaginationNext = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'pagination-next',
     props.className,
     generalClassNames(props)
   );
 
-  return (
-    <PaginationItem {...props} className={className}/>
-  );
+  return <PaginationItem {...props} className={className}/>;
 };
 
 /**
@@ -97,14 +93,12 @@ export const PaginationNext = props => {
  * @param {Object} props
  * @returns {Object}
  */
-export const PaginationEllipsis = props => {
+export const PaginationEllipsis = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'ellipsis',
     props.className,
     generalClassNames(props)
   );
 
-  return (
-    <PaginationItem {...props} className={className}/>
-  );
+  return <PaginationItem {...props} className={className}/>;
 };

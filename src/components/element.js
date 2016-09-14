@@ -1,5 +1,5 @@
 import React from 'react';
-import { createClassName, generalClassNames, GeneralPropTypes } from '../utils';
+import { createClassName, generalClassNames, GeneralPropTypes, removeProps, objectKeys } from '../utils';
 
 /**
  * Div component.
@@ -7,9 +7,11 @@ import { createClassName, generalClassNames, GeneralPropTypes } from '../utils';
  * @param {Object} props
  * @returns {Object}
  */
-export const Block = props => (
-  <div {...props} className={createClassName(props.className, generalClassNames(props))}/>
-);
+export const Block = (props) => {
+  const passProps = removeProps(props, objectKeys(Block.propTypes));
+
+  return <div {...passProps} className={createClassName(props.className, generalClassNames(props))}/>;
+};
 
 Block.propTypes = {
   ...GeneralPropTypes
@@ -21,9 +23,11 @@ Block.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const Inline = props => (
-  <span {...props} className={createClassName(props.className, generalClassNames(props))}/>
-);
+export const Inline = (props) => {
+  const passProps = removeProps(props, objectKeys(Inline.propTypes));
+
+  return <span {...passProps} className={createClassName(props.className, generalClassNames(props))}/>;
+};
 
 Inline.propTypes = {
   ...GeneralPropTypes
