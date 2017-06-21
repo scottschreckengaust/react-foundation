@@ -107,7 +107,7 @@ describe('ProgressMeter component', () => {
 describe('ProgressMeterWithText component', () => {
 
   it('does not set default class name', () => {
-    const component = render(<ProgressMeterWithText noDefaultClassName/>);
+    const component = render(<ProgressMeterWithText text="25%" noDefaultClassName/>);
     expect(component).to.not.have.className('progress-meter');
   });
 
