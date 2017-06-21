@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Breakpoints, FloatTypes } from './enums';
 
