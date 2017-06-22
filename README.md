@@ -1,6 +1,6 @@
 # React + Foundation
 
-[![Build Status](https://travis-ci.org/nordsoftware/react-foundation.svg?branch=develop)](https://travis-ci.org/nordsoftware/react-foundation)
+[![Build Status](https://travis-ci.org/digiaonline/react-foundation.svg?branch=develop)](https://travis-ci.org/digiaonline/react-foundation)
 [![Test Coverage](https://codeclimate.com/github/nordsoftware/react-foundation/badges/coverage.svg)](https://codeclimate.com/github/nordsoftware/react-foundation/coverage)
 [![Code Climate](https://codeclimate.com/github/nordsoftware/react-foundation/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/react-foundation)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nordsoftware/react-foundation/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/nordsoftware/react-foundation/?branch=master)
