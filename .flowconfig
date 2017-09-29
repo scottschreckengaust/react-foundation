@@ -1,0 +1,13 @@
+[options]
+
+; Signals a TODO to fix the type error
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+
+; Signals a bug error that's caused by flow's own bugs
+suppress_comment= \\(.\\|\n\\)*\\$BugOfFlowItself
+
+; Signals a type error that wer're sure we can ignore and won't need to fix later
+suppress_comment= \\(.\\|\n\\)*\\$FlowIgnore
+
+; When writing tests, this is used to indicate when we expect a line to error
+suppress_comment= \\(.\\|\n\\)*\\$FlowExpectError

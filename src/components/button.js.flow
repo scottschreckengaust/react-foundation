@@ -1,0 +1,4 @@
+// @flow
+
+declare export var Button: boolean;
+declare export var Link: boolean;
