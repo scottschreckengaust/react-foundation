@@ -1,0 +1,17 @@
+// @flow
+import {type FloatTypesUnion, type BreakpointsUnion, Breakpoints} from './enums'
+
+export type GeneralPropTypes = {
+  showFor: typeof Breakpoints.MEDIUM | typeof Breakpoints.LARGE,
+  showOnlyFor: BreakpointsUnion,
+  hideFor: typeof Breakpoints.MEDIUM | typeof Breakpoints.LARGE,
+  hideOnlyFor: BreakpointsUnion,
+  isHidden: boolean,
+  isInvisible: boolean,
+  showForLandscape: boolean,
+  showForPortrait: boolean,
+  showForSr: boolean,
+  showOnFocus: boolean,
+  isClearfix: boolean,
+  float: FloatTypesUnion,
+};

@@ -11,3 +11,9 @@ suppress_comment= \\(.\\|\n\\)*\\$FlowIgnore
 
 ; When writing tests, this is used to indicate when we expect a line to error
 suppress_comment= \\(.\\|\n\\)*\\$FlowExpectError
+
+include_warnings=true
+
+[lints]
+# all=off by default
+all=error

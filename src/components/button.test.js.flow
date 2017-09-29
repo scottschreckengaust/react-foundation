@@ -1,0 +1,50 @@
+// @flow
+import * as React from 'react'
+
+import {Button} from './button'
+
+// $FlowExpectError
+(<Button />);
+
+// $FlowExpectError
+(<Button
+  color="primarySSSS"
+  size="tiny"
+  isHollow={true}
+  isExpanded={true}
+  isDisabled={true}
+  isDropdown={true}
+  showFor="large"
+  showOnlyFor="large"
+  hideFor="large"
+  hideOnlyFor="large"
+  isHidden={true}
+  isInvisible={true}
+  showForLandscape={true}
+  showForPortrait={true}
+  showForSr={true}
+  showOnFocus={true}
+  isClearfix={true}
+  float="center"
+  />);
+
+(<Button
+  color="primary"
+  size="tiny"
+  isHollow={true}
+  isExpanded={true}
+  isDisabled={true}
+  isDropdown={true}
+  showFor="large"
+  showOnlyFor="large"
+  hideFor="large"
+  hideOnlyFor="large"
+  isHidden={true}
+  isInvisible={true}
+  showForLandscape={true}
+  showForPortrait={true}
+  showForSr={true}
+  showOnFocus={true}
+  isClearfix={true}
+  float="center"
+  />);

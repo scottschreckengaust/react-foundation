@@ -1,4 +1,19 @@
 // @flow
+import * as React from 'react';
+import {type ButtonColorsUnion, type ButtonSizesUnion} from '../enums'
+import {type GeneralPropTypes} from '../utils'
 
-declare export var Button: boolean;
-declare export var Link: boolean;
+// @todo: include FlexboxPropTypes
+export type ButtonProps = GeneralPropTypes & {
+  size: ButtonSizesUnion,
+  color: ButtonColorsUnion,
+  isHollow: boolean,
+  isExpanded: boolean,
+  isDisabled: boolean,
+  isDropdown: boolean,
+}
+
+declare module.exports: {
+  Button: React.ComponentType<ButtonProps>,
+  Link: boolean,
+}

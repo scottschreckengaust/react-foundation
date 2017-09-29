@@ -1,9 +1,18 @@
+// @flow
+
+export type BreakpointsUnion =
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge'
+
 /**
  * Breakpoints enumerable.
  *
  * @type {{SMALL: string, MEDIUM: string, LARGE: string, XLARGE: string, XXLARGE: string}}
  */
-export const Breakpoints = {
+export const Breakpoints: {[key: string]: BreakpointsUnion} = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
@@ -24,12 +33,14 @@ export const BadgeColors = {
   ALERT: 'alert'
 };
 
+export type ButtonColorsUnion = 'primary' | 'secondary' | 'success' | 'alert' | 'warning'
+
 /**
  * Button color enumerable.
  *
  * @type {Object}
  */
-export const ButtonColors = {
+export const ButtonColors: {[key: string]: ButtonColorsUnion} = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
   SUCCESS: 'success',
@@ -113,12 +124,14 @@ export const CalloutSizes = {
   LARGE: 'large'
 };
 
+export type ButtonSizesUnion = 'tiny'| 'small' | 'large'
+
 /**
  * Button size enumerable.
  *
  * @type {Object}
  */
-export const ButtonSizes = {
+export const ButtonSizes: {[key: string]: ButtonSizesUnion} = {
   TINY: 'tiny',
   SMALL: 'small',
   LARGE: 'large'
@@ -205,12 +218,14 @@ export const Alignments = {
   ...MenuAlignments
 };
 
+export type FloatTypesUnion = 'left' | 'center' | 'right'
+
 /**
  * Float types enumerable.
  *
  * @type {{LEFT: string, CENTER: string, RIGHT: string}}
  */
-export const FloatTypes = {
+export const FloatTypes: {[key: string]: FloatTypesUnion} = {
   LEFT: 'left',
   CENTER: 'center',
   RIGHT: 'right'
@@ -246,12 +261,20 @@ export const GutterTypes = {
   PADDING: 'padding'
 };
 
+export type ExtendedBreakpointsUnion =
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge'
+  | 'all'
+
 /**
  * Extended breakpoints enumerable (includes 'ALL' option, which is useful when breakpoint is not defined).
  *
  * @type {{SMALL: string, MEDIUM: string, LARGE: string, XLARGE: string, XXLARGE: string, ALL: string}}
  */
-export const ExtendedBreakpoints = {
+export const ExtendedBreakpoints: {[key: string]: ExtendedBreakpointsUnion} = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
