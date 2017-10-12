@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 import PropTypes from "prop-types"
 import classNames from "classnames"
@@ -33,17 +33,32 @@ export const GeneralPropTypes = {
   float: PropTypes.oneOf(objectValues(FloatTypes)),
 }
 
+export type TGeneralPropTypes = {
+  showFor: typeof Breakpoints.MEDIUM | typeof Breakpoints.LARGE,
+  showOnlyFor: BreakpointsUnion,
+  hideFor: typeof Breakpoints.MEDIUM | typeof Breakpoints.LARGE,
+  hideOnlyFor: BreakpointsUnion,
+  isHidden: boolean,
+  isInvisible: boolean,
+  showForLandscape: boolean,
+  showForPortrait: boolean,
+  showForSr: boolean,
+  showOnFocus: boolean,
+  isClearfix: boolean,
+  float: FloatTypesUnion,
+}
+
 /**
  * Creates class names from the given arguments.
  *
  * @param {*} args
  * @returns {string}
  */
-export function createClassName(...args: Array<any>) {
+export function createClassName(...args: Array<any>): string {
   return classNames(...args)
 }
 
-type generalClassNamesProps = {
+export type generalClassNamesProps = {
   showFor: string,
   showOnlyFor: string,
   hideFor: string,
@@ -64,7 +79,7 @@ type generalClassNamesProps = {
  * @param {Object} props
  * @returns {Object}
  */
-export function generalClassNames(props: generalClassNamesProps) {
+export function generalClassNames(props: Object): Object {
   return {
     "show-for-medium": props.showFor === Breakpoints.MEDIUM,
     "show-for-large": props.showFor === Breakpoints.LARGE,
@@ -128,12 +143,12 @@ export function objectValues(object: Object) {
  * @returns {Object}
  */
 
-export function removeProps(object: Object, remove: Array<string>) {
+export function removeProps(object: Object, remove: Array<string>): Object {
   const result = {}
 
   for (const property in object) {
     if (object.hasOwnProperty(property) && remove.indexOf(property) === -1) {
-      result[property]:  = object[property]
+      result[property] = object[property]
     }
   }
 
