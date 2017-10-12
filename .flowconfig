@@ -17,3 +17,6 @@ include_warnings=true
 [lints]
 # all=off by default
 all=error
+
+[ignore]
+*./node_modules/*

@@ -1,12 +1,23 @@
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { Breakpoints, FloatTypes, HorizontalAlignments, VerticalAlignments, SpaceControls, ExtendedBreakpoints } from './enums';
+//@flow
+
+import PropTypes from "prop-types"
+import classNames from "classnames"
+import { type FloatTypesUnion, type ExtendedBreakpointsUnion } from "./enums"
+import {
+  Breakpoints,
+  FloatTypes,
+  HorizontalAlignments,
+  VerticalAlignments,
+  SpaceControls,
+  ExtendedBreakpoints,
+} from "./enums"
 
 /**
  * Property types for general properties.
  *
  * @returns {Object}
  */
+
 export const GeneralPropTypes = {
   showFor: PropTypes.oneOf([Breakpoints.MEDIUM, Breakpoints.LARGE]),
   showOnlyFor: PropTypes.oneOf(objectValues(Breakpoints)),
@@ -19,8 +30,8 @@ export const GeneralPropTypes = {
   showForSr: PropTypes.bool,
   showOnFocus: PropTypes.bool,
   isClearfix: PropTypes.bool,
-  float: PropTypes.oneOf(objectValues(FloatTypes))
-};
+  float: PropTypes.oneOf(objectValues(FloatTypes)),
+}
 
 /**
  * Creates class names from the given arguments.
@@ -28,8 +39,23 @@ export const GeneralPropTypes = {
  * @param {*} args
  * @returns {string}
  */
-export function createClassName(...args) {
-  return classNames(...args);
+export function createClassName(...args: Array<any>) {
+  return classNames(...args)
+}
+
+type generalClassNamesProps = {
+  showFor: string,
+  showOnlyFor: string,
+  hideFor: string,
+  hideOnlyFor: string,
+  isHidden: Boolean,
+  isInvisible: Boolean,
+  showForLandscape: Boolean,
+  showForPortrait: Boolean,
+  showForSr: Boolean,
+  showOnFocus: Boolean,
+  isClearfix: Boolean,
+  float: FloatTypesUnion,
 }
 
 /**
@@ -38,29 +64,29 @@ export function createClassName(...args) {
  * @param {Object} props
  * @returns {Object}
  */
-export function generalClassNames(props) {
+export function generalClassNames(props: generalClassNamesProps) {
   return {
-    'show-for-medium': props.showFor === Breakpoints.MEDIUM,
-    'show-for-large': props.showFor === Breakpoints.LARGE,
-    'show-for-small-only': props.showOnlyFor === Breakpoints.SMALL,
-    'show-for-medium-only': props.showOnlyFor === Breakpoints.MEDIUM,
-    'show-for-large-only': props.showOnlyFor === Breakpoints.LARGE,
-    'hide-for-medium': props.hideFor === Breakpoints.MEDIUM,
-    'hide-for-large': props.hideFor === Breakpoints.LARGE,
-    'hide-for-small-only': props.hideOnlyFor === Breakpoints.SMALL,
-    'hide-for-medium-only': props.hideOnlyFor === Breakpoints.MEDIUM,
-    'hide-for-large-only': props.hideOnlyFor === Breakpoints.LARGE,
-    'hide': props.isHidden,
-    'invisible': props.isInvisible,
-    'show-for-landscape': props.showForLandscape,
-    'show-for-portrait': props.showForPortrait,
-    'show-for-sr': props.showForSr,
-    'show-on-focus': props.showOnFocus,
-    'clearfix': props.isClearfix,
-    'float-left': props.float === FloatTypes.LEFT,
-    'float-center': props.float === FloatTypes.CENTER,
-    'float-right': props.float === FloatTypes.RIGHT
-  };
+    "show-for-medium": props.showFor === Breakpoints.MEDIUM,
+    "show-for-large": props.showFor === Breakpoints.LARGE,
+    "show-for-small-only": props.showOnlyFor === Breakpoints.SMALL,
+    "show-for-medium-only": props.showOnlyFor === Breakpoints.MEDIUM,
+    "show-for-large-only": props.showOnlyFor === Breakpoints.LARGE,
+    "hide-for-medium": props.hideFor === Breakpoints.MEDIUM,
+    "hide-for-large": props.hideFor === Breakpoints.LARGE,
+    "hide-for-small-only": props.hideOnlyFor === Breakpoints.SMALL,
+    "hide-for-medium-only": props.hideOnlyFor === Breakpoints.MEDIUM,
+    "hide-for-large-only": props.hideOnlyFor === Breakpoints.LARGE,
+    hide: props.isHidden,
+    invisible: props.isInvisible,
+    "show-for-landscape": props.showForLandscape,
+    "show-for-portrait": props.showForPortrait,
+    "show-for-sr": props.showForSr,
+    "show-on-focus": props.showOnFocus,
+    clearfix: props.isClearfix,
+    "float-left": props.float === FloatTypes.LEFT,
+    "float-center": props.float === FloatTypes.CENTER,
+    "float-right": props.float === FloatTypes.RIGHT,
+  }
 }
 
 /**
@@ -70,8 +96,8 @@ export function generalClassNames(props) {
  * @param {Object} object
  * @returns {Array}
  */
-export function objectKeys(object) {
-  return Object.keys(object);
+export function objectKeys(object: Object) {
+  return Object.keys(object)
 }
 
 /**
@@ -81,16 +107,16 @@ export function objectKeys(object) {
  * @param {Object} object
  * @returns {Array}
  */
-export function objectValues(object) {
-  const values = [];
+export function objectValues(object: Object) {
+  const values = []
 
   for (const property in object) {
     if (object.hasOwnProperty(property)) {
-      values.push(object[property]);
+      values.push(object[property])
     }
   }
 
-  return values;
+  return values
 }
 
 /**
@@ -101,16 +127,17 @@ export function objectValues(object) {
  * @param {Array} remove
  * @returns {Object}
  */
-export function removeProps(object, remove) {
-  const result = {};
+
+export function removeProps(object: Object, remove: Array<string>) {
+  const result = {}
 
   for (const property in object) {
     if (object.hasOwnProperty(property) && remove.indexOf(property) === -1) {
-      result[property] = object[property];
+      result[property]:  = object[property]
     }
   }
 
-  return result;
+  return result
 }
 
 /**
@@ -119,8 +146,8 @@ export function removeProps(object, remove) {
  * @param {*} value
  * @returns {boolean}
  */
-export function isDefined(value) {
-  return typeof value !== 'undefined';
+export function isDefined(value: string | number) {
+  return typeof value !== "undefined"
 }
 
 /**
@@ -130,8 +157,8 @@ export function isDefined(value) {
  * @param {String} size
  * @returns {string}
  */
-export function addBreakpoint(prop, size) {
-  return size === 'all' ? prop : `${size}-${prop}`;
+export function addBreakpoint(prop: string, size: string) {
+  return size === "all" ? prop : `${size}-${prop}`
 }
 
 /**
@@ -141,11 +168,11 @@ export function addBreakpoint(prop, size) {
  * @param {String} gutters
  * @returns {string}
  */
-export function setDirection(isVertical, gutters = null) {
+export function setDirection(isVertical: boolean, gutters: string) {
   if (gutters) {
-    return isVertical === true ? `grid-${gutters}-y` : `grid-${gutters}-x`;
+    return isVertical === true ? `grid-${gutters}-y` : `grid-${gutters}-x`
   } else {
-    return isVertical === true ? 'grid-y' : 'grid-x';
+    return isVertical === true ? "grid-y" : "grid-x"
   }
 }
 
@@ -156,6 +183,7 @@ export function setDirection(isVertical, gutters = null) {
  *
  * @returns {Object}
  */
+
 export const FlexboxPropTypes = {
   alignX: PropTypes.oneOf(objectValues(HorizontalAlignments)),
   alignY: PropTypes.oneOf(objectValues(VerticalAlignments)),
@@ -172,7 +200,29 @@ export const FlexboxPropTypes = {
   flexOrderSmall: PropTypes.number,
   flexOrderMedium: PropTypes.number,
   flexOrderLarge: PropTypes.number,
-};
+}
+
+type HorizontalAlignmentsUnion = "center" | "right" | "justify" | "spaced"
+type VerticalAlignmentsUnion = "top" | "middle" | "bottom" | "stretch"
+type SpaceControlsUnion = "auto" | "grow" | "shrink"
+
+export type flexboxClassNamesProps = {
+  alignX: HorizontalAlignmentsUnion,
+  alignY: VerticalAlignmentsUnion,
+  selfAlignX: HorizontalAlignmentsUnion,
+  selfAlignY: VerticalAlignmentsUnion,
+  centerAlign: Boolean,
+  flexContainer: Boolean,
+  flexDirRow: ExtendedBreakpointsUnion,
+  flexDirRowRev: ExtendedBreakpointsUnion,
+  flexDirCol: ExtendedBreakpointsUnion,
+  flexDirColRev: ExtendedBreakpointsUnion,
+  flexChild: SpaceControlsUnion,
+  flexOrder: number,
+  flexOrderSmall: number,
+  flexOrderMedium: number,
+  flexOrderLarge: number,
+}
 
 /**
  * Parses the flexbox class names from the given properties.
@@ -180,23 +230,36 @@ export const FlexboxPropTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export function flexboxClassNames(props) {
+export function flexboxClassNames(props: flexboxClassNamesProps) {
   const flexClassNames = {
-    'flex-container': props.flexContainer,
-    'align-center-middle': props.centerAlign,
-  };
+    "flex-container": props.flexContainer,
+    "align-center-middle": props.centerAlign,
+  }
 
-  if (isDefined(props.alignX)) flexClassNames[`align-${props.alignX}`] = true;
-  if (isDefined(props.alignY)) flexClassNames[`align-${props.alignY}`] = true;
-  if (isDefined(props.flexDirRow)) flexClassNames[addBreakpoint('flex-dir-row', props.flexDirRow)] = true;
-  if (isDefined(props.flexDirRowRev)) flexClassNames[addBreakpoint('flex-dir-row-reverse', props.flexDirRowRev)] = true;
-  if (isDefined(props.flexDirCol)) flexClassNames[addBreakpoint('flex-dir-column', props.flexDirCol)] = true;
-  if (isDefined(props.flexDirColRev)) flexClassNames[addBreakpoint('flex-dir-column-reverse', props.flexDirColRev)] = true;
-  if (isDefined(props.flexChild)) flexClassNames[`flex-child-${props.flexChild}`] = true;
-  if (isDefined(props.flexOrder)) flexClassNames[`order-${props.flexOrder}`] = true;
-  if (isDefined(props.flexOrderSmall)) flexClassNames[`small-order-${props.flexOrder}`] = true;
-  if (isDefined(props.flexOrderMedium)) flexClassNames[`medium-order-${props.flexOrder}`] = true;
-  if (isDefined(props.flexOrderLarge)) flexClassNames[`large-order-${props.flexOrder}`] = true;
+  if (isDefined(props.alignX)) flexClassNames[`align-${props.alignX}`] = true
+  if (isDefined(props.alignY)) flexClassNames[`align-${props.alignY}`] = true
+  if (isDefined(props.flexDirRow))
+    flexClassNames[addBreakpoint("flex-dir-row", props.flexDirRow)] = true
+  if (isDefined(props.flexDirRowRev))
+    flexClassNames[
+      addBreakpoint("flex-dir-row-reverse", props.flexDirRowRev)
+    ] = true
+  if (isDefined(props.flexDirCol))
+    flexClassNames[addBreakpoint("flex-dir-column", props.flexDirCol)] = true
+  if (isDefined(props.flexDirColRev))
+    flexClassNames[
+      addBreakpoint("flex-dir-column-reverse", props.flexDirColRev)
+    ] = true
+  if (isDefined(props.flexChild))
+    flexClassNames[`flex-child-${props.flexChild}`] = true
+  if (isDefined(props.flexOrder))
+    flexClassNames[`order-${props.flexOrder}`] = true
+  if (isDefined(props.flexOrderSmall))
+    flexClassNames[`small-order-${props.flexOrder}`] = true
+  if (isDefined(props.flexOrderMedium))
+    flexClassNames[`medium-order-${props.flexOrder}`] = true
+  if (isDefined(props.flexOrderLarge))
+    flexClassNames[`large-order-${props.flexOrder}`] = true
 
-  return flexClassNames;
+  return flexClassNames
 }

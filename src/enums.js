@@ -20,6 +20,8 @@ export const Breakpoints: {[key: string]: BreakpointsUnion} = {
   XXLARGE: 'xxlarge'
 };
 
+
+export type BadgeColorsUnion = 'info' | 'secondary' | 'success' | 'warning' | 'alert'
 /**
  * Badge color enumerable.
  *
