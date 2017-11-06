@@ -1,7 +1,9 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ProgressColors } from '../enums';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
+import { ProgressColors, type ButtonColorsUnion } from '../enums';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues, type TGeneralPropTypes, type flexboxClassNamesProps } from '../utils';
 
 /**
  * Progress component.
@@ -10,7 +12,24 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-export const Progress = (props) => {
+
+type ProgressProps = {
+  ...TGeneralPropTypes,
+  color?: ButtonColorsUnion,
+  meter: Object,
+  value: number,
+  meterProps: {
+    style: string,
+    text: string,
+  },
+  min?: number,
+  max?: number,
+  valueText?: string,
+  style?: string,
+  noDefaultClassName: boolean,
+}
+
+export const Progress = (props: ProgressProps) => {
   const { meter: meterProps = {} } = props;
 
   const className = createClassName(
@@ -21,7 +40,7 @@ export const Progress = (props) => {
   );
 
   if (props.value) {
-    meterProps.style = meterProps.style || {};
+    meterProps.style = meterProps.style === undefined ? {} : meterProps.style;
     meterProps.style.width = `${props.value}%`;
   }
 
@@ -55,6 +74,7 @@ Progress.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
+
 export const ProgressMeter = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'progress-meter',
@@ -77,6 +97,7 @@ ProgressMeter.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
+
 export const ProgressMeterWithText = (props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'progress-meter',
@@ -127,7 +148,14 @@ ProgressMeterText.propTypes = {
  *
  * @returns {Object}
  */
-export const NativeProgress = (props) => {
+type NativeProgressProps = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  color?: ButtonColorsUnion,
+  max?: number,
+  value?: number,
+}
+export const NativeProgress = (props: NativeProgressProps) => {
   const className = createClassName(
     props.className,
     props.color,

@@ -1,5 +1,7 @@
+// @flow
+
 import React from 'react';
-import { createClassName, generalClassNames, GeneralPropTypes, FlexboxPropTypes, removeProps, objectKeys } from '../utils';
+import { createClassName, generalClassNames, GeneralPropTypes, FlexboxPropTypes, removeProps, objectKeys, type TGeneralPropTypes, type flexboxClassNamesProps } from '../utils';
 
 /**
  * Div component.
@@ -7,7 +9,12 @@ import { createClassName, generalClassNames, GeneralPropTypes, FlexboxPropTypes,
  * @param {Object} props
  * @returns {Object}
  */
-export const Block = (props) => {
+
+type Props = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+}
+export const Block = (props: Props) => {
   const passProps = removeProps(props, objectKeys(Block.propTypes));
 
   return <div {...passProps} className={createClassName(props.className, generalClassNames(props))}/>;
@@ -24,7 +31,7 @@ Block.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const Inline = (props) => {
+export const Inline = (props: Props) => {
   const passProps = removeProps(props, objectKeys(Inline.propTypes));
 
   return <span {...passProps} className={createClassName(props.className, generalClassNames(props))}/>;

@@ -1,6 +1,8 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, type TGeneralPropTypes, type flexboxClassNamesProps } from '../utils';
 
 /**
  * Breadcrumbs component.
@@ -9,7 +11,15 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-export const Breadcrumbs = (props) => {
+type Props = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  className: string,
+  isDisabled?: Boolean,
+  noDefaultClassName: string,
+}
+
+export const Breadcrumbs = (props: Props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'breadcrumbs',
     props.className,
@@ -31,7 +41,7 @@ Breadcrumbs.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const BreadcrumbItem = (props) => {
+export const BreadcrumbItem = (props: Props) => {
   const className = createClassName(
     props.className,
     {

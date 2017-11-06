@@ -1,6 +1,8 @@
+
+// @flow
 import React from 'react';
 import PropTypes from 'prop-types';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, type TGeneralPropTypes, type flexboxClassNamesProps } from '../utils';
 
 /**
  * FlexVideo component.
@@ -9,9 +11,19 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-export const FlexVideo = (props) => {
+
+type Props = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  isWidescreen?: Boolean,
+  isVimeo?: Boolean,
+  noDefaultClassName?: ?string,
+}
+export const FlexVideo = (props: Props) => {
   const className = createClassName(
-    props.noDefaultClassName ? null : 'flex-video',
+
+    //Adding !== undefined so flow type could check it properly
+    props.noDefaultClassName !== undefined ? null : 'flex-video',
     props.className,
     {
       widescreen: props.isWidescreen,

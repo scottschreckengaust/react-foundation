@@ -1,7 +1,9 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Breakpoints, ButtonGroupColors, ButtonGroupSizes } from '../enums';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
+import { Breakpoints, ButtonGroupColors, ButtonGroupSizes, type ButtonColorsUnion, type BreakpointsUnion, type ButtonSizesUnion } from '../enums';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues, type TGeneralPropTypes, type flexboxClassNamesProps } from '../utils';
 
 /**
  * Button group component.
@@ -10,7 +12,19 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-export const ButtonGroup = (props) => {
+
+type Props = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  color: ButtonColorsUnion,
+  size: ButtonSizesUnion,
+  noDefaultClassName: string,
+  isExpanded: Boolean,
+  stackFor: BreakpointsUnion,
+  isStacked: Boolean,
+}
+
+export const ButtonGroup = (props: Props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'button-group',
     props.className,

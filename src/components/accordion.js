@@ -1,6 +1,8 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, type TGeneralPropTypes, type flexboxClassNamesProps } from '../utils';
 
 /**
  * Accordion component.
@@ -9,8 +11,16 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-export const Accordion = (props) => {
+
+type AccordionProps = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  noDefaultClassName: boolean,
+  children?: Array<any>
+}
+export const Accordion = (props: AccordionProps) => {
   const className = createClassName(
+    //Adding !== undefined so flow type could check it properly
     props.noDefaultClassName ? null : 'accordion',
     props.className,
     generalClassNames(props)
@@ -18,7 +28,7 @@ export const Accordion = (props) => {
 
   const passProps = removeProps(props, objectKeys(Accordion.propTypes));
 
-  return <ul {...passProps} className={className}>{props.children || []}</ul>;
+  return <ul {...passProps} className={className}>{props.children !== undefined ? props.children : []}</ul>;
 };
 
 Accordion.propTypes = {
@@ -33,7 +43,14 @@ Accordion.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const AccordionItem = (props) => {
+
+type AccordionItemProps = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  noDefaultClassName: boolean,
+  isActive?: Boolean,
+}
+export const AccordionItem = (props: AccordionItemProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'accordion-item',
     props.className,
@@ -60,7 +77,14 @@ AccordionItem.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const AccordionContent = (props) => {
+
+type AccordionContentProps = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  noDefaultClassName: boolean,
+  isActive?: Boolean,
+}
+export const AccordionContent = (props: AccordionContentProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'accordion-content',
     props.className,
@@ -87,7 +111,13 @@ AccordionContent.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const AccordionTitle = (props) => {
+type AccordionTitleProps = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  noDefaultClassName: boolean,
+  isActive?: Boolean,
+}
+export const AccordionTitle = (props: AccordionTitleProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'accordion-title',
     props.className,

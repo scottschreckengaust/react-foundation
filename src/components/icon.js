@@ -1,6 +1,8 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, type TGeneralPropTypes, type flexboxClassNamesProps } from '../utils';
 
 /**
  * Icon component.
@@ -8,7 +10,15 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-export const Icon = (props) => {
+
+type Props = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  prefix: string,
+  name: string,
+}
+
+export const Icon = (props: Props) => {
   const className = createClassName(
     props.prefix,
     props.prefix ? `${props.prefix}-${props.name}` : props.name,

@@ -1,6 +1,8 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, type TGeneralPropTypes, type flexboxClassNamesProps } from '../utils';
 
 /**
  * Pagination component.
@@ -9,7 +11,14 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-export const Pagination = (props) => {
+
+type PaginationProps = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  noDefaultClassName: boolean,
+}
+
+export const Pagination = (props: PaginationProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'pagination',
     props.className,
@@ -36,7 +45,7 @@ Pagination.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const PaginationItem = (props) => {
+export const PaginationItem = (props: PaginationProps) => {
   const className = createClassName(
     props.className,
     {
@@ -64,7 +73,7 @@ PaginationItem.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const PaginationPrevious = (props) => {
+export const PaginationPrevious = (props: PaginationProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'pagination-previous',
     props.className,
@@ -80,7 +89,7 @@ export const PaginationPrevious = (props) => {
  * @param {Object} props
  * @returns {Object}
  */
-export const PaginationNext = (props) => {
+export const PaginationNext = (props: PaginationProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'pagination-next',
     props.className,
@@ -96,7 +105,7 @@ export const PaginationNext = (props) => {
  * @param {Object} props
  * @returns {Object}
  */
-export const PaginationEllipsis = (props) => {
+export const PaginationEllipsis = (props: PaginationProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'ellipsis',
     props.className,

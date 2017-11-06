@@ -1,6 +1,8 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, type TGeneralPropTypes } from '../utils';
 
 /**
  * Reveal component.
@@ -9,8 +11,15 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-
-export const Reveal = (props) => {
+type RevealProps = {
+  ...TGeneralPropTypes,
+  isTiny?: boolean,
+  isSmall?: boolean,
+  isLarge?: boolean,
+  isFullscreen?: boolean,
+  noDefaultClassName: boolean,
+}
+export const Reveal = (props: RevealProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'reveal',
     props.className,

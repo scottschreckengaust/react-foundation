@@ -1,7 +1,9 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { HorizontalAlignments, VerticalAlignments } from '../enums';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, isDefined } from '../utils';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, isDefined, type TGeneralPropTypes, type flexboxClassNamesProps, type HorizontalAlignmentsUnion, type VerticalAlignmentsUnion } from '../utils';
 
 /**
  * Row component.
@@ -9,7 +11,31 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-export const Row = (props) => {
+
+type RowProps = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  noDefaultClassName: string,
+  upOnSmall: number,
+  upOnMedium: number,
+  upOnLarge: number,
+  horizontalAlignment?: HorizontalAlignmentsUnion,
+  verticalAlignment?: VerticalAlignmentsUnion,
+  unstackOnSmall?: Boolean,
+  unstackOnMedium?: Boolean,
+  unstackOnLarge?: Boolean,
+  collapseOnSmall?: Boolean,
+  collapseOnMedium?: Boolean,
+  collapseOnLarge?: Boolean,
+  uncollapseOnSmall?: Boolean,
+  uncollapseOnMedium?: Boolean,
+  uncollapseOnLarge?: Boolean,
+  isCollapsed?: Boolean,
+  isExpanded?: Boolean,
+  isColumn?: Boolean,
+}
+
+export const Row = (props: RowProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'row',
     props.className,
@@ -74,7 +100,40 @@ Row.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const Column = (props) => {
+
+type ColumnProps = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  noDefaultClassName: string,
+  isColumn: Boolean,
+  small: number,
+  medium: number,
+  large: number,
+  offsetOnSmall?: number,
+  offsetOnMedium?: number,
+  offsetOnLarge?: number,
+  pushOnSmall?: number,
+  pushOnMedium?: number,
+  pushOnLarge?: number,
+  pullOnSmall?: number,
+  pullOnMedium?: number,
+  pullOnLarge?: number,
+  orderOnSmall?: number,
+  orderOnMedium?: number,
+  orderOnLarge?: number,
+  centerOnSmall?: Boolean,
+  centerOnMedium?: Boolean,
+  centerOnLarge?: Boolean,
+  uncenterOnSmall?: Boolean,
+  uncenterOnMedium?: Boolean,
+  uncenterOnLarge?: Boolean,
+  expandOnSmall?: Boolean,
+  expandOnMedium?: Boolean,
+  expandOnLarge?: Boolean,
+  isShrunk?: Boolean,
+  isLast?: Boolean,
+}
+export const Column = (props: ColumnProps) => {
   const defaultClassName = props.isColumn ? 'column' : 'columns';
   const className = createClassName(
     props.noDefaultClassName ? null : defaultClassName,

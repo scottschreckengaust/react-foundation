@@ -1,8 +1,8 @@
 // @flow
 
-import PropTypes from "prop-types"
-import classNames from "classnames"
-import { type FloatTypesUnion, type ExtendedBreakpointsUnion } from "./enums"
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { type FloatTypesUnion, type ExtendedBreakpointsUnion, type BreakpointsUnion } from './enums';
 import {
   Breakpoints,
   FloatTypes,
@@ -10,7 +10,7 @@ import {
   VerticalAlignments,
   SpaceControls,
   ExtendedBreakpoints,
-} from "./enums"
+} from './enums';
 
 /**
  * Property types for general properties.
@@ -31,21 +31,25 @@ export const GeneralPropTypes = {
   showOnFocus: PropTypes.bool,
   isClearfix: PropTypes.bool,
   float: PropTypes.oneOf(objectValues(FloatTypes)),
-}
+};
 
 export type TGeneralPropTypes = {
-  showFor: typeof Breakpoints.MEDIUM | typeof Breakpoints.LARGE,
-  showOnlyFor: BreakpointsUnion,
-  hideFor: typeof Breakpoints.MEDIUM | typeof Breakpoints.LARGE,
-  hideOnlyFor: BreakpointsUnion,
-  isHidden: boolean,
-  isInvisible: boolean,
-  showForLandscape: boolean,
-  showForPortrait: boolean,
-  showForSr: boolean,
-  showOnFocus: boolean,
-  isClearfix: boolean,
-  float: FloatTypesUnion,
+  showFor?: typeof Breakpoints.MEDIUM | typeof Breakpoints.LARGE,
+  showOnlyFor?: BreakpointsUnion,
+  hideFor?: typeof Breakpoints.MEDIUM | typeof Breakpoints.LARGE,
+  hideOnlyFor?: BreakpointsUnion,
+  isHidden?: boolean,
+  isInvisible?: boolean,
+  showForLandscape?: boolean,
+  showForPortrait?: boolean,
+  showForSr?: boolean,
+  showOnFocus?: boolean,
+  isClearfix?: boolean,
+  float?: FloatTypesUnion,
+  className?: string,
+  isCentered?: boolean,
+  isCurrent?: boolean,
+  isDisabled?: boolean,
 }
 
 /**
@@ -55,7 +59,7 @@ export type TGeneralPropTypes = {
  * @returns {string}
  */
 export function createClassName(...args: Array<any>): string {
-  return classNames(...args)
+  return classNames(...args);
 }
 
 export type generalClassNamesProps = {
@@ -81,27 +85,27 @@ export type generalClassNamesProps = {
  */
 export function generalClassNames(props: Object): Object {
   return {
-    "show-for-medium": props.showFor === Breakpoints.MEDIUM,
-    "show-for-large": props.showFor === Breakpoints.LARGE,
-    "show-for-small-only": props.showOnlyFor === Breakpoints.SMALL,
-    "show-for-medium-only": props.showOnlyFor === Breakpoints.MEDIUM,
-    "show-for-large-only": props.showOnlyFor === Breakpoints.LARGE,
-    "hide-for-medium": props.hideFor === Breakpoints.MEDIUM,
-    "hide-for-large": props.hideFor === Breakpoints.LARGE,
-    "hide-for-small-only": props.hideOnlyFor === Breakpoints.SMALL,
-    "hide-for-medium-only": props.hideOnlyFor === Breakpoints.MEDIUM,
-    "hide-for-large-only": props.hideOnlyFor === Breakpoints.LARGE,
+    'show-for-medium': props.showFor === Breakpoints.MEDIUM,
+    'show-for-large': props.showFor === Breakpoints.LARGE,
+    'show-for-small-only': props.showOnlyFor === Breakpoints.SMALL,
+    'show-for-medium-only': props.showOnlyFor === Breakpoints.MEDIUM,
+    'show-for-large-only': props.showOnlyFor === Breakpoints.LARGE,
+    'hide-for-medium': props.hideFor === Breakpoints.MEDIUM,
+    'hide-for-large': props.hideFor === Breakpoints.LARGE,
+    'hide-for-small-only': props.hideOnlyFor === Breakpoints.SMALL,
+    'hide-for-medium-only': props.hideOnlyFor === Breakpoints.MEDIUM,
+    'hide-for-large-only': props.hideOnlyFor === Breakpoints.LARGE,
     hide: props.isHidden,
     invisible: props.isInvisible,
-    "show-for-landscape": props.showForLandscape,
-    "show-for-portrait": props.showForPortrait,
-    "show-for-sr": props.showForSr,
-    "show-on-focus": props.showOnFocus,
+    'show-for-landscape': props.showForLandscape,
+    'show-for-portrait': props.showForPortrait,
+    'show-for-sr': props.showForSr,
+    'show-on-focus': props.showOnFocus,
     clearfix: props.isClearfix,
-    "float-left": props.float === FloatTypes.LEFT,
-    "float-center": props.float === FloatTypes.CENTER,
-    "float-right": props.float === FloatTypes.RIGHT,
-  }
+    'float-left': props.float === FloatTypes.LEFT,
+    'float-center': props.float === FloatTypes.CENTER,
+    'float-right': props.float === FloatTypes.RIGHT,
+  };
 }
 
 /**
@@ -112,7 +116,7 @@ export function generalClassNames(props: Object): Object {
  * @returns {Array}
  */
 export function objectKeys(object: Object) {
-  return Object.keys(object)
+  return Object.keys(object);
 }
 
 /**
@@ -123,15 +127,15 @@ export function objectKeys(object: Object) {
  * @returns {Array}
  */
 export function objectValues(object: Object) {
-  const values = []
+  const values = [];
 
   for (const property in object) {
     if (object.hasOwnProperty(property)) {
-      values.push(object[property])
+      values.push(object[property]);
     }
   }
 
-  return values
+  return values;
 }
 
 /**
@@ -144,15 +148,15 @@ export function objectValues(object: Object) {
  */
 
 export function removeProps(object: Object, remove: Array<string>): Object {
-  const result = {}
+  const result = {};
 
   for (const property in object) {
     if (object.hasOwnProperty(property) && remove.indexOf(property) === -1) {
-      result[property] = object[property]
+      result[property] = object[property];
     }
   }
 
-  return result
+  return result;
 }
 
 /**
@@ -162,7 +166,7 @@ export function removeProps(object: Object, remove: Array<string>): Object {
  * @returns {boolean}
  */
 export function isDefined(value: string | number) {
-  return typeof value !== "undefined"
+  return typeof value !== 'undefined';
 }
 
 /**
@@ -173,7 +177,7 @@ export function isDefined(value: string | number) {
  * @returns {string}
  */
 export function addBreakpoint(prop: string, size: string) {
-  return size === "all" ? prop : `${size}-${prop}`
+  return size === 'all' ? prop : `${size}-${prop}`;
 }
 
 /**
@@ -185,9 +189,9 @@ export function addBreakpoint(prop: string, size: string) {
  */
 export function setDirection(isVertical: boolean, gutters: string) {
   if (gutters) {
-    return isVertical === true ? `grid-${gutters}-y` : `grid-${gutters}-x`
+    return isVertical === true ? `grid-${gutters}-y` : `grid-${gutters}-x`;
   } else {
-    return isVertical === true ? "grid-y" : "grid-x"
+    return isVertical === true ? 'grid-y' : 'grid-x';
   }
 }
 
@@ -215,28 +219,28 @@ export const FlexboxPropTypes = {
   flexOrderSmall: PropTypes.number,
   flexOrderMedium: PropTypes.number,
   flexOrderLarge: PropTypes.number,
-}
+};
 
-type HorizontalAlignmentsUnion = "center" | "right" | "justify" | "spaced"
-type VerticalAlignmentsUnion = "top" | "middle" | "bottom" | "stretch"
-type SpaceControlsUnion = "auto" | "grow" | "shrink"
+export type HorizontalAlignmentsUnion = "center" | "right" | "justify" | "spaced"
+export type VerticalAlignmentsUnion = "top" | "middle" | "bottom" | "stretch"
+export type SpaceControlsUnion = "auto" | "grow" | "shrink"
 
 export type flexboxClassNamesProps = {
-  alignX: HorizontalAlignmentsUnion,
-  alignY: VerticalAlignmentsUnion,
-  selfAlignX: HorizontalAlignmentsUnion,
-  selfAlignY: VerticalAlignmentsUnion,
-  centerAlign: Boolean,
-  flexContainer: Boolean,
-  flexDirRow: ExtendedBreakpointsUnion,
-  flexDirRowRev: ExtendedBreakpointsUnion,
-  flexDirCol: ExtendedBreakpointsUnion,
-  flexDirColRev: ExtendedBreakpointsUnion,
-  flexChild: SpaceControlsUnion,
-  flexOrder: number,
-  flexOrderSmall: number,
-  flexOrderMedium: number,
-  flexOrderLarge: number,
+  alignX?: HorizontalAlignmentsUnion,
+  alignY?: VerticalAlignmentsUnion,
+  selfAlignX?: HorizontalAlignmentsUnion,
+  selfAlignY?: VerticalAlignmentsUnion,
+  centerAlign?: Boolean,
+  flexContainer?: Boolean,
+  flexDirRow?: ExtendedBreakpointsUnion,
+  flexDirRowRev?: ExtendedBreakpointsUnion,
+  flexDirCol?: ExtendedBreakpointsUnion,
+  flexDirColRev?: ExtendedBreakpointsUnion,
+  flexChild?: SpaceControlsUnion,
+  flexOrder?: number,
+  flexOrderSmall?: number,
+  flexOrderMedium?: number,
+  flexOrderLarge?: number,
 }
 
 /**
@@ -247,34 +251,50 @@ export type flexboxClassNamesProps = {
  */
 export function flexboxClassNames(props: flexboxClassNamesProps) {
   const flexClassNames = {
-    "flex-container": props.flexContainer,
-    "align-center-middle": props.centerAlign,
+    'flex-container': props.flexContainer,
+    'align-center-middle': props.centerAlign,
+  };
+
+  if (isDefined(props.alignX)) flexClassNames[`align-${props.alignX}`] = true;
+  if (isDefined(props.alignY)) flexClassNames[`align-${props.alignY}`] = true;
+  if (isDefined(props.flexDirRow)) {
+    flexClassNames[addBreakpoint('flex-dir-row', props.flexDirRow)] = true;
   }
 
-  if (isDefined(props.alignX)) flexClassNames[`align-${props.alignX}`] = true
-  if (isDefined(props.alignY)) flexClassNames[`align-${props.alignY}`] = true
-  if (isDefined(props.flexDirRow))
-    flexClassNames[addBreakpoint("flex-dir-row", props.flexDirRow)] = true
-  if (isDefined(props.flexDirRowRev))
+  if (isDefined(props.flexDirRowRev)) {
     flexClassNames[
-      addBreakpoint("flex-dir-row-reverse", props.flexDirRowRev)
-    ] = true
-  if (isDefined(props.flexDirCol))
-    flexClassNames[addBreakpoint("flex-dir-column", props.flexDirCol)] = true
-  if (isDefined(props.flexDirColRev))
-    flexClassNames[
-      addBreakpoint("flex-dir-column-reverse", props.flexDirColRev)
-    ] = true
-  if (isDefined(props.flexChild))
-    flexClassNames[`flex-child-${props.flexChild}`] = true
-  if (isDefined(props.flexOrder))
-    flexClassNames[`order-${props.flexOrder}`] = true
-  if (isDefined(props.flexOrderSmall))
-    flexClassNames[`small-order-${props.flexOrder}`] = true
-  if (isDefined(props.flexOrderMedium))
-    flexClassNames[`medium-order-${props.flexOrder}`] = true
-  if (isDefined(props.flexOrderLarge))
-    flexClassNames[`large-order-${props.flexOrder}`] = true
+      addBreakpoint('flex-dir-row-reverse', props.flexDirRowRev)
+    ] = true;
+  }
+  if (isDefined(props.flexDirCol)) {
+    flexClassNames[addBreakpoint('flex-dir-column', props.flexDirCol)] = true;
+  }
 
-  return flexClassNames
+  if (isDefined(props.flexDirColRev)) {
+    flexClassNames[
+      addBreakpoint('flex-dir-column-reverse', props.flexDirColRev)
+    ] = true;
+  }
+
+  if (isDefined(props.flexChild)) {
+    flexClassNames[`flex-child-${props.flexChild}`] = true;
+  }
+
+  if (isDefined(props.flexOrder)) {
+    flexClassNames[`order-${props.flexOrder}`] = true;
+  }
+
+  if (isDefined(props.flexOrderSmall)) {
+    flexClassNames[`small-order-${props.flexOrder}`] = true;
+  }
+
+  if (isDefined(props.flexOrderMedium)) {
+    flexClassNames[`medium-order-${props.flexOrder}`] = true;
+  }
+
+  if (isDefined(props.flexOrderLarge)) {
+    flexClassNames[`large-order-${props.flexOrder}`] = true;
+  }
+
+  return flexClassNames;
 }

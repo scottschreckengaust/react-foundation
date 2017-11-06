@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+// @flow
+
+import React, { Component, type Node } from 'react';
 import PropTypes from 'prop-types';
 import { TopBar } from './top-bar';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps } from '../utils';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, type TGeneralPropTypes } from '../utils';
 
 // Default pixel value when title bar is displayed and top bar is hidden.
 const DEFAULT_BREAKPOINT = 640;
@@ -10,7 +12,22 @@ const DEFAULT_BREAKPOINT = 640;
  * Responsive navigation component.
  * http://foundation.zurb.com/sites/docs/responsive-navigation.html
  */
-export class ResponsiveNavigation extends Component {
+
+type Props = {
+  breakpoint: number,
+  titleBar: Object,
+  menuIcon: Object,
+  titleBarTitle: Object,
+  topBar: Object,
+  children?: Node,
+}
+type State = {
+  isTitleBarVisible: boolean,
+  isTopBarVisible: boolean,
+}
+
+export class ResponsiveNavigation extends Component<Props, State> {
+
   constructor() {
     super();
 
@@ -21,6 +38,7 @@ export class ResponsiveNavigation extends Component {
 
     this.update = this.update.bind(this);
     this.toggle = this.toggle.bind(this);
+
   }
 
   componentWillMount() {
@@ -102,7 +120,11 @@ ResponsiveNavigation.defaultProps = {
  * @param {Object} props
  * @returns {Object}
  */
-export const TitleBar = props => {
+
+type FunctionalCompProps = {
+  ...TGeneralPropTypes
+}
+export const TitleBar = (props: FunctionalCompProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'title-bar',
     props.className,
@@ -120,7 +142,7 @@ export const TitleBar = props => {
  * @param {Object} props
  * @returns {Object}
  */
-export const MenuIcon = props => {
+export const MenuIcon = (props: FunctionalCompProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'menu-icon',
     props.className,
@@ -138,7 +160,7 @@ export const MenuIcon = props => {
  * @param {Object} props
  * @returns {Object}
  */
-export const TitleBarTitle = props => {
+export const TitleBarTitle = (props: FunctionalCompProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'title-bar-title',
     props.className,

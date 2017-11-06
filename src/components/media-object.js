@@ -1,7 +1,20 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { HorizontalAlignments } from '../enums';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues, type TGeneralPropTypes, type flexboxClassNamesProps } from '../utils';
+
+type MediaObjectProps = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  noDefaultClassName: boolean,
+  stackForSmall?: boolean,
+  alignment?: string,
+  isMain?: boolean,
+  isMiddle?: boolean,
+  isBottom?:boolean,
+}
 
 /**
  * Media object component.
@@ -9,7 +22,7 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-export const MediaObject = (props) => {
+export const MediaObject = (props: MediaObjectProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'media-object',
     props.className,
@@ -36,7 +49,8 @@ MediaObject.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const MediaObjectSection = (props) => {
+
+export const MediaObjectSection = (props: MediaObjectProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'media-object-section',
     props.className,

@@ -1,7 +1,9 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MenuAlignments } from '../enums';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues, type TGeneralPropTypes, type flexboxClassNamesProps } from '../utils';
 
 /**
  * Menu component.
@@ -10,7 +12,22 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-export const Menu = (props) => {
+type MenuProps = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  noDefaultClassName: boolean,
+  alignment?: string,
+  iconsOnTop?: boolean,
+  isExpanded?: boolean,
+  isVertical?: boolean,
+  isSimple?: boolean,
+  isNested?: boolean,
+  isDropdown?: boolean,
+  horizontalOnMedium?: boolean,
+  isActive?: boolean,
+}
+
+export const Menu = (props: MenuProps) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'menu',
     props.className,
@@ -52,7 +69,7 @@ Menu.propTypes = {
  * @param {Object} props
  * @returns {Object}
  */
-export const MenuItem = (props) => {
+export const MenuItem = (props: MenuProps) => {
   const className = createClassName(
     props.className,
     {
@@ -78,6 +95,6 @@ MenuItem.propTypes = {
  * @param {Object} props
  * @returns {XML}
  */
-export const MenuText = (props) => (
-  <MenuItem {...props} className={props.className || 'menu-text'}/>
+export const MenuText = (props: MenuProps) => (
+  <MenuItem {...props} className={props.className === undefined ? 'menu-text' : props.className}/>
 );

@@ -1,13 +1,13 @@
 // @flow
 
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   ButtonSizes,
   ButtonColors,
   type ButtonColorsUnion,
   type ButtonSizesUnion,
-} from "../enums"
+} from '../enums';
 import {
   GeneralPropTypes,
   FlexboxPropTypes,
@@ -16,7 +16,9 @@ import {
   removeProps,
   objectKeys,
   objectValues,
-} from "../utils"
+  type flexboxClassNamesProps,
+  type generalClassNamesProps,
+} from '../utils';
 
 /**
  * Button property types.
@@ -32,7 +34,7 @@ const ButtonPropTypes = {
   isExpanded: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isDropdown: PropTypes.bool,
-}
+};
 
 /**
  * Button component.
@@ -43,24 +45,26 @@ const ButtonPropTypes = {
  */
 
 type Props = {
-  noDefaultClassName: string,
-  className: string,
-  size: ButtonSizesUnion,
-  color: ButtonColorsUnion,
-  isHollow: Boolean,
-  isExpanded: Boolean,
-  isDisabled: Boolean,
-  isDropdown: Boolean,
-  isArrowOnly: Boolean,
+  ...flexboxClassNamesProps,
+  ...generalClassNamesProps,
+  noDefaultClassName: boolean,
+  className?: Boolean,
+  size?: ButtonSizesUnion,
+  color?: ButtonColorsUnion,
+  isHollow?: Boolean,
+  isExpanded?: Boolean,
+  isDisabled?: Boolean,
+  isDropdown?: Boolean,
+  isArrowOnly?: Boolean,
 }
 
 export const Button = (props: Props) => {
-  const passProps = removeProps(props, objectKeys(Button.propTypes))
+  const passProps = removeProps(props, objectKeys(Button.propTypes));
 
-  return <button {...passProps} className={createButtonClassName(props)} />
-}
+  return <button {...passProps} className={createButtonClassName(props)} />;
+};
 
-Button.propTypes = ButtonPropTypes
+Button.propTypes = ButtonPropTypes;
 
 /**
  * Link button component.
@@ -69,14 +73,14 @@ Button.propTypes = ButtonPropTypes
  * @param {Object} props
  * @returns {Object}
  */
-type LinkProps = {}
+
 export const Link = (props: Props) => {
-  const passProps = removeProps(props, objectKeys(Button.propTypes))
+  const passProps = removeProps(props, objectKeys(Button.propTypes));
 
-  return <a {...passProps} className={createButtonClassName(props)} />
-}
+  return <a {...passProps} className={createButtonClassName(props)} />;
+};
 
-Link.propTypes = ButtonPropTypes
+Link.propTypes = ButtonPropTypes;
 
 /**
  * Creates button class name from the given properties.
@@ -86,7 +90,7 @@ Link.propTypes = ButtonPropTypes
  */
 function createButtonClassName(props) {
   return createClassName(
-    props.noDefaultClassName ? null : "button",
+    props.noDefaultClassName ? null : 'button',
     props.className,
     props.size,
     props.color,
@@ -95,8 +99,8 @@ function createButtonClassName(props) {
       expanded: props.isExpanded,
       disabled: props.isDisabled,
       dropdown: props.isDropdown,
-      "arrow-only": props.isArrowOnly,
+      'arrow-only': props.isArrowOnly,
     },
     generalClassNames(props),
-  )
+  );
 }

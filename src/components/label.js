@@ -1,8 +1,8 @@
 //@flow
 
-import React from "react"
-import PropTypes from "prop-types"
-import { LabelColors } from "../enums"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { LabelColors, type BadgeColorsUnion } from '../enums';
 import {
   GeneralPropTypes,
   FlexboxPropTypes,
@@ -12,7 +12,9 @@ import {
   objectKeys,
   objectValues,
   type generalClassNamesProps,
-} from "../utils"
+  type TGeneralPropTypes,
+  type flexboxClassNamesProps,
+} from '../utils';
 
 /**
  * Label component.
@@ -22,27 +24,30 @@ import {
  * @returns {Object}
  */
 type Props = {
+  ...generalClassNamesProps,
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
   noDefaultClassName: string,
   className: string,
-  color: string,
+  color: BadgeColorsUnion,
   generalClassNames: Function,
 }
 
 export const Label = (props: Props) => {
   const className = createClassName(
-    props.noDefaultClassName ? null : "label",
+    props.noDefaultClassName ? null : 'label',
     props.className,
     props.color,
     generalClassNames(props),
-  )
+  );
 
-  const passProps = removeProps(props, objectKeys(Label.propTypes))
+  const passProps = removeProps(props, objectKeys(Label.propTypes));
 
-  return <span {...passProps} className={className} />
-}
+  return <span {...passProps} className={className} />;
+};
 
 Label.propTypes = {
   ...GeneralPropTypes,
   ...FlexboxPropTypes,
   color: PropTypes.oneOf(objectValues(LabelColors)),
-}
+};

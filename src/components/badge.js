@@ -1,7 +1,19 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BadgeColors } from '../enums';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys, objectValues } from '../utils';
+import { BadgeColors, type BadgeColorsUnion } from '../enums';
+import {
+  GeneralPropTypes,
+  type TGeneralPropTypes,
+  type flexboxClassNamesProps,
+  FlexboxPropTypes,
+  createClassName,
+  generalClassNames,
+  removeProps,
+  objectKeys,
+  objectValues,
+} from '../utils';
 
 /**
  * Badge component.
@@ -10,21 +22,30 @@ import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames,
  * @param {Object} props
  * @returns {Object}
  */
-export const Badge = (props) => {
+
+type Props = {
+  ...TGeneralPropTypes,
+  ...flexboxClassNamesProps,
+  color?: BadgeColorsUnion,
+  noDefaultClassName: boolean,
+  className?: string,
+}
+
+export const Badge = (props: Props) => {
   const className = createClassName(
     props.noDefaultClassName ? null : 'badge',
     props.className,
     props.color,
-    generalClassNames(props)
+    generalClassNames(props),
   );
 
   const passProps = removeProps(props, objectKeys(Badge.propTypes));
 
-  return <span {...passProps} className={className}/>;
+  return <span {...passProps} className={className} />;
 };
 
 Badge.propTypes = {
   ...GeneralPropTypes,
   ...FlexboxPropTypes,
-  color: PropTypes.oneOf(objectValues(BadgeColors))
+  color: PropTypes.oneOf(objectValues(BadgeColors)),
 };
