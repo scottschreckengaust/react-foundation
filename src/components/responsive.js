@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TopBar } from './top-bar';
-import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps } from '../utils';
+import { GeneralPropTypes, FlexboxPropTypes, createClassName, generalClassNames, removeProps, objectKeys } from '../utils';
 import ExecutionEnvironment from 'fbjs/lib/ExecutionEnvironment';
 
 // Default pixel value when title bar is displayed and top bar is hidden.
@@ -116,9 +116,17 @@ export const TitleBar = props => {
     generalClassNames(props)
   );
 
+  const passProps = removeProps(props, objectKeys(TitleBar.propTypes));
+  
   return (
-    <div {...props} className={className}/>
+    <div {...passProps} className={className} />
   );
+  
+};
+
+TitleBar.propTypes = {
+  ...GeneralPropTypes,
+  ...FlexboxPropTypes
 };
 
 /**
@@ -133,10 +141,16 @@ export const MenuIcon = props => {
     props.className,
     generalClassNames(props)
   );
+  const passProps = removeProps(props, objectKeys(MenuIcon.propTypes));
 
   return (
-    <button {...props} className={className} type="button"/>
+    <button {...passProps} className={className} type="button"/>
   );
+};
+
+MenuIcon.propTypes = {
+  ...GeneralPropTypes,
+  ...FlexboxPropTypes
 };
 
 /**
@@ -152,7 +166,13 @@ export const TitleBarTitle = props => {
     generalClassNames(props)
   );
 
+  const passProps = removeProps(props, objectKeys(TitleBarTitle.propTypes));
   return (
-    <div {...props} className={className}/>
+    <div {...passProps} className={className}/>
   );
+};
+
+TitleBarTitle.propTypes = {
+  ...GeneralPropTypes,
+  ...FlexboxPropTypes
 };
