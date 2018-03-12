@@ -39,26 +39,26 @@ All components are unit-tested to ensure their quality.
 
 Here is a list of the available components:
 
-- [Accordion](src/components/accordion.js)
-- [Badge](src/components/badge.js)
-- [Breadcrumbs](src/components/breadcrumbs.js)
-- [Button](src/components/button.js)
-- [ButtonGroup](src/components/button-group.js)
-- [Callout](src/components/callout.js)
-- [CloseButton](src/components/close-button.js)
-- [FlexVideo](src/components/flex-video.js)
-- [Grid](src/components/grid.js)
-- [Icon](src/components/icon.js)
-- [Label](src/components/label.js)
-- [MediaObject](src/components/media-object.js)
-- [Menu](src/components/menu.js)
-- [Pagination](src/components/pagination.js)
-- [Progress](src/components/progress-bar.js)
-- [ResponsiveNavigation](src/components/responsive.js)
-- [Switch](src/components/switch.js)
-- [Tabs](src/components/tabs.js)
-- [Thumbnail](src/components/thumbnail.js)
-- [TopBar](src/components/top-bar.js)
+* [Accordion](src/components/accordion.js)
+* [Badge](src/components/badge.js)
+* [Breadcrumbs](src/components/breadcrumbs.js)
+* [Button](src/components/button.js)
+* [ButtonGroup](src/components/button-group.js)
+* [Callout](src/components/callout.js)
+* [CloseButton](src/components/close-button.js)
+* [FlexVideo](src/components/flex-video.js)
+* [Grid](src/components/grid.js)
+* [Icon](src/components/icon.js)
+* [Label](src/components/label.js)
+* [MediaObject](src/components/media-object.js)
+* [Menu](src/components/menu.js)
+* [Pagination](src/components/pagination.js)
+* [Progress](src/components/progress-bar.js)
+* [ResponsiveNavigation](src/components/responsive.js)
+* [Switch](src/components/switch.js)
+* [Tabs](src/components/tabs.js)
+* [Thumbnail](src/components/thumbnail.js)
+* [TopBar](src/components/top-bar.js)
 
 More components coming soon!
 
@@ -82,17 +82,13 @@ Documentation is at [https://react.foundation](https://react.foundation) and
 you can use our [React starter](https://github.com/nordsoftware/react-starter) template
 as a reference.
 
-## Test
+## Contributing
 
-Run test suite:
-
-```bash
-npm test
-```
+Please read our [guidelines](.github/CONTRIBUTING.md).
 
 ## Credits
 
-- Thanks to [@jmreidy](https://github.com/jmreidy) for releasing the `react-foundation` package name to us on [NPM](https://www.npmjs.com/).
+* Thanks to [@jmreidy](https://github.com/jmreidy) for releasing the `react-foundation` package name to us on [NPM](https://www.npmjs.com/).
 
 ## License
 
