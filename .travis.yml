@@ -4,8 +4,8 @@ language: node_js
 sudo: false
 
 node_js:
-  - "lts/boron"
-  - "lts/carbon"
+  - "lts/boron"  # 6.x
+  - "lts/carbon" # 8.x
   - "stable"
 
 script:
