@@ -16,7 +16,7 @@
     "compile": "babel --loose es6.modules -d lib/ src/",
     "lint": "eslint src test",
     "precommit": "yarn lint && yarn test",
-    "prepublish": "yarn lint && yarn compile",
+    "prepublishOnly": "yarn lint && yarn compile",
     "test": "NODE_ENV=test mocha --compilers js:babel-core/register --require test/index.js --recursive",
     "test:cover": "istanbul cover _mocha -- --compilers js:babel-core/register --require test/index.js --recursive",
     "test:watch": "yarn test -- --watch --reporter min"
