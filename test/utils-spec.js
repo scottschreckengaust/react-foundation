@@ -7,7 +7,7 @@ import {FlexVideo} from '../src/components/flex-video';
 
 describe('Utilities', () => {
 
-  describe('removeProps', () => {
+  it('removeProps', () => {
     const props = {foo: 1, bar: true, baz: '???'};
     const actual = removeProps(props, ['bar']);
     expect(actual).to.have.property('foo');
@@ -15,12 +15,12 @@ describe('Utilities', () => {
     expect(actual).to.not.have.property('bar');
   });
 
-  describe('createClassName', () => {
+  it('createClassName', () => {
     const className = createClassName('foo', {bar: true, baz: 1 === 2, qux: undefined});
     expect(className).to.equal('foo bar');
   });
 
-  describe('generalClassNames', () => {
+  it('generalClassNames', () => {
     const props = {showFor: Breakpoints.MEDIUM, isHidden: true, showForSr: false, float: 'left'};
     const classNames = generalClassNames(props);
     expect(classNames['show-for-medium']).to.equal.true;
@@ -29,7 +29,7 @@ describe('Utilities', () => {
     expect(classNames['float-left']).to.equal.true;
   });
 
-  describe('objectValues', () => {
+  it('objectValues', () => {
     const obj = {FOO: 'foo', BAR: 'bar', BAZ: 'baz', QUX: 'qux'};
     expect(objectValues(obj)).to.include('foo');
     expect(objectValues(obj)).to.include('bar');
@@ -37,7 +37,7 @@ describe('Utilities', () => {
     expect(objectValues(obj)).to.include('qux');
   });
 
-  describe('flexboxClassNames', () => {
+  it('flexboxClassNames', () => {
     const props = {flexDirRow: ExtendedBreakpoints.MEDIUM, flexOrderSmall: 4, flexChild: SpaceControls.GROW};
     const classNames = flexboxClassNames(props);
     expect(classNames['medium-flex-dir-row']).to.equal.true;
