@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.org/digiaonline/react-foundation.svg?branch=master)](https://travis-ci.org/digiaonline/react-foundation)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ea90da79f63c9d5dab1a/test_coverage)](https://codeclimate.com/github/digiaonline/react-foundation/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ea90da79f63c9d5dab1a/maintainability)](https://codeclimate.com/github/digiaonline/react-foundation/maintainability)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/digiaonline/react-foundation/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/digiaonline/react-foundation/?branch=master)
 [![StyleCI](https://styleci.io/repos/53612920/shield?style=flat)](https://styleci.io/repos/53612920)
 [![npm version](https://img.shields.io/npm/v/react-foundation.svg)](https://www.npmjs.com/package/react-foundation)
 [![npm downloads](https://img.shields.io/npm/dt/react-foundation.svg)](https://www.npmjs.com/package/react-foundation)
